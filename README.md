@@ -1,3 +1,3 @@
 # E-book
 
-https://github.com/AndressaGonelli/ebook
+https://andressagonelli.github.io/ebook/
