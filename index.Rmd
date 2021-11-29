@@ -1,0 +1,29 @@
+--- 
+title: "Estatística por uma quase estatística"
+author: "Andressa Gonelli"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+
+description: |
+  Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# Sobre
+  
+ 
+  Este livro é um compilado de anotações dos meus estudos de estatística e R, onde busco registrar da forma mais simples e intuitiva toda informação que encontro (por vezes de forma quase ininteligível) nas mais diversas fontes de conhecimento.
+  
+Minha pretensão é somente estruturar e linkar a teoria estatística com a programação em R (e futuramente python) para facilitar a consulta e associação de conteúdos.
+
+
+Minha intenção ao tornar esse conteúdo público foi somente ajudar pessoas  que ,assim como eu, buscam se desenvolver na área de ciência de dados/ estatística e estão tendo dificuldade em encontrar  conteúdos organizados e de fácil entendimento (para público não técnico).
+
+
+
+
+
+
