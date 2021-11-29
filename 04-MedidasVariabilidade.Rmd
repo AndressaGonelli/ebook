@@ -1,0 +1,155 @@
+# Medidas de variabilidade 
+## Amplitude
+
+A amplitude é uma medida de variabilidade (a mais simples) sendo resultante da diferença entre o maior e menor valor de um conjunto de dados.
+
+### R
+
+Exemplo: Bob quer aprender a voar com asa delta, e ele quer saber qual a amplitude máxima que um voo pode ter. A partir dos dados de outros praticantes de voo livre, determine qual a amplitude. 
+
+```{r}
+dados = c(28, 31, 45, 58, 22, 33, 42, 68, 24,37)
+range(dados)
+diff(range(dados))
+```
+
+
+## Amplitude Interquartil
+
+AIQ, ou amplitude Interquartil, é uma medida de variabilidade que supera valores extremos, sendo este a diferença entre o terceiro e o primeiro quartil, ou seja, a diferença entre 50% dos dados intermediários.
+
+$$AIQ = Q3 - Q1$$
+
+## Variância
+
+A variância é uma medida de variabilidade que utiliza todos os dados, baseando-se na diferença dos dados em relação à média. Essa diferença se chama, desvio em **torno da média**. Portanto, a variância descreve quão espalhados os dados estão dentro de um conjunto. Medindo a amplitude (variabilidade) dos dados em relação à média.
+
+Não é tão claro de ler o valor em relação ao dados, visto que o valor se encontra ao **quadrado** da grandeza utilizada na medição dos dados.
+
+$$ \sigma = \frac{\sum(x_{i}-\bar{x})^2}{N}$$
+Essa fórmula aplica-se para variância populacional - para variância da amostra deve-se usar n - 1, devido a diminuição dos [graus de liberdade](#_tgq7hryr04hp)
+
+$$ S^2 = \frac{\sum(x_{i}-\bar{x})^2}{n-1}$$
+
+### R
+
+```{r}
+Maq1 = c(181.9, 180.8, 181.9, 180.2, 181.4)
+Maq2 = c(180.1, 181.8, 181.5, 181.2, 182.4)
+Maq3 = c(182.1, 183.7, 182.1, 180.2, 181.9)
+var(Maq1) 
+var(Maq2)
+var(Maq3)
+```
+
+### Variância para dados agrupados
+Amostra:
+
+$$ S^2 = \frac{\sum f_{i}(M_{i}-\bar{x})^2}{n-1}$$
+
+$M_{i} = \textrm{ponto médio da classe}$
+
+$f_{i} = \textrm{frequência  da classe}$
+
+População:
+
+$$ S^2 = \frac{\sum f_{i}(M_{i}-\mu )^2}{n-1}$$
+
+$M_{i} = \textrm{ponto médio da classe}$
+
+$f_{i} = \textrm{frequência  da classe}$
+
+$\mu = \textrm{média da população}$
+
+
+| Tempo de conclusão | Ponto médio da Classe (Mi) | Frequência (fi) | (fiMi) |
+| :----------------: | :------------------------: | :-------------: | :----: |
+|       10 -14       |             12             |        4        |   48   |
+|      15 - 19       |             17             |        8        |  136   |
+|      20 - 24       |             22             |        5        |  110   |
+|      25 - 29       |             27             |        2        |   54   |
+|      30 - 34       |             32             |        1        |   32   |
+|     **Total**      |           **20**           |     **380**     |
+$$\bar{x}=\frac{\sum f{i}M{i}}{n}$$
+$$\bar{x}=\frac{380}{20}=19$$
+
+
+| Tempo de conclusão | Ponto médio da Classe (Mi) | Frequência (fi) | Desvio (Mi- x) | Desvio Quadrático (Mi- x)2 | fi(Mi- x)2 |
+| :----------------: | :------------------------: | :-------------: | :------------: | :------------------------: | :--------: |
+|       10 -14       |             12             |        4        |       -7       |             49             |    196     |
+|      15 - 19       |             17             |        8        |       -2       |             4              |     92     |
+|      20 - 24       |             22             |        5        |       3        |             9              |     45     |
+|      25 - 29       |             27             |        2        |       8        |             64             |    128     |
+|      30 - 34       |             32             |        1        |       13       |            169             |    169     |
+|     **Total**      |           **20**           |                 |                |  **570 =**  $$ S^2 = \frac{\sum f_{i}(M_{i}-\bar{x})^2}{n-1}$$
+
+$$ S^2 = \frac{570}{20-1} = 30$$
+
+## Desvio Padrão
+
+O desvio padrão indica o grau da variação de um conjunto de dados, podendo este ser amostral ou populacional. Ele e a raiz quadrada positiva da variância. O desvio padrão é mais intuitivo de compreender, por estar na mesma escala da grandeza em análise.
+
+Desvio Padrão da amostra 
+$$\sqrt{s^2}$$
+
+Desvio Padrão da população
+$$\sqrt{\sigma^2}$$
+### R
+
+Exemplo: Um engenheiro precisa decidir entre três modelos de máquinas de corte de alta precisão, para isso ele usa como critério o desvio padrão. A máquina que tiver menor desvio será a escolhida por ele. A partir dos dados de medida de corte das 3 máquinas, determine qual deve ser a escolhida pelo engenheiro. 
+
+- Máquina 1 (mm) = (181.9, 180.8, 181.9, 180.2, 181.4). 
+- Máquina 2 (mm) = (180.1, 181.8, 181.5, 181.2, 182.4). 
+- Máquina 3 (mm) = (182.1, 183.7, 182.1, 180.2, 181.9).
+
+```{r}
+Maq1 = c(181.9, 180.8, 181.9, 180.2, 181.4)
+Maq2 = c(180.1, 181.8, 181.5, 181.2, 182.4)
+Maq3 = c(182.1, 183.7, 182.1, 180.2, 181.9)
+mean(Maq1)
+mean(Maq2)
+mean(Maq3)
+
+sd(Maq1) 
+sd(Maq2)
+sd(Maq3)
+```
+
+
+## Coeficiente de variação
+O coeficiente de variação indica a quantidade de variação de um conjunto de dados em relação a média. 
+
+O valor é dado por uma relação direta do quociente entre o desvio com a média da amostra.
+
+$$Coeficiente = (\frac{\textrm{Desvio Padrão}}{Média}× 100) \% $$
+
+$$Coeficiente = (\frac{\sigma}{\mu}× 100) \% $$
+
+O coeficiente de variação (CV), mede o desvio padrão em termos de percentual da média. 
+
+- Um CV alto, indica alta variabilidade dos dados, ou seja, menos consistência dos dados. 
+- Um CV menor, indica mais consistência dentro do conjunto de dados.
+
+Quando comparamos a consistência entre 2 conjuntos de dados em relação a suas médias,  é melhor feito quando utilizamos coeficiente de variação. 
+
+### R
+
+Exemplo: Imagine que um investidor está decidindo se compra ações da Nike ou Adidas na bolsa de valores. 
+
+O valor médio da ação de cada empresa e o desvio padrão, são dados a seguir. 
+
+Qual deve ser a escolha do investidor?
+
+Nike => Valor médio da ação = $55.62 / desvio padrão = $5.10 
+
+Adidas => Valor médio da ação = $24.86 / desvio padrão = $3.60 
+
+$$Coeficiente = (\frac{\textrm{Desvio Padrão}}{Média}× 100) \% $$
+```{r}
+CV_Nike   = (5.10/55.62) * 100
+CV_Adidas = (3.60/24.86) * 100
+print(CV_Nike)
+print(CV_Adidas)
+```
+
+

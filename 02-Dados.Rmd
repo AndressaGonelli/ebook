@@ -1,0 +1,78 @@
+# Dados
+## Classificação
+### Qualitativos
+
+Apresentam uma qualidade ou atributo do indivíduo pesquisado, usam a escala de medição nominal/categórica ou ordinal e podem ser numéricos ou não. 
+
+- Nominal /Categórica
+  - Cor dos olhos
+- Ordinal
+  - Grau de instrução
+
+### Quantitativa 
+
+Resultado da observação é número que indica quantificação ou quantidade numerica. As variáveis podem ser intervalares ou proporcionais.
+
+#### Variável contínua 
+
+Assume qualquer valor na reta real 
+
+Ex:Peso, altura, etc; -
+- 1,2; 1,23; 1,234; ... 
+
+#### Variável discreta 
+
+Assume somente os valores inteiros na reta real 
+
+- Número de alunos, de mensagens, de filhos, etc. 
+
+#### De seção Transversal
+
+São dados coletado no mesmo intervalo de tempo, ou aproximado.
+
+#### De série histórica
+
+São dados coletados ao longo de diversos períodos.
+## Apresentação de dados
+Tabelas 
+
+- Série estatística 
+  - Tipos de agrupamento na tabela 
+    - Série temporal 
+    - Série geográfica 
+    - Série Histórica 
+- Série Específica ou categórica 
+  - De acordo com categoria ou especificidade 
+- Série Mista 
+  - Agrupamento duplo 
+
+## Fontes de dados
+- Dados primários
+  - Características
+    - Coletado pelo autor da análise
+    - Modo de coleta conhecido
+  - Prós
+    - Confiabilidade
+    - Qualidade
+    - Controle de informações
+    - Acertabilidade nos resultados
+    - Dados atualizados
+  - Contras
+    - Alto custo
+    - Demanda de tempo maior
+    - Equipe grande
+- Dados secundários
+  - Características
+    - Coletados por terceiros
+  - Prós 
+    - Baixo custo
+    - Rapidez
+    - Existência de diversas fontes
+    - Diversidade de informações para quantificação de questões
+  - Contras
+    - Falta de controle
+    - Dados inadequados
+    - Diversidade na classificação dos dados
+    - Dados desatualizados
+    - Fontes não confiáveis
+    - Dificuldade de reproduzir um estudo obtendo os mesmos resultados
