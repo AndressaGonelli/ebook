@@ -1,0 +1,1818 @@
+# Teste de hipótese
+
+Teste de hipóteses, teste estatístico ou teste de significância é um procedimento estatístico que permite tomar uma decisão entre duas ou mais hipóteses, utilizando os dados observados de um determinado experimento.
+
+Uma hipótese é suposição sobre um parâmetro específico de uma população, como média, proporção ou desvio padrão. Em muitas situações práticas o interesse do pesquisador é verificar a veracidade sobre um ou mais parâmetros populacionais $\small (μ,σ^2,p)$ ou sobre a distribuição de uma variável aleatória.
+
+Um dos primeiros trabalhos sobre testes foi publicado em 1710 (John Arbuthnot);
+
+Um dos primeiros procedimentos estatísticos que chega perto de um teste, no sentido moderno foi proposto por Karl Pearson em 1900. Esse foi o famoso teste do Qui-quadrado, utilizado para comparar uma distribuição de frequência observada com uma distribuição teoricamente assumida.
+
+A ideia de testar hipóteses foi posteriormente codificada e elaborada por R. A Fischer (1925), que considerou os dados como um vetor de variáveis aleatórias que pertenciam a uma distribuição de probabilidade…
+
+Uma outra abordagem (competitiva a de Fischer) foi estabelecida por J. Neyman e Egon Pearson (1928)…
+
+Mais tarde, Lehmann (1993) argumentou que de fato era possível unificar as formulação, combinando as melhores características das duas abordagens…
+
+As ferramentas que são usadas para testar hipóteses são as hipóteses nula e alternativa:
+
+<div class="fontBlack">
+  
+  $$\small H_0= \textrm{Hipótese Nula}$$
+  $$\small H_a= \textrm{Hipótese Alternativa}$$
+</div>
+Cada hipótese representa um tipo de situação:
+
+- Hipótese Nula
+  - Status quo
+  - Comprovar uma suposição ou afirmação
+  - Valida que o parâmetro da população é ≤ ou ≥ a um valor específico
+  - É para ser verdadeira, ao menos que seja comprovada por evidência contrária
+  - Usado para ver se alguma hipótese estabelecida inicialmente pode ser rejeitada ou não
+- Hipótese alternativa
+  - Representa o oposto da hipótese nula
+
+Ao testar hipóteses, iniciamos por criar uma hipótese experimental a respeito de um parâmetro da população. Essa hipótese experimental é chamada hipótese nula. Ela é denotada por $\small H_0$. Definimos então outra hipótese, denominada hipótese alternativa, a qual é o oposto daquilo que é formulado na hipótese nula $\small H_a$.
+
+## Como formular hipóteses?
+
+- A <span class="highlightGreen"> hipótese a ser testada pela pesquisa deve ser formulada como hipótese alternativa</span>, enquanto a hipótese nula representa o status quo.
+- Se o objetivo é testar uma <span class="highlightGreen"> afirmação é verdadeira o valor será colocado na hipótese nula</span>.
+- Pode também ser usada em situações de tomada de decisão representando um <span class="highlightGreen">padrão/ valor esperado</span>
+
+Os símbolos matemáticos de comparação:
+
+- Hipótese Nula: ≤ ≥ ≠
+- Hipótese Alternativa: < > =
+
+<span class="highlightRose">Exemplo:</span>
+
+Um certo modelo de automóvel atinge a eficiência média de 10,21 Km/L em termos de consumo de combustível. Um novo sistema foi criado e precisa comprovar que esse novo sistema aumenta a taxa média de quilômetros por litro.
+
+Nesse caso a hipótese de pesquisa é que o novo sistema produzirá uma taxa média superior a 10,21, ou seja, μ > 10,21. Como diretriz geral, uma hipótese de pesquisa deve ser formulada como a _hipótese alternativa_. Portanto as hipóteses nula e alternativa relativas ao estudo são:
+
+<div class="fontBlack">
+
+$$\small H_0: μ ≤ 10,21$$
+$$\small H_a: μ > 10,21$$
+
+</div>
+
+Se os resultados da amostra indicaram que $\small H_0$ não pode ser rejeitada, os pesquisadores não poderão concluir que o novo sistema de injeção de combustível é melhor. Entretanto, se os resultados da amostra indicarem que $\small H_0$ pode ser rejeitada, os pesquisadores poderão inferir que $\small H_a: μ > 10,21$ é verdadeira. Com essa conclusão, os pesquisadores obtêm base estatística necessária para afirmar que o novo sistema aumenta o número médio de quilômetros por litro.
+
+A conclusão de que a hipótese de pesquisa pode ser verdadeira é obtida se os dados da amostra contradisserem a hipótese nula.
+
+| Hipótese Nula        | $\small H_0: μ ≤ 10,21$ | $\small H_0: μ ≥ 10,21$ | $\small H_0: μ = 10,21$ |
+| :------------------- | :---------------------: | :---------------------: | :---------------------: |
+| Hipótese Alternativa | $\small H_a: μ > 10,21$ | $\small H_a: μ < 10,21$ | $\small H_a: μ ≠ 10,21$ |
+
+## Erros do tipo I e tipo II
+
+Um erro do Tipo I consiste em rejeitar a $\small H_0$ verdadeira, ou seja, o estudo indica que a hipótese nula é falsa, quando na verdade não é.
+
+Um erro do Tipo II consiste em aceitar uma $\small H_0$ falsa, ou seja, o estudo indica que hipótese nula é verdadeira quando na verdade é falsa.
+
+| Conclusão             | $\small H_0$ Verdadeira | $\small H_0$ Falsa  |
+| :-------------------- | :---------------------- | :------------------ |
+| Aceitar $\small H_0$  | Correto                 | **Erro do tipo II** |
+| Rejeitar $\small H_0$ | **Erro do tipo I**      | Correto             |
+
+O nível de significância (α)indica a probabilidade de cometer erro do Tipo I, quando a hipótese nula é verdadeira enquanto a igualdade. As escolhas comuns para o nível de significância é de 0,05 e 0,01.
+
+Testes de hipótese que somente controlam o erro de tipo I são chamados **teste de significância.** Nestes, somente se chega à conclusão de “Não rejeitar a $\small H_0$”, já que a conclusão de “Aceitar $\small H_0$” coloca-se em risco de cometer um erro de tipo II.
+
+<span class="highlightRose">Exemplo:</span>
+
+Um certo modelo de automóvel atinge a eficiência média de 10,21 Km/L em termos de consumo de combustível. Um novo sistema foi criado e precisa comprovar que esse novo sistema aumenta a taxa média de quilômetros por litro.
+
+Nesse caso a hipótese de pesquisa é que o novo sistema produzirá uma taxa média superior a 10,21, ou seja, μ > 10,21. Como diretriz geral, um hipótese de pesquisa deve ser formulada como a _hipótese alternativa_. Portanto as hipóteses nula e alternativa relativas ao estudo são:
+
+<div class="fontBlack">
+
+$$\small H_0: μ ≤ 10,21$$  
+ $$\small H_a: μ > 10,21$$
+
+</div>
+
+O nível de significância, portanto trataria da probabilidade de rejeitar $\small H_0$ quando μ=10,21.
+
+## Média da população: Desvio Padrão σ conhecido
+
+Testes a respeito da média acerca uma população normalmente distribuída, ou grande o suficiente Teorema do Limite Central com desvio padrão conhecido.
+
+### Teste unicaudal
+
+Os testes unicaudais assumem as seguintes formas:
+
+| **Teste de Cauda Inferior** | **Teste de Cauda Superior** |
+| :-------------------------- | :-------------------------- |
+| $\small H_0: μ ≥ μ_0$       | $\small H_0: μ ≤ μ_0$       |
+| $\small H_a: μ < μ_0$       | $\small H_a: μ > μ_0$       |
+
+<span class="highlightRose">Exemplo - Teste de cauda Inferior:</span>
+
+Uma certa fábrica de café informa em suas embalagens que cada lata de café contém 3 libras de produto. Sabe-se ser impossível que cada lata contenha exatamente 3 libras de café, entretanto, a média de enchimento de cada lata é de no mínimo 3 libras, o que garante os direitos dos consumidores .
+
+Temos portanto que a hipótese nula e alternativa são:
+
+<div class="fontBlack">
+
+$$\small H_0: μ ≥ 3$$
+$$\small H_a: μ < 3$$
+
+</div>
+Isto porque a afirmação do estado atual (fato) é que as latas possuem ao menos, em média, 3 libras de café por lata, e o que se busca provar/ testar é a possibilidade de haver menos de 3 libras de café em cada lata.
+
+Supondo que uma amostra de 36 latas foi tomada e a média amostral $(\bar{x})$ foi calculada como uma estimativa da média da população (μ). Se:
+
+- o valor da média populacional for inferior a 3 libras, a hipótese nula será posta em dúvida
+  - <span class="highlightGreen">então quanto menor a média populacional deve ser para podermos rejeitar a hipótese nula?</span>
+
+Essa questão pode ser respondida pelo nível de significância escolhido, o qual informa a hipótese de se cometer um erro do tipo I e rejeitar a $\small H_0$ enquanto igualdade, quando ela na realidade é verdadeira.
+
+Digamos que nesta situação a probabilidade aceita de se cometer um erro de tipo I seja de 1%, ou seja, α = 0,01
+
+A partir disso vamos calcular as **estatísticas de teste**:
+
+- O desvio padrão dessa população é conhecido: σ = 0,18
+- A população de pesos de enchimento está normalmente distribuída, portanto a distribuição amostral da x também estará
+- O tamanho da amostra = 36
+
+Sabendo que distribuição amostral da $\small \bar{x}$ está normalmente distribuída, a distribuição amostral de:
+
+<div class="fontBlack">
+  
+  $$\small z = \frac{\bar{x} - μ_0}{σ_{\bar{x}}}$$
+  $$\small z = \frac{\bar{x} - 3}{0,03}$$
+
+</div>
+Com base na tabela de distribuição normal sabemos que:
+
+- z = -1
+  - significa que o de $\small \bar{x}$ está um erro padrão abaixo do valor hipotético da média
+  - esta área corresponde a uma probabilidade de aproximadamente: <span class="highlightGray"> $0,5 - 0,3413 = 0,1587$</span>
+- z = -2
+  - significa que o de $\small \bar{x}$ está dois erros padrão abaixo do valor hipotético da média
+  - esta área corresponde a uma probabilidade de aproximadamente: <span class="highlightGray"> $0,5 - 0,4772 = 0,0228$</span>
+- z = -3
+  - significa que o de $\small \bar{x}$ está três erros padrão abaixo do valor hipotético da média
+  - esta área corresponde a uma probabilidade de aproximadamente: <span class="highlightGray"> $0,5 - 0,4987 = 0,0013$</span>
+
+Portanto, para se obter a estatística de teste para determinar se $\small \bar{x}$ se desvia do valor hipotético de μ o suficiente para justificar a rejeição da hipótese nula:
+
+$$\small z = \frac{\bar{x} - μ_0}{σ/\sqrt{n}}$$
+
+Dois critérios podem ser utilizados para responder essa questão:
+
+- Usando o valor de z para calcular a probabilidade denominada **valor p**
+  - Valor p : mede o suporte ( ou a falta de suporte) que uma amostra da a hipótese nula - base para determinar se a hipótese nula deve ser rejeitada ou não, dado o nível de significância
+  - Vantagem: o valor p informa o quão significativos são os resultados ( nível observado de significância)
+- Determinando o **valor crítico**
+  - Ponto de referência para determinar se o valor da estatística de teste é pequeno o bastante para rejeitar a hipótese nula
+
+#### Valor p
+
+O valor p, p-value ou nível observado de significância, é uma probabilidade calculada usando-se a estatística de teste, que mede o apoio ( ou a falta de apoio) proporcionado pela amostra a hipótese nula. É o menor nível de significância com que se rejeitaria a hipótese nula.
+
+O valor p varia de 0 a 1.
+
+- Quanto mais próximo a 1, mais suporte a estatística de teste da a hipótese nula ($\small H_0$).
+  - <span class="highlightGreen">Valores p grandes levam a **não** rejeição da hipótese nula</span>
+- Quanto mais próximo a 0, menos suporte a estatística de teste da a hipótese nula($\small H_0$).
+  - O que é incomum dada a suposição de uma $\small H_0$ verdadeira, logo <span class="highlightGreen">levam a rejeição da hipótese nula ($\small H_0$)</span>
+
+Agora utiliza-se a estatística de teste para calcular o valor p, o qual depende do tipo de teste que será feito ( cauda inferior, cauda superior, bicaudal). Num teste de cauda inferior, o valor p é a probabilidade de obtermos um valor para estatística de teste tão pequeno ou menor que aquele produzido pela amostra.
+
+Para tanto, deve-se encontrar a área da curva normal padrão à esquerda da estatística de teste, que fornece o valor p relativo ao teste da cauda inferior no caso em que o σ é conhecido.
+
+Do exemplo anterior, calcularemos o valor z da estatística de teste para uma média amostral x = 2,92:
+
+<div class="fontBlack">
+  
+  $$\small z =\frac{\bar{x} - μ_0}{σ/\sqrt{n}}$$
+</div>
+<div class="fontGray">
+  
+  $$\small z = \frac{2,92  - 3}{0,18/\sqrt{36}} = -2,67$$
+</div>
+
+Portanto, o valor p é a probabilidade da estatística de teste z ser menor ou igual a $\small -2,67$ ( a área sob a curva normal padrão à esquerda da estatística de teste. Usando a tabela de distribuição normal padrão temos que a área entre a média e $\small z = -2,67$ é $\small 0,4962$. Assim o p valor:
+
+<div style="text-align: center;" >
+
+<span class="highlightGray" >$$p - value : 0,5 - 0,4962 = 0,0038$$</span>
+
+</div>
+
+<span class="highlightGreen"> Tal valor p indica uma pequena probabilidade de se obter uma média amostral de $\small \bar{x}= 2,92$ (e uma estatística de teste igual a -2,67) ou menor quando se extrai a amostra de uma população com μ = 3.</span>
+
+Dado que o diretor definiu a probabilidade máxima de 1% de cometer um erro de tipo I, sabemos que o nível de significância, o α é igual a $\small 0,01$. Nosso p-value então é menor que nosso alfa, ou seja, a chance de cometermos um erro do tipo I é menor que a chance definida pelo diretor, portanto podemos rejeitar a $\small H_0$ estando dentro dos parâmetros delimitados pelo estudo.
+
+```{r,warning=FALSE,message=FALSE,error=FALSE,fig.keep='all'}
+library(tigerstats)
+pnormGC(bound = 2.92, region = "below", mean = 3, sd = 0.03, graph = TRUE)
+```
+
+<span class="highlightBlue">**Regra de Rejeição** quando se usa o p-value: Rejeitar $\small H_0$ se o valor de p ≤ α </span>
+
+#### Valor crítico
+
+Para um teste de cauda inferior, o valor crítico é o valor da estatística de teste que corresponde a uma área de α( o nível de significância) localizado na cauda inferior da distribuição amostral da estatística de teste. Ou seja, o maior valor da estatística de teste que resultará na rejeição da hipótese nula.
+
+No caso do exemplo, temos que o valor crítico é o valor da estatística de teste que corresponde a uma área de $α= 0,01$ na cauda inferior da distribuição normal padrão.
+
+De acordo com a tabela normal padrão temos que $\small z = -2,33$ produz uma área igual a $\small 0,01$ na cauda inferior. Portanto se a amostra resultar em um valor da estatística de teste menor ou igual a $\small -2,33$, o valor p correspondente será menor ou igual a $\small 0,01$; nesse caso, deveríamos rejeitar a hipótese nula.
+
+A regra de rejeição para este caso então é : Rejeitar a $\small H_0$ se z ≤ -2,33
+
+No exemplo dado, o z da fábrica de café é de $\small -2,67$, correspondente à média $\small \bar{x}$ de 2,92. Uma vez que $\small -2,67 < -2,33$ então podemos rejeitar a $\small H_0$
+
+<span class="highlightBlue">A **regra de rejeição** então é : Rejeitar a $\small H_0$ se z ≤ $-z_α$ </span>
+
+$z_α$ = valor crítico
+
+#### Cauda superior
+
+Em um teste de cauda superior o valor p informa a probabilidade de se obter um valor para a estatística de teste que seja tão grande ou maior que aquele que é produzido pela amostra. Para tanto deve se calcular a área sob a curva normal padrão à direita da estatística de teste.
+
+O uso do critério do valor crítico, faz com que rejeitemos a hipótese nula se o valor de estatística de teste for maior ou igual ao valor crítico.
+
+<span class="highlightBlue">A **regra de rejeição** então é : Rejeitar a $\small H_0$ se z ≥ $-z_α$ </span>
+
+![](figures/caudaSuperior.png)
+
+A área em vermelho pode ser chamada de zona de rejeição ou zona crítica e define um conjunto de valores que chama para rejeitar a hipótese nula. A área compreendida entre os desvios padrão (em branco) é a área que é considerada como DIFERENÇA NÃO SIGNIFICATIVA, e a área fora é considerada DIFERENÇA SIGNIFICATIVA.
+
+### Teste Bicaudal
+
+A regra para um teste bicaudal é expresso da seguinte maneira:
+
+<div class="fontBlack">
+  
+  $$H_0: μ =μ_0$$
+  $$H_a: μ≠ μ_0$$
+
+</div>
+<span class="highlightRose">Exemplo de teste bicaudal:</span>
+
+A norma uma empresa de equipamentos determina que bolas de golfe atinjam a média de arremesso de 295 jardas. Valores muito abaixo ou muito acima da média não são aceitos.
+
+O programa de controle de qualidade testa periodicamente uma amostra de 50 bolas de golfe para monitorar o cumprimento da média de arremesso. Temos portanto as hipóteses:
+
+<div class="fontGray">
+  
+  $$H_0: μ =295$$
+  $$H_a: μ \neq 295$$
+
+</div>
+
+Como a média de 295 jardas é o padrão da fábrica, esperamos que este seja um fato, logo trata-se da hipótese nula, e o estudo busca provar que o padrão não está sendo cumprido, trata-se então da hipótese alternativa.
+
+Se a média encontrada na amostra for significamente maior ou menor que a média demonstrada na $\small H_0$ rejeitaremos a hipótese nula.
+
+O nível de significância definido pelo controle de qualidade foi de α = 0,05, e o desvio padrão, de amostras históricas dentro do padrão, mostram que pode-se presumir que o desvio padrão populacional é conhecido tendo o valor de σ = 12. Desse modo o desvio padrão de x:
+
+<div class="fontGray">
+  
+  $$\small \sigma_{\bar{x}}= \frac{\sigma}{\sqrt{n}}$$
+
+$$\small \sigma_{\bar{x}}= \frac{12}{\sqrt{50}}=1,7$$
+
+</div>
+
+Dado que na amostra de 50 elementos foi encontrada uma média ($\small \bar{x}$) de 297,6 seria esta amostra grande demais para … Tal pergunta pode ser respondida pelo critério do p-value ou pelo valor crítico.
+
+#### Valor p
+
+O valor p, p-value ou nível observado de significância, é uma probabilidade calculada usando-se a estatística de teste, que mede o apoio ( ou a falta de apoio) proporcionado pela amostra a hipótese nula.
+
+O valor p varia de 0 a 1.
+
+- Quanto mais próximo a 1, mais suporte a estatística de teste da a hipótese nula ($\small H_0$).
+  - <span class="highlightGreen">Valores p grandes levam a **não** rejeição da hipótese nula</span>
+- Quanto mais próximo a 0, menos suporte a estatística de teste da a hipótese nula ($\small H_0$).
+  - O que é incomum dada a suposição de uma $\small H_0$ verdadeira, logo <span class="highlightGreen">levam a rejeição da hipótese nula ($\small H_0$)</span>
+
+Em um teste bicaudal, o valor p é a probabilidade de se obter um valor para a estatística de teste **tão ou mais improvável** do que aquele que é fornecido pela amostra.
+
+A estatística de teste para a média fornecida pela amostra é :
+
+<div class="fontGray">
+  
+  $$z = \frac{\bar{x} - μ_0}{σ/\sqrt{n}}$$
+
+$$z = \frac{297,6 - 295}{12/\sqrt{50}} = 1,53$$
+
+</div>
+
+Agora, busca-se a probabilidade de se obter um valor para a estatística de teste, que seja, **no mínimo tão improvável quanto z = 1,53.** E por se tratar de um teste bicaudal, também é tratada a hipótese de $\small z = -1,53$ ser um valor tão improvável quanto a estatística de teste fornecida pela amostra.
+
+O valor p bicaudal para este caso, é dado por $\small P( z ≤ -1,53) + P( z ≥ 1,53)$. Visto que a curva é simétrica, podemos encontrar somente a probabilidade da área sob a curva a direita da média e a duplicando. A tabela da distribuição normal padrão mostra que a área sob a curva entre a média e $\small z = 1,53$ é $\small 0,4370$. Portanto, a área sob a curva normal à direita da estatística de teste $\small z = 1,53$ é:
+
+<div style="text-align: center;" >
+
+<span class="highlightGray" >$$\small p - value \textrm{(1 lado)} : 0,5 - 0,4370 = 0,0630$$</span>
+<span class="highlightGray" >$$\small p - value \textrm{(bicaudal)} : 0.0630 × 2 = 0,1260$$</span>
+
+</div>
+
+Agora, comparando o valor p com o nível de significância, a fim de verificar se a hipótese nula deve ser rejeitada, verificamos que:
+
+<div style="text-align: center;" >
+
+<span class="highlightGray" >$$\small α = 0,05$$</span>
+<span class="highlightGray" >$$\small p-value: 0,1260$$</span>
+<span class="highlightGray" >$$\small α (0,05) < p-value (0,1260)$$</span>
+
+</div>
+
+Portanto, a hipótese nula não deve ser rejeitada, pois <span class="highlightGreen" >a probabilidade de uma população de média 295 produzir uma amostra com média igual ou maior a 297,6 (ou igual ou menor que 292,4 )é de 12,6%.</span> Tal probabilidade é maior que a probabilidade admissível de se cometer um erro do Tipo I, que trata de afirmar que com 95% de certeza que uma população de média 295 não poderia produzir uma amostra de média 297,6.
+
+```{r}
+df<- read.csv("data/Golf.csv",sep=",")
+ttestGC(~Yards, data=df,mu=295,sd=12, alternative="two.sided",conf.level = 0.95,graph=TRUE)
+
+```
+
+#### Valor crítico
+
+Para um teste bicaudal, o valor crítico é o valor da estatística de teste que corresponde a uma área de α( o nível de significância) localizado na cauda inferior e superior da distribuição amostral da estatística de teste. Ou seja, <span class="highlightGreen">se o valor da estatística de teste ultrapassar os limites dos valores críticos a hipótese nula será rejeitada.</span>
+
+No caso do exemplo, temos que o valor crítico é o valor da estatística de teste que corresponde a uma área total de α= 0,05, a qual corresponde a uma área de 0,025 ambas as caudas da distribuição normal padrão.
+
+```{r}
+pnormGC(c(-1.96,1.96),mean=0,sd=1,region ="outside", graph=TRUE)
+
+```
+
+De acordo com a tabela normal padrão um z = 1,96 produz uma área de 0,025 em ambas as caudas. Portanto se a amostra resultar em um valor da estatística de teste menor ou igual a -1,96 ou 1,96, o valor p correspondente será menor ou igual a 0,025; nesse caso, deveríamos rejeitar a hipótese nula.
+
+A regra de rejeição para este caso então é : <span class="highlightGray">Rejeitar a $\small H_0$ se z ≤ -1,96 ou se z ≥ 1,96</span>
+
+No exemplo dado, o z da amostra dos lançamentos da bola de golfe é de 1,53, correspondente à média x de 296,6. Uma vez que 1,53 < 1,96 então **não podemos rejeitar a $\small H_0$**
+
+<span class="highlightBlue">A **regra de rejeição** então é : Rejeitar a $\small H_0$ se z ≤ $\small -z_α$ ou se z ≥ $-z_α$ </span>
+
+<span class="highlightBlue">$\small -z_α$ = valor crítico</span>
+
+#### Testar a partir do intervalo de confiança
+
+A regra para um teste bicaudal é expresso da seguinte maneira:
+
+<div class="fontBlack">
+  
+  $$\small H_0: μ =μ_0$$
+  $$\small H_a: μ \neq μ_0$$
+
+</div>
+Para desenvolver o intervalo de confiança:
+
+1. Selecione uma amostra e use o valor da média amostral para desenvolver o intervalo de confiança da média populacional
+   a. $\small \bar{x} ± z_{\frac{α}{2}}\frac{\sigma}{\sqrt{n}}$
+   a. $\small( 1 - α)$ = coeficiente de confiança
+   a. $\small α$ = Nível de significância
+   a. $\small z_{\frac{α}{2}}$ = é o valor de z que produz uma área de α/2 na cauda superior da distribuição normal padrão de probabilidade
+   a. $\small z_{\frac{α}{2}}$ = Semi amplitude
+1. Se o intervalo de confiança contiver o valor hipotético $\small μ_0$ não rejeite $\small H_0$. Caso contrário, rejeite $\small H_0$
+
+No exemplo das bolas de golfe teríamos:
+
+<div class="fontBlack">
+  
+  $$\small \bar{x} ± z_{\frac{α}{2}}\frac{\sigma}{\sqrt{n}}$$ 
+</div>
+<div class="fontGray">
+  
+  $$\small 297,6 ± 1,96\frac{12}{50}$$
+  
+  $$\small 297,6 ± 3,3$$
+  
+  $$\small 294,3 ≤ μ ≤ 300,9$$
+</div>
+
+Portanto, podemos afirmar com 95% de confiança que a distância média atingida pela população das bolas de golfe está entre 294,3 e 300,9 jardas. Como o valor hipotético da média populacional $\small μ_0:μ = 295$ está contido dentro do intervalo, a conclusão do teste de hipóteses é que a hipótese nula, $\small μ_0:μ = 295$, não pode ser rejeitada.
+
+### Resumo
+
+<table>
+  <tr>
+    <th></th>
+    <th>Teste de Cauda Inferior</th>
+    <th>Teste de Cauda Superior</th>
+    <th>Teste Bicaudal</th>
+  </tr>
+  <tr>
+    <td><b>Hipótese</b></td>
+    <td>$\small H_0:\mu \geq \mu_0$ \n $\small H_a:\mu < \mu_0$</td>
+    <td>$\small H_0:\mu \leq \mu_0$ \n $\small H_a:\mu > \mu_0$</td>
+    <td>$\small H_0:\mu = \mu_0$ <br> $\small H_a:\mu \neq \mu_0$</td>
+  </tr>
+  <tr>
+    <td><b>Estatística de Teste </b></td>
+    <td>$\small z=\frac{\bar{x}-\mu_0}{\sigma/ \sqrt{n}}$</td>
+    <td>$\small z=\frac{\bar{x}-\mu_0}{\sigma/ \sqrt{n}}$</td>
+    <td>$\small z=\frac{\bar{x}-\mu_0}{\sigma/ \sqrt{n}}$</td>
+  </tr>
+  <tr>
+    <td><b>Regra de Rejeição: Critério do Valor p</b></td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$ </td>
+  </tr>
+  <tr>
+    <td><b>Regra de Rejeição: Critério do Valor Crítico</b></td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \leq -z_\alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \geq z_\alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \leq -z_{\alpha/2}$ ou se $\small z \geq z_{\alpha/2}$ </td>
+  </tr>
+</table>
+
+| P - value         | Conclusão                                            |
+| :---------------- | :--------------------------------------------------- |
+| Menor que 0,01    | Esmagadora evidência que $\small H_a$ é verdadeira   |
+| Entre 0,01 e 0,05 | Forte evidência que $\small H_0$ é verdadeira        |
+| Entre 0,01 e 0,05 | Fraca evidência que $\small H_a$ é verdadeira        |
+| Maior que 0,01    | Insuficiente evidência que $\small H_a$ é verdadeira |
+
+Só podemos rejeitar ou não rejeitar a hipótese nula, nunca aceitar.
+
+## Média da população: Desvio Padrão (σ) desconhecido
+
+Testes a respeito da média acerca uma população normalmente distribuída, ou grande o suficiente Teorema do Limite Central com desvio padrão desconhecido. O desvio padrão desconhecido corresponde a uma situação em que não se pode desenvolver uma estimativa de desvio padrão populacional antes de se fazer uma amostragem, a amostra deve ser utilizada para desenvolver uma estimativa de μ, tanto quanto de σ.
+
+Assim a média amostral $\small \bar{x}$ será a estimativa de μpopulacional e o desvio padrão da amostra scomo estimativa de σ.
+
+Diferente do caso de uma população normalmente distribuída e com desvio padrão conhecido, um teste com uma população com desvio padrão desconhecido tem uma variabilidade ligeiramente maior porque a amostra é usada para desenvolver estimativas tanto de μ como de σ e é baseado na distribuição probabilística chamada distribuição T, onde para o caso de o desconhecido se trata de uma estatística de teste com n-1 graus de liberdade.
+
+### Teste Unicaudal
+
+A fórmula da estatística de teste para teste de hipótese a respeito de uma média populacional de σ desconhecido:
+
+<div class="fontBlack">
+  
+  $$\small t = \frac{\bar{x} - μ_0}{s/ \sqrt{n}}$$
+</div>
+
+<span class="highlightRose">Exemplo:</span>
+
+Numa avaliação de atendimento de aeroporto, onde a nota varia de 0 a 10, uma nota 7 é considerada um atendimento de alto nível. Numa pesquisa foram coletadas 60 avaliações de aeroportos e a média encontrada num certo aeroporto foi de $\small \bar{x}$ = 7,25 e um desvio padrão s = 1,052.
+
+Um teste de hipóteses deve ser desenvolvido , onde se testa a hipótese da média populacional da avaliação do aeroporto em questão ser maior que 7.
+
+<div class="fontBlack">
+  
+  $$\small H_0: μ ≤  7$$
+
+$$\small H_a: μ >  7$$
+
+</div>
+No teste será usado o nível de significância α = 0,05.
+
+#### Valor p
+
+<div class="fontGray">
+  
+  $$\small t = \frac{\bar{x} - μ_0}{s/ \sqrt{n}}$$
+  
+  $$\small t = \frac{7,25 - 7}{1,052/ \sqrt{60}}=1,84$$
+</div>
+A distribuição amostral de T tem: 
+<div class="fontGray">
+  
+  $$\small \textrm{n - 1 = graus de liberdade}$$
+  
+  $$\small \textrm{60 - 1 = 59 graus de liberdade}$$
+</div>
+Uma significância de 0,05  com 59 graus de liberdade numa distribuição t:
+
+<table>
+  <tr>
+    <th>Área da cauda superior </th>
+    <td>0,20</td>
+    <td>0,10</td>
+    <td><span class="highlightGreen round">0,05</span></td>
+    <td><span class="highlightGreen round">0,025</span></td>
+    <td>0,01</td>
+    <td>0,005</td>
+  </tr>
+  <tr>
+    <th>Valor t ( 59 graus de liberdade )</th>
+    <td>0,848</td>
+    <td>1,296</td>
+    <td><span class="highlightGreen round">1,671</span></td>
+    <td><span class="highlightGreen round">2,001</span></td>
+    <td>2,391</td>
+    <td>2,662</td>
+  </tr>
+</table>
+O **t = 1,84** está entre 1,671 e 2,001. Isso significa que o p-value está entre 0,05 e 0,025 , o que, dado que o nível de significância é 0,05 podemos concluir que a hipótese nula deve ser rejeitada e portanto o aeroporto em questão deve ser considerado de alto nível, nota maior que 7.
+
+<span class="highlightBlue">**Regra de Rejeição** quando se usa o p-value: Rejeitar $\small H_0$ se o valor de p ≤ α</span>
+
+<span class="highlightGray">0,035 ≤ 0,05 → Rejeita a $\small H_0$</span>
+
+#### Valor Crítico
+
+Considerando um α = 0,05 e uma distribuição t com 59 graus de liberdade, temos um $\small t_{0,05} = 1,671$ é o valor crítico de teste. A regra de rejeição neste caso é:
+
+<span class="highlightBlue">**Regra de rejeição** : Rejeitar a $\small H_0$ se $\small t ≥ z_α$ </span>
+
+<span class="highlightGray">1,84 ≥ 1,671 → Portanto, rejeitar a $\small H_0$</span>
+
+### Teste Bicaudal
+
+A fórmula da estatística de teste para teste de hipótese a respeito de uma média populacional de σ desconhecido:
+
+<div class="fontBlack">
+
+$$\small t = \frac{\bar{x} - μ_0}{s/ \sqrt{n}}$$
+
+<div>
+<span class="highlightRose">Exemplo:</span>
+
+Uma certa empresa de manufatura tem mais de mil pontos de revenda e precisa planejar seu nível de produção para a próxima estação, para tanto, precisa planejar a quantidade de produção de cada brinquedo, antes de se conhecer a real demanda do mercado. Para um novo brinquedo o diretor de marketing planeja a venda de 40 unidades por ponto de revenda.
+
+Antes de tomar a decisão final a empresa decidiu pesquisar uma amostra de 25 varejistas a fim de desenvolver mais informações acerca da demanda do novo produto. Aos varejistas foram fornecidas as características e preço do novo brinquedo e solicitada uma quantidade prevista de compra.
+
+Considerando que μ denota a média dos lotes de compra da população por ponto de revenda, os dados serão usados para realizar o seguinte teste bicaudal:
+
+<div class="fontGray">
+  
+  $$\small H_0: μ = 40$$
+  $$\small H_a: μ ≠ 40$$
+
+</div>
+
+Se $\small H_0$ não puder ser rejeitada, a empresa continuará com os planos de produção, baseado na estimativa feita pelo diretor de marketing. Entretanto, se $\small H_0$ for rejeitada, a empresa reavaliará os planos de produção. O teste bicaudal poderá informar se a média de compra é maior ou menor que a prevista.
+
+Como se trata de um novo produto, a média e desvio padrão populacionais serão estimados com base na média ($\small \bar{x}$) e desvio padrão (σ) amostrais.
+
+A amostra de 25 elementos produziu uma média de $\small \bar{x} = 37,5$ e desvio padrão $\small σ=11,79$. Um histograma foi montado a fim de observar o formato da distribuição e nenhum ponto de assimetria ou pontos fora da curva foram observados, portanto, foi adotado (n - 1) = (25 - 1) graus de liberdade. Temos portanto que t :
+
+#### Valor p
+
+<div class="fontGray">
+  
+  $$\small t = \frac{\bar{x} - μ_0}{s/ \sqrt{n}}$$
+
+$$t = \frac{37,4  - 40}{11,79/ \sqrt{25} }= -1,10$$
+
+</div>
+O p-value, por se tratar de um teste bicaudal, deve ser calculado multiplicando por 2 o valor encontrado na tabela, no caso:
+
+<table>
+  <tr>
+    <th>Área da cauda superior </th>
+    <td><span class="highlightGreen round">0,20</span></td>
+    <td><span class="highlightGreen round">0,10</span></td>
+    <td>0,05</td>
+    <td>0,025</td>
+    <td>0,01</td>
+    <td>0,005</td>
+  </tr>
+  <tr>
+    <th>Valor t ( 24 graus de liberdade )</th>
+    <td><span class="highlightGreen round">0,857</span></td>
+    <td><span class="highlightGreen round">1,318</span></td>
+    <td>1,711</td>
+    <td>2,064</td>
+    <td>2,492</td>
+    <td>2,797</td>
+  </tr>
+</table>
+
+O **t = 1,10** está entre 0,857 e 1,318. Isso significa que o p-value está entre 0,20 e 0,10 e dado que se trata de um teste bicaudal, devemos multiplicar o valor de p por dois, logo temos que o p-value está entre 0,40 e 0,20 o que, dado que o nível de significância é 0,05 podemos concluir que a hipótese nula não deve ser rejeitada e portanto a previsão realizada deve ser mantida, já que não há evidências suficientes que a previsão deva ser alterada.
+
+#### Valor crítico
+
+O valor crítico também pode ser utilizado para avaliar a hipótese, no caso, teríamos, com um α = 0,05e 24 graus de liberdade um de $\small -t_{0,025} = -2,064$ e $\small t_{0,025} = 2,064$ como valores críticos para o teste bicaudal. Portanto:
+
+<span class="highlightBlue">**Regra de rejeição** : Rejeitar a $\small H_0$ se $\small t ≤ -z_α$ ou se $\small t ≥ z_α$ </span>
+
+<span class="highlightGray">t ≤ -2,064 ou se t ≥ 2,064</span>
+
+Com base no valor de t = -1,10 podemos concluir que a hipótese nula não deve ser rejeitada e a empresa deve manter os planos originais de produção baseados em μ = 40.
+
+### Resumo
+
+<table>
+  <tr>
+    <th></th>
+    <th>Teste de Cauda Inferior</th>
+    <th>Teste de Cauda Superior</th>
+    <th>Teste Bicaudal</th>
+  </tr>
+  <tr>
+    <td><b>Hipótese</b></td>
+    <td>$\small H_0:\mu \geq \mu_0$ \n $\small H_a:\mu < \mu_0$</td>
+    <td>$\small H_0:\mu \leq \mu_0$ \n $\small H_a:\mu > \mu_0$</td>
+    <td>$\small H_0:\mu = \mu_0$ <br> $\small H_a:\mu \neq \mu_0$</td>
+  </tr>
+  <tr>
+    <td><b>Estatística de Teste </b></td>
+    <td>$\small t=\frac{\bar{x}-\mu_0}{\sigma/ \sqrt{n}}$</td>
+    <td>$\small t=\frac{\bar{x}-\mu_0}{\sigma/ \sqrt{n}}$</td>
+    <td>$\small t=\frac{\bar{x}-\mu_0}{\sigma/ \sqrt{n}}$</td>
+  </tr>
+  <tr>
+    <td><b>Regra de Rejeição: Critério do Valor p</b></td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$ </td>
+  </tr>
+  <tr>
+    <td><b>Regra de Rejeição: Critério do Valor Crítico</b></td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \leq -z_\alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \geq z_\alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \leq -z_{\alpha/2}$ ou se $\small z \geq z_{\alpha/2}$ </td>
+  </tr>
+</table>
+
+## Proporção da população
+
+Para realizar um teste de hipótese a respeito de uma proporção populacional utilizaremos p0para denotar o valor hipotético da proporção populacional. De forma semelhante ao teste de hipótese da média, são três os possíveis testes a serem realizados a respeito de uma proporção populacional:
+
+| **Teste de Cauda Inferior** | **Teste de Cauda Superior** |  **Teste Bicaudal**   |
+| :-------------------------- | :-------------------------- | :-------------------: |
+| $\small H_0: p ≥ p_0$       | $\small H_0: p ≤ p_0$       | $\small H_0: p ≤ p_0$ |
+| $\small H_a: p < p_0$       | $\small H_a: p > p_0$       | $\small H_a: p > p_0$ |
+
+Os testes de hipótese a respeito de uma proporção populacional se baseiam na diferença entre a proporção amostral $\small \bar{p}$ e a proporção populacional $\small p_0$ hipotética. Os métodos utilizados para realizar o teste de hipóteses são semelhantes ao método utilizado no teste da média populacional, com a diferença do uso do erro padrão para o cálculo da estatística de teste.
+
+<span class="highlightRose">Exemplo - teste de cauda superior</span>
+
+Numa empresa que oferece curso de golfe, encontra-se a proporção de 20% de mulheres. A fim de aumentar esse número, uma promoção foi lançada, e agora, um mês após o lançamento deseja-se saber que a proporção de mulheres aumentou, temos portanto as hipóteses:
+
+<div class="fontBlack">
+  
+  $$\small H_0: p ≤ 0,20$$
+  $$\small H_a: p > 0,20$$
+</div>
+Na execução desse teste de hipóteses deve ser usado o nível de significância α = 0,05. A rejeição da hipótese nula significa que a existe suporte estatístico a hipótese que a promoção aumentou o número de mulheres no curso de golfe.
+
+Quando a hipótese nula é verdadeira enquanto igualdade, o valor esperado de $\small \bar{p}$ equivale ao valor de hipotético de $\small p_0$; ou seja, $\small E(\bar{p}) = p_0$. O erro padrão de p é dado por:
+
+<div class="fontBlack">
+  
+  $$\small σ_{\bar{p}}=\sqrt{\frac{p_0(1 - p_0)}{n}}$$
+</div>
+
+Se <span class="highlightGray"> $\small np ≥ 5 \textrm{ e }   n ( 1 - p)≥ 5$ </span> a distribuição amostral de p pode ser aproximada a uma distribuição normal.
+
+<div class="fontBlack">
+  
+  $$\small z = \frac{\bar{p} - p_0}{σ_{\bar{p}}}$$
+</div>
+Sendo:
+<div class="fontBlack">
+  
+  $$\small σ_{\bar{p}}=\sqrt{\frac{p_0 ( 1 - p_0)}{n}}$$ 
+</div>
+Portanto, temos que z:
+<div class="fontBlack">
+  
+  $$\small z = \frac{p - p_0}{\sqrt{\frac{p_0 ( 1 - p_0)}{n}}}$$
+</div>
+No caso exemplificado, consideremos uma amostra de n = 400 , onde 100 jogadores sejam mulheres. Temos então:
+<div class="fontGray">
+  
+  $$\small \bar{p}=\frac{100}{400} = 0,25$$
+</div>
+Usando a equação acima temos que z:
+<div class="fontGray">
+
+$$\small z = \frac{p - p_0}{\sqrt{\frac{p_0 ( 1 - p_0)}{n}}}$$
+
+$$\small z = \frac{0,25 - 0,20}{\sqrt{\frac{0,20 ( 1 - 0,20)}{400}}}$$
+
+$$\small z = \frac{0,05}{0,02} = 2,50$$
+
+</div>
+
+### Valor p
+
+O p-value correspondente a z = 2,50 é 0,0062. Logo:
+
+<span class="highlightBlue">**Regra de Rejeição** quando se usa o p-value: Rejeitar $\small H_0$ se o valor de p ≤ α </span>
+
+<span class="highlightGray">0,0062 ≤ 0,05 → Rejeita a $\small H_0$</span>
+
+Portanto, a promoção aumentou o número de mulheres no curso de golfe.
+
+### Valor crítico
+
+O valor crítico correspondente a uma área de 0,05 na cauda superior de uma distribuição normal padrão é $\small z_{0,05}= 1,645$.
+
+<span class="highlightBlue">**Regra de rejeição** : Rejeitar a $\small H_0$ se t ≥ zα </span>
+
+<span class="highlightGray">2,5 ≥ 1,645 → Portanto, rejeitar a $\small H_0$</span>
+
+### Resumo
+
+O procedimento para realizar um teste de hipóteses a respeito de uma proporção populacional é o mesmo que o utilizado para testar uma média populacional. A única mudança é o termo utilizado para se referir a proporção populacional ao invés de se referir a média populacional.
+
+<table>
+  <tr>
+    <th></th>
+    <th>Teste de Cauda Inferior</th>
+    <th>Teste de Cauda Superior</th>
+    <th>Teste Bicaudal</th>
+  </tr>
+  <tr>
+    <td><b>Hipótese</b></td>
+    <td>$\small H_0:\mu \geq \mu_0$ \n $\small H_a:\mu < \mu_0$</td>
+    <td>$\small H_0:\mu \leq \mu_0$ \n $\small H_a:\mu > \mu_0$</td>
+    <td>$\small H_0:\mu = \mu_0$ <br> $\small H_a:\mu \neq \mu_0$</td>
+  </tr>
+  <tr>
+    <td><b>Estatística de Teste </b></td>
+    <td>$\small z = \frac{p - p_0}{\sqrt{\frac{p_0 ( 1 - p_0)}{n}}}$</td>
+    <td>$\small z = \frac{p - p_0}{\sqrt{\frac{p_0 ( 1 - p_0)}{n}}}$</td>
+    <td>$\small z = \frac{p - p_0}{\sqrt{\frac{p_0 ( 1 - p_0)}{n}}}$</td>
+  </tr>
+  <tr>
+    <td><b>Regra de Rejeição: Critério do Valor p</b></td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$ </td>
+  </tr>
+  <tr>
+    <td><b>Regra de Rejeição: Critério do Valor Crítico</b></td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \leq -z_\alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \geq z_\alpha$</td>
+    <td>Rejeitar $\small H_0$ se o valor de $\small z \leq -z_{\alpha/2}$ ou se $\small z \geq z_{\alpha/2}$ </td>
+  </tr>
+</table>
+
+## Inferência acerca da diferença entre médias
+
+A inferência a respeito da diferença entre médias é útil para desenvolver uma estimação por intervalo da diferença da média dos salários iniciais de homens e mulheres ou testar se a média de horas entre a ocorrência de panes é o mesmo para quatro máquinas diferentes. Para tanto, devemos desenvolver estimação por intervalo e realizar testes de hipóteses a respeito da diferença entre duas médias populacionais.
+
+### Desvio padrão conhecido
+
+Admitindo que $\small μ_1$ denota a média da população 1 e $\small μ_2$ a média da população 2, uma amostra de $\small n_1$ unidades deve ser coletada na população 1 e uma amostra de $\small n_2$ unidades deve ser coletada na população 2. As duas amostras aleatórias simples, tomadas de maneira separada e independente, são chamadas de **amostras aleatórias simples independentes.** Consideremos que antes da realização das coletas de amostra os desvios padrão de ambas as populações são conhecidos, como $σ_1$ e $σ_2$ .
+
+<span class="highlightRose">Exemplo:</span>
+
+Uma empresa possui duas lojas numa mesma cidade, uma localizada no centro da cidade e outro num shopping na periferia. O gerente regional notou que os produtos que tem uma boa vendagem numa loja nem sempre vendem bem na outra. O gerente acredita que tal diferença seja devido a diferença entre os aspectos demográficos entre os clientes das duas localidades e solicitou uma investigação na diferença entre as médias de idade entre os clientes que compram nas duas lojas.
+
+Consideremos como população 1 os clientes da loja do centro e população 2 os clientes da loja do shopping:
+
+- $\small μ_1$ : média da população 1 (média da idade dos clientes da loja do centro)
+- $\small μ_2$ : média da população 2 (média da idade dos clientes da loja do shopping)
+
+A diferença entre as médias das populações é dado por: <span class="highlightBlue">$\small μ_1- μ_2$</span>
+
+Para estimar $\small μ_1- μ_2$ , selecionamos uma amostra aleatória simples de $\small n_1$ clientes da população 1 e uma amostra de $\small n_2$ clientes da população 2 . Então calculamos as duas médias amostrais:
+
+- $\small \bar{x_1}$: média amostral da idade de uma amostra aleatória simples de $\small n_1$ clientes da loja do centro
+- $\small \bar{x_2}$: média amostral da idade de uma amostra aleatória simples de $\small n_2$ clientes da loja do centro
+
+O estimador por ponto da diferença entre as médias amostrais das duas populações é a diferença entre as duas médias amostrais.
+
+<div class="fontBlack">
+  
+  $$\small \bar{x_1} - \bar{x_2}$$
+</div>
+
+À semelhança do que ocorre com outros estimadores por ponto, o estimador por ponto de $\small \bar{x_1}- \bar{x_2}$ tem um erro padrão que descreve a variação da distribuição amostral do estimador. Com duas amostras aleatórias independentes, o erro padrão de $\small \bar{x_1}- \bar{x_2}$ é o seguinte:
+
+<div class="fontBlack">
+  
+  $$\small σ_{\bar{x}_1- \bar{x}_2}= \sqrt{\frac{σ_1^2}{n_1} + \frac{σ_2^2}{n_2}} $$
+</div>
+
+Se ambas as populações tiverem uma distribuição normal, ou se os tamanhos de amostra forem suficientemente grandes a ponto de o teorema do limite central nos permitir concluir que as distribuições amostrais de $\small \bar{x}_1$ e de $\small \bar{x}_2$ possam ser aproximadas a uma distribuição normal, a distribuição de $\small \bar{x}_1 - \bar{x}_2$ terá uma distribuição normal com uma média dada por $\small μ_1- μ_2$.
+
+Uma estimação por intervalo é dado por uma estimação por ponto ± uma margem de erro. No caso da estimação da diferença entre duas médias populacionais uma estimação por intervalo irá assumir a seguinte forma:
+
+<div class="fontBlack">
+  
+  $$\small \bar{x}_1 - \bar{x}_2  ±  \textrm{Margem de erro}$$
+</div>
+
+Com a distribuição amostral de $\small \bar{x_1} - \bar{x_2}$ tendo uma distribuição normal, podemos escrever a margem de erro da seguinte forma:
+
+<div class="fontBlack">
+  
+  $$\small \textrm{Margem de erro} = z_{α/2}   σ_{\bar{x}_1- \bar{x}_2} =z_{α/2} \sqrt{\frac{σ_1^2}{n_1} +\frac{σ_2^2}{n_2}}$$ 
+</div>
+
+Por fim, a estimação por intervalo da diferença entre as duas médias populacionais é dada por:
+
+<div class="fontBlack">
+  
+  $$\small \bar{x}_1- \bar{x}_2 ± z_{α/2}  \sqrt{\frac{σ_1^2}{n_1} +\frac{σ_2^2}{n_2}}$$  
+</div>
+
+No exemplo dado temos a seguinte resultado das coletas:
+
+|                            | Loja do Centro                       | Loja do Shopping                      |
+| :------------------------- | :----------------------------------- | :------------------------------------ |
+| Tamanho da Amostra         | $\small n_1=36$                      | $\small n_2=49$                       |
+| Média Amostral             | $\small \bar{x}_1= \textrm{40 anos}$ | $\small \bar{x}_2 = \textrm{35 anos}$ |
+| Desvio Padrão Populacional | $\small σ_1= \textrm{9 anos}$        | $\small σ_2= \textrm{10 anos }$       |
+
+A estimação por ponto da diferença entre a média de idade das duas populações é dado por:
+
+<div class="fontBlack">
+  
+  $$\small \bar{x}_1- \bar{x}_2$$
+</div>
+<div class="fontGray">
+
+$$\small 40 - 35 = \textrm{5 anos}$$
+
+</div>
+Portanto, os clientes da loja do centro tem uma média de idade de 5 anos maior que a média de idade dos clientes da loja da periferia. Agora, para calcular a margem de erro e a estimação por intervalo com 95% de confiança iremos:
+<div class="fontGray">
+
+$$\small z_{α/2} = z_{0,025}  = 1,96$$
+$$\small \bar{x}_1- \bar{x}_2 ± z_{α/2} \sqrt{\frac{σ_1^2}{n_1} + \frac{σ_2^2}{n2}}$$
+$$\small 40 - 35 ± 1,96 \sqrt{\frac{9^2}{36} + \frac{10^2}{49}}$$
+$$\small 5 ± 4,06$$
+$$\small 0,94 ≤ μ_1- μ_2 ≤ 9,06$$
+
+</div>
+
+Portanto, a margem de erro é de 4,06 anos e a estimação por intervalo de confiança de 95% entre as duas médias populacionais é de 0,94 anos a 9,06 anos.
+
+#### Teste de Hipóteses sobre a diferença entre médias $\small μ_1- μ_2$
+
+Consideremos os testes de hipóteses sobre a diferença entre as médias de duas populações. Usando $\small D_0$ para denotar as diferenças hipotéticas entre $\small μ_1- μ_2$, as três formas de um teste de hipóteses são as seguintes:
+
+| **Teste de Cauda Inferior**  | **Teste de Cauda Superior**  |      **Teste Bicaudal**      |
+| :--------------------------- | :--------------------------- | :--------------------------: |
+| $\small H_0: μ_1- μ_2 ≥ D_0$ | $\small H_0: μ_1- μ_2 ≤ D_0$ | $\small H_0: μ_1- μ_2 ≤ D_0$ |
+| $\small H_a: μ_1- μ_2 < D_0$ | $\small H_a: μ_1- μ_2 > D_0$ | $\small H_a: μ_1- μ_2 > D_0$ |
+
+Os passos para a realização do teste de hipótese são os mesmos utilizados em outras aplicações:
+
+- Escolhe-se um nível de significância
+- Calcula-se o valor da estatística de teste
+- Encontra-se o valor p
+- A partir do valor p determina-se se a hipótese deve ser rejeitada
+
+Com duas amostras aleatórias simples independentes, mostramos que o estimador por ponto $\small \bar{x}_1- \bar{x}_2$ tem erro padrão $\small σ_{\bar{x}_1- \bar{x}_2}$ e que a distribuição de $\small \bar{x}_1- \bar{x}_2$ pode ser descrita por uma distribuição normal. Nesse caso, a estatística de teste da diferença entre as duas médias populacionais quando $\small σ_1$ e $\small σ_2$ são conhecidos é a seguinte:
+
+<div class="fontBlack">
+  
+  $$\small z = \frac{( \bar{x}_1- \bar{x}_2 ) - D_0}{\sqrt{\frac{σ_1^2}{n_1} +\frac{σ_2^2}{n_2}}}$$  
+</div>
+<span class="highlightRose">Exemplo:</span>
+
+Como parte de um estudo para avaliar as diferenças na qualidade educacional entre dois centros de ensino, um exame padronizado é aplicado a pessoas que estudam nesses centros. A diferença entre a média das notas obtidas no exame é usada para avaliar as diferenças de qualidade entre os centros. As médias populacionais correspondentes aos dois centros são as seguintes:
+
+- $\small μ_1$: média da população 1 (média das notas dos estudantes que estudam no centro de ensino A)
+- $\small μ_2$: média da população 2 (média das notas dos estudantes que estudam no centro de ensino B)
+
+A diferença entre as médias das populações é dado por: $\small μ_1- μ_2$ . Iniciamos com a hipótese experimental de que não existe diferença entre a qualidade de ensino oferecida entre os dois centros. Temos então as hipóteses:
+
+<div class="fontGray">
+  
+  $$\small H_0: μ_1- μ_2 = 0$$
+  $$\small H_a: μ_1- μ_2 ≠ 0$$
+</div>
+
+O exame padronizado, aplicado anteriormente em outros centros educacionais, sempre resultou em um desvio padrão de notas próximo a 10 pontos. Usaremos então essa informação para supor que os desvio padrão populacionais sejam conhecidos, sendo $\small σ_1= 10$ e $\small σ_2= 10$, um nível de significância de α = 0,05 é especificado para o estudo.
+
+Para estimar $\small μ_1- μ_2$ , selecionamos uma amostra aleatória simples de $\small n_1 = 30$ estudantes da população 1 e uma amostra de $\small n_2 = 40$ estudantes da população 2 . Então calculamos as duas médias amostrais:
+
+- $\small \bar{x}_1$: média amostral da idade de uma amostra aleatória simples de $\small n_1$ clientes da loja do centro)
+- $\small \bar{x}_2$: média amostral da idade de uma amostra aleatória simples de $\small n_2$ clientes da loja do centro)
+
+As médias encontradas foram:
+
+- $\small \bar{x}_1: 82$
+- $\small \bar{x}_2: 78$
+
+A questão é: Os dados sugerem uma diferença significativa entre as médias das notas dos dois centros educacionais? A estatística de teste nos ajuda a responder essa questão:
+
+<div class="fontGray">
+  
+  $$\small z = \frac{( \bar{x}_1 - \bar{x}_2 )  - D_0}{\sqrt{\frac{σ_1^2}{n_1} +\frac{σ_2^2}{n_2}}}$$
+
+$$\small z = \frac{(82 - 78)  - 0} {\sqrt{\frac{10^2}{30} +\frac{10^2}{40}}} = 1,66$$
+
+</div>
+
+##### Valor p
+
+O valor p para um teste bicaudal é 0,0970. Seguindo a regra de rejeição:
+
+<span class="highlightBlue">**Regra de Rejeição** quando se usa o p-value: Rejeitar $\small H_0$ se o valor de p ≤ α</span>
+
+<span class="highlightGray">0,0970 > 0,05 → Não rejeita a $\small H_0$</span>
+
+Portanto, os dados amostrais não nos fornecem evidências suficientes para concluirmos que os centros de ensino diferem em termos de qualidade.
+
+##### Valor crítico
+
+Considerando α = 0,05 e $\small z_{α/2}=z_{0,025} = 1,96$
+
+<span class="highlightBlue">**Regra de rejeição** : Rejeitar a $\small H_0$ se $\small t ≤ -z_α$ ou se $\small t ≥ z_α$ </span>
+
+<span class="highlightGray">z ≤ -1,96 ou se z ≥ 1,96</span>
+
+<span class="highlightGray">No caso, z = 1,66 portanto, a hipótese nula não pode ser rejeitada.</span>
+
+### Desvio padrão desconhecido
+
+No caso em que os desvio padrão das populações $\small σ_1$ e $\small σ_2$ forem desconhecidos, os desvio padrão da amostra $\small s_1$ e $\small s_2$ devem ser utilizados para estimar os desvio padrão desconhecidos. Devido a isso, os procedimentos de estimação por intervalo e de teste de hipóteses vão se basear na distribuição t em vez da distribuição normal padrão.
+
+<span class="highlightRose">Exemplo:</span>
+
+Um banco deseja analisar as diferenças entre as utilizações de conta entre os clientes de duas de suas filiais. Uma amostra de 28 contas é selecionada de cada uma das filiais, sendo coletado o saldo atual dos cliente. O resultado foram o seguintes:
+
+|                          | Filial A                                 | Filial B                    |
+| :----------------------- | :--------------------------------------- | :-------------------------- |
+| Tamanho da Amostra       | $\small n_1=28$                          | $\small n_2=22$             |
+| Média Amostral           | $\small \bar{x}_1= \textrm{US} \$ 1.025$ | $\small \bar{x}_1=US\$ 910$ |
+| Desvio Padrão da Amostra | $\small s_1= US\$ 150$                   | $\small s_2= US\$ 125$      |
+
+O banco deseja estimar a diferença entre a média do saldo das contas mantidas pelos clientes das filiais A e B. Para tanto vamos desenvolver a margem de erro e uma estimação por intervalo da diferença entre essas duas médias populacionais.
+
+<div class="fontBlack">
+
+$$\small \bar{x}_1- \bar{x}_2 ± z_{α/2} \sqrt{\frac{σ_1^2}{n_1} +\frac{σ_2^2}{n_2}}$$
+
+</div>
+
+Como o desvio padrão é desconhecido ( $\small σ_1$ e $\small σ_1$), usaremos os desvio padrão amostrais ($\small s_1$ e $\small s_1$), para estimar os desvio padrão e substituiremos $\small z_{α/2}$ por $\small t_{α/2}$, portanto, a fórmula para estimação por intervalo da diferença entre duas médias populacionais é dada pela seguinte expressão:
+
+<div class="fontGray">
+
+$$\small \bar{x}_1- \bar{x}_2 ± t_{α/2} \sqrt{\frac{s_1^2}{n_1} +\frac{s_2^2}{n_2}}$$
+
+</div>
+
+Os graus de liberdade são calculados pela fórmula abaixo:
+
+<div class="fontGray">
+
+$$\small gl = \frac{(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2})^2} {\frac{1}{n_1 -1}(\frac{s_1^2}{n_1})^2 + \frac{1}{n_2 -1}(\frac{s_2^2}{n_2})^2}$$
+
+$$\small gl = \frac{(\frac{150^2}{28} + \frac{125^2}{22})^2} {\frac{1}{28 -1}(\frac{150^2}{28})^2 + \frac{1}{22 -1}(\frac{125^2}{22})^2 }=47,8$$
+
+</div>
+
+Arredondamos para 47 os graus de liberdade, assim teremos um valor t ligeiramente maior e uma estimação por intervalo mais conservadora. Para 47 graus de liberdade temos $\small t_{0,025}=2,012$. Usando a equação para se desenvolver um intervalo de confiança de 95% temos:
+
+<div class="fontGray">
+  
+  $$\small \bar{x}_1- \bar{x}_2± t_{α/2} \sqrt{\frac{s_1^2}{n_1} +\frac{s_2^2}{n_2}}$$
+
+$$\small 1025 - 910± 2,012 \sqrt{\frac{150^2}{28} +\frac{125^2}{22}}$$
+
+$$\small 115± 78$$
+
+$$\small 37≤ μ_1-μ_2 ≤ 193$$
+
+</div>
+Portanto, a estimação por ponto da diferença entre a média populacional dos saldos de conta corrente nas duas filiais é de US$ 115. A margem de erro é de US$ 78 e a estimação por intervalo de confiança de 95% da diferença entre as médias populacionais é US$37 a US$193.
+
+#### Teste de hipóteses sobre a diferença entre médias
+
+Admitindo $\small D_0$ como a diferença hipotética entre $\small μ_1$ e $\small μ_2$ e equação para determinar a estatística de teste é a seguinte:
+
+<div class="fontBlack">
+  
+  $$\small t = \frac{( \bar{x}_1- \bar{x}_2 )  - D_0}{\sqrt{\frac{s_1^2}{n_1} +\frac{s_2^2}{n_2}}}$$  
+</div>
+<span class="highlightRose">Exemplo:</span>
+
+Considere um novo pacote de software desenvolvido a fim de agilizar o processo de desenvolvimento de software. Para analisar se o novo pacote realmente agiliza o desenvolvimento de software 24 desenvolvedores foram selecionados, onde 12 deverão usar o novo pacote e 12 continuar utilizando as tecnologias atuais. Um treinamento é realizado com os desenvolvedores que devem utilizar o novo pacote e uma especificação de software é entregue para que ambos os grupos desenvolvam.
+
+Temos portanto duas populações: uma que se utiliza do novo pacote de software e outro que se utiliza das tecnologias atuais. As médias populacionais são as seguintes
+
+- $\small μ_1$: tempo médio de conclusão do projeto para os desenvolvedores que usam tecnologia atual
+- $\small μ_2$: tempo médio de conclusão do projeto para os desenvolvedores que usam o novo pacote de desenvolvimento
+
+A diferença entre as médias das populações é dado por: $\small μ_1- μ_2$ . Iniciamos com a hipótese experimental de que o novo pacote de software apresentará uma média de tempo menor para o desenvolvimento do software centros, ou seja, evidência de que $\small μ_2$ é menor que $\small μ_1$. Temos então as hipóteses:
+
+<div class="fontBlack">
+  
+  $$\small H_0: μ_1- μ_2 ≤ 0$$
+
+$$\small H_a: μ_1- μ_2> 0$$
+
+</div>
+O nível de significância será α = 0,05.
+
+Os dados coletados são os seguintes:
+
+| Atual | Novo pacote |
+| :---: | :---------: |
+|  300  |     274     |
+|  280  |     220     |
+|  344  |     308     |
+|  385  |     336     |
+|  372  |     198     |
+|  360  |     300     |
+|  288  |     315     |
+|  321  |     258     |
+|  376  |     318     |
+|  290  |     310     |
+|  301  |     332     |
+|  283  |     263     |
+
+<table>
+  <tr>
+    <th colspan="4">Sumário Estatístico </th>
+  </tr>
+  <tr>
+    <td>Amostras</td>
+    <td>Tamanho da amostra</td>
+    <td>Média amostral </td>
+    <td>Desvio Padrão da Amostra</td>
+  </tr>
+  <tr>
+    <td>Amostra 1</td>
+    <td>$\small n_1=12$</td>
+    <td>$\small x_1= 325$</td>
+    <td>$\small s_1=40$</td>
+  </tr>
+  <tr>
+    <td>Amostra 2</td>
+    <td>$\small n_2=12$</td>
+    <td>$\small x_2= 286$</td>
+    <td>$\small s_2=44$</td>
+  </tr>
+</table>
+O cálculo da estatística de teste então é o seguinte:
+<div class="fontGray">
+  
+  $$\small t = \frac{( \bar{x}_1- \bar{x}_2 )  - D_0}{\sqrt{\frac{s_1^2}{n_1} +\frac{s_2^2}{n_2}}}$$
+
+$$\small t = \frac{(325- 286 )  - 0} {\sqrt{\frac{40^2}{12} +\frac{44^2}{12} }} = 2,27$$
+
+</div>
+O cálculo dos graus de liberdade:
+<div class="fontGray">
+
+$$\small gl = \frac{(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2})^2}{\frac{1}{n_1 -1}(\frac{s_1^2}{n_1})^2 + \frac{1}{n_2 -1}(\frac{s_2^2}{n_2})^2}$$
+
+$$\small gl = \frac{(\frac{40^2}{12} + \frac{44^2}{12})^2}{\frac{1}{12 -1}(\frac{40^2}{12})^2 + \frac{1}{12 -1}(\frac{44^2}{12})^2} = 21,8$$
+
+</div>
+
+Arredondando, usaremos 21 graus de liberdade. A linha de 21 graus de liberdade na tabela t é:
+
+<table>
+<tr>
+  <th>Área da cauda superior </th>
+  <td>0,20</td>
+  <td>0,10</td>
+  <td>0,05</td>
+  <td><span class="highlightGreen round">0,025</span></td>
+  <td><span class="highlightGreen round">0,01</span></td>
+  <td>0,005</td>
+</tr>
+<tr>
+  <th>Valor t ( 59 graus de liberdade )</th>
+  <td>0,859</td>
+  <td>1,323</td>
+  <td>1,721</td>
+  <td><span class="highlightGreen round">2,080</span></td>
+  <td><span class="highlightGreen round">2,518</span></td>
+  <td>2,831</td>
+</tr>
+</table>
+
+Um t de 2,27 está entre 2,080 e 2,518, portanto, o p está entre 0,025 e 0,01. Desse modo o valor p é menor que α = 0,05.
+
+<span class="highlightBlue">**Regra de Rejeição** quando se usa o p-value: Rejeitar H0se o valor de p ≤ α</span>
+
+<span class="highlightGray">0,025 ≤ 0,05 → Rejeita a $\small H_0$</span>
+
+Portanto, os resultados amostrais levam à conclusão que $\small μ_1- μ_2$ > 0 e $\small μ_1> μ_2$ , ou seja, o novo pacote de software oferece uma média populacional menor de tempo de conclusão.
+
+#### Observações
+
+Os procedimentos de estimação por intervalo e teste de hipóteses são bastante precisos desde que respeitado que $\small n_1- n_2 ≥ 20$ e sempre que possível que os tamanhos de amostras sejam iguais, ou aproximadamente iguais. Se as distribuições das populações forem altamente assimétricas tamanhos de amostra maiores são recomendados. Tamanhos de amostras menores só devem ser utilizados se houver muita segurança de que a população está normalmente distribuída.
+
+Outro critério utilizado para se fazer inferências a respeito da diferença entre duas médias quando o desvio padrão populacional é desconhecido baseia-se na hipótese de que os desvio padrão populacionais são iguais $(σ_1=σ_2=σ)$. Dessa hipótese, os dois desvio padrão amostrais são combinados para produzir a seguinte **variância amostral combinada.**
+
+<div class="fontBlack">
+
+$$\small s_p^2=\frac {(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2} {n_1 + n_2 - 2}$$
+
+</div>
+A estatística de teste torna-se:
+<div class="fontBlack">
+  
+  $$\small t = \frac{(\bar{x}_1 - \bar{x}_2) - D_0}{ s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
+</div>
+Uma dificuldade apresentada por este procedimento é que a hipótese de que os dois desvio padrão são iguais é difícil de verificar. Desvio padrão populacionais não-iguais frequentemente são encontrados. Os resultados do procedimento agrupado podem não ser muito satisfatório principalmente se os tamanhos de amostra forem muito diferentes.
+
+### Amostras relacionadas ou dependentes
+
+Suponha que numa empresa de manufatura os funcionários possam usar dois diferentes métodos de produção. A fim de maximizar a produção, a empresa deseja identificar o método mais eficiente, ou seja, o método que possui a menor média populacional de tempo de conclusão. Digamos que :
+
+- $\small μ_1$: média populacional de tempo de conclusão utilizando o método A
+- $\small μ_2$: média populacional de tempo de conclusão utilizando o método B
+
+A diferença entre as médias das populações é dado por: $\small μ_1- μ_2$ . Iniciamos com a hipótese experimental de que não existe diferença entre média de tempo de conclusão dos dois métodos. Temos então as hipóteses:
+
+<div class="fontBlack center">
+  
+  $$\small H_0: μ_1- μ_2 = 0 \\ 
+  H_a: μ_1- μ_2 ≠ 0$$
+
+<div>
+
+Ao escolher o procedimento de amostragem que usaremos para coletar os dados referentes ao tempo de produção e testar as hipóteses, consideramos duas alternativas de projeto. Uma se baseia em amostras independentes e a outra em **amostras relacionadas:**
+
+- **Projeto de amostra independente:** Uma amostra aleatória simples de funcionários é selecionada e cada funcionário da amostra usa o método 1. Uma segunda amostra aleatória simples é selecionada e cada funcionário utiliza o método 2.
+- **Projeto de amostras relacionadas (ou combinadas):** Uma amostra aleatória simples de funcionários é selecionada. Casa funcionário usa primeiramente um método e depois o outro. A ordem dos dois métodos é atribuída aleatoriamente aos funcionários.
+- Cada funcionário produz um par de valores de dados, um correspondente ao método 1 e outro ao método 2
+
+No projeto de amostras relacionadas, os dois métodos são testados de forma idêntica, ou seja, com os mesmos funcionários, portanto esse projeto acarreta em um erro de amostragem menor que o projeto de amostras independentes. Isso acontece devido a eliminação de variações entre funcionários já que são usadas as mesmas pessoas para ambos os métodos de produção.
+
+Utilizando o método de amostras relacionadas, uma amostra de 6 funcionários é coletada. A amostra é listada abaixo:
+
+<table>
+<thead>
+<tr>
+<th align="center">Funcionário</th>
+<th align="center">Tempo de conclusão - Método 1</th>
+<th align="center">Tempo de conclusão - Método 2</th>
+<th align="center">Diferença dos Tempos de conclusão</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">6,0</td>
+    <td align="center">5,4</td>
+    <td align="center"><span class="highlightGreen round">0,6</span></td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">5,0</td>
+    <td align="center">5,2</td>
+    <td align="center"><span class="highlightGreen round">-0,2</span></td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">7,0</td>
+    <td align="center">6,5</td>
+    <td align="center"><span class="highlightGreen round">0,5</span></td>
+  </tr>
+  <tr>
+    <td align="center">4</td>
+    <td align="center">6,2</td>
+    <td align="center">5,9</td>
+    <td align="center"><span class="highlightGreen round">0,3</span></td>
+  </tr>
+  <tr>
+    <td align="center">5</td>
+    <td align="center">6,0</td>
+    <td align="center">6,0</td>
+    <td align="center"><span class="highlightGreen round">0,0</span></td>
+  </tr>
+  <tr>
+    <td align="center">6</td>
+    <td align="center">6,4</td>
+    <td align="center">5,8</td>
+    <td align="center"><span class="highlightGreen round">0,6</span></td>
+  </tr>
+</tbody>
+</table>
+
+No método de amostras relacionadas, somente a diferença é levada em consideração. Admitamos que $\small μ_d$ como a média dos valores de diferença para a população de funcionários. Com essa notação, as hipóteses nula e alternativa são reescritas da seguinte maneira:
+
+<div class="fontGray ">
+  
+  $$\small H_0: μ_d = 0 \\ 
+  H_a: μ_d ≠ 0$$
+
+<div>
+
+A média amostral e o desvio padrão amostral dos seis valores de diferença são os seguintes:
+
+<div class="fontGray ">
+
+$$\small d=\frac{Σd_i}{n} = \frac{1,8}{6} = 0,30$$
+
+$$\small s_d=\sqrt{\frac{Σ(d_i- \bar{d})}{n -1}} =\sqrt{\frac{0,56}{5}}= 0,335$$
+
+<div>
+
+Devido a amostra ser pequena, 6 elementos, precisamos levantar a hipótese de que a população de diferenças tem uma distribuição normal. Essa hipótese é necessária a fim de podermos usar a distribuição t para os procedimentos de teste de hipóteses e de estimação por intervalo. Com base nessa hipótese, a seguinte estatística de teste tem uma distribuição t com n -1 graus de liberdade:
+
+<div class="fontGray ">
+
+$$\small t = \frac{\bar{d} - μ_d}{s_{d/\sqrt{n}}}$$
+
+$$\small t = \frac{0,30 - 0}{0,335/\sqrt{6}} = 2,20$$
+
+Vamos calcular o valor de p para esse teste bicaudal. A linha de 5 graus de liberdade na tabela t é:
+
+<table>
+<thead>
+  <tr>
+    <th align="left">Área da cauda superior</th>
+    <th align="center">0,20</th>
+    <th align="center">0,10</th>
+    <th align="center"><span class="highlightGreen round">0,05</span></th>
+    <th align="center"><span class="highlightGreen round">0,025</span></th>
+    <th align="center">0,01</th>
+  <th align="center">0,005</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td align="left">Valor t ( 21 graus de liberdade )</td>
+    <td align="center">0,920</td>
+    <td align="center">1,476</td>
+    <td align="center"><span class="highlightGreen round">2,015</span></td>
+    <td align="center"><span class="highlightGreen round">2,571</span></td>
+    <td align="center">3,365</td>
+    <td align="center">4,032</td>
+  </tr>
+</tbody>
+</table>
+
+Portanto verificamos que a estatística t se encontra entre a área da cauda superior entre 0,05 e 0,025. Uma vez que se trata de um teste bicaudal o valor deve ser duplicado, logo o valor p se encontra entre 0,10 e 0,05. Essa valor p é maior que α = 0,05. Assim a hipótese nula $\small H_0: μ_d = 0$ não é rejeitada.
+
+Uma estimação por intervalo da diferença entre as duas médias populacionais usando a metodologia das populações simples. Com 95% de confiança o cálculo é o seguinte:
+
+<div class="fontGray ">
+
+$$\small \bar{d}± t_{0,025}\frac{s_d}{\sqrt{n}}$$
+
+$$\small 0,3± 2,571(\frac{0,335}{\sqrt{6}})$$
+
+$$\small 0,3± 0,35$$
+
+$$\small -0,5≤ μ_d ≤ 0,65$$
+
+</div>
+A margem de erro : 0,35
+
+#### Observação
+
+A correspondência de relação ou dependência não se dá somente por um mesmo elemento produzir mais de um valor de amostra, a correspondencia pode ser realizada por meio de características como: idade, educação, sexo, experiência profissional, etc.
+
+O projeto de dependência geralmente produz melhor precisão que o critério de amostras independentes.
+
+## Inferência acerca da diferença entre duas proporções
+
+Para realizar a comparação da diferença entre proporções populacionais precisamos realizar os seguintes passos:
+
+1. Selecionar duas amostras aleatórias independentes (maiores que 5 elementos)
+1. Realizar a estimação por ponto da diferença entre as proporções populacionais
+1. Realizar a estimação por intervalo da diferença entre as proporções populacionais
+1. Realizar um teste de hipótese
+
+Para tornar mais claro os passos vamos tomar como exemplo a comparação da qualidade de trabalho de dois escritórios no quesito preenchimento correto de cadastros. Foram selecionadas aleatoriamente amostras de cadastros preenchidos pelos escritórios A e B:
+
+- Amostra A
+  - $\small n_1$: 250
+- n° de erros: 35
+- Amostra B
+  - $\small n_2$: 300
+  - n° de erros: 27
+- <span class="highlightGreen">Intervalo de confiança: 90%</span>
+
+A partir dessas informações será possível verificar a precisão amostral dos cadastros e será possível estimar a proporção dos cadastros preenchidos incorretamente em cada escritório.
+
+<span class="highlightRed">Estimação por ponto</span>
+
+A estimação por ponto da diferença entre as duas proporções populacionais é dada por:
+
+<div class="fontBlack">
+
+$$\small \bar{p}_1-\bar{p}_2$$
+
+</div>
+e é calculada a partir da diferença entre as duas proporções amostrais das amostras colhidas. Portanto:
+<div class="fontGray">
+
+$$\small \bar{p}_1=\frac{35}{250} = 0,14$$
+
+$$\small \bar{p}_2=\frac{27}{300} = 0,09$$
+
+$$\small \bar{p}1-\bar{p}2 =0,14 -0,09 = 0,05$$
+
+</div>
+estimamos que o escritório A tem um índice de erro 5% maior que o do escritório 2.
+
+</br></br>
+
+<span class="highlightRed">Estimação por intervalo</span>
+
+Se fossem tomadas, repetidamente, amostras aleatórias independentes dos cadastros preenchidos pelos escritórios A e B teríamos uma distribuição amostral que iria refletir os possíveis valores de $\small \bar{p}_1-\bar{p}_2$ . A média desta distribuição amostral é $\small \bar{p}_1-\bar{p}_2$ e o erro padrão é o seguinte:
+
+<div class="fontBlack">
+
+$$\small σ_{\bar{p}_1-\bar{p}_2} = \sqrt{\frac{p_1(1 - p_1)}{n1} + \frac{p_2(1 - p_2)}{n_2}}$$
+
+</div>
+Se os tamanhos das amostras forem de tamanho suficiente a distribuição amostral será aproximada de uma distribuição normal.
+
+A estimação por intervalo é dada por:
+
+<div class="fontBlack">
+
+$$\small \bar{p}_1-\bar{p}_2 ± \textrm{Margem de erro}$$
+
+</div>
+E a margem de erro é calculada(considerando uma distribuição amostral aproximada de uma distribuição normal):
+
+<div class="fontBlack">
+
+$$\small \textrm{Margem de erro} = z_{α/2}σ_{\bar{p}_1- \bar{p}_2}$$
+
+</div>
+Portanto:
+<div class="fontGray">
+
+$$\small \bar{p}_1- \bar{p}_2± \sqrt{\frac{p_1(1 - p_1)}{n1} + \frac{p_2(1 - p_2)}{n_2}}$$
+
+$$\small 0,05± z_{α/2}\sqrt{\frac{0,14(1 -0,14)}{250} +\frac{0,09(1 -0,09)}{300}}$$
+
+$$\small 0,05± z_{α/2}\sqrt{\frac{0,1204}{250} +\frac{0,0819}{300}}$$
+
+$$\small 0,05± z_{α/2}\sqrt{0,0004816 +0,000273}$$
+
+$$\small 0,05± z_{α/2}\sqrt{0,0007546}$$
+
+$$\small 0,05± z_{α/2} ×0,02747$$
+
+$$\small 0,05±1,645 ×0,02747$$
+
+$$\small 0,05±0,045$$
+
+$$\small 0,005< \bar{p}_1-\bar{p}_2 <0,095$$
+
+</div>
+Com uma margem de erro de 0,045 e um intervalo de confiança de 90% nossa estimação da diferença entre proporções varia de 0,005 a 0,095.
+</br></br>
+<span class="highlightRed">Teste de hipótese</span></br></br>
+
+Como desejamos saber se há diferença entre as proporções de erros entre os escritórios vamos estabelecer um hipótese nula que considere que as proporções populacionais são iguais, ou seja, que não há diferença entre elas:
+
+<div class="fontGray">
+
+$$
+\small H_0: p_1- p_2 = 0 \\
+H_a: p_1- p_2 ≠ 0
+$$
+
+</div>
+
+Baseamos a estatística de teste na distribuição amostral do estimador por ponto $\small \bar{p}_1-\bar{p}_2$ . Para calcular o erro padrão de $\small \bar{p}_1-\bar{p}_2$ utilizamos a seguinte equação:
+
+<div class="fontBlack">
+
+$$\small σ_{\bar{p}_1-\bar{p}_2} = \sqrt{\frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)} {n_2}}$$
+
+</div>
+
+No entanto, sob a hipótese que $\small H_0$ é verdadeira enquanto igualdade, as proporções populacionais devem ser iguais e $\small \bar{p}_1-\bar{p}_2 =p$ e sendo este o caso $\small σ_{\bar{p}_1-\bar{p}_2}$ torna-se:
+
+<div class="fontBlack">
+
+$$\small σ_{\bar{p}_1-\bar{p}_2}  = \sqrt{\frac{ p(1 -p)}{n_1} +\frac{p(1 - p)} {n_2}}$$
+
+$$\small σ_{\bar{p}_1-\bar{p}_2}  = \sqrt{p(1-p) \frac{1}{n_1} + \frac{1}{n_2}}$$
+
+</div>
+
+| Substituindo $\small \bar{p}$ por p obtemos uma estimativa do erro padrão de $\small \bar{p}_1-\bar{p}_2$. Essa estimativa do erro padrão é usada na estatística de teste. |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+Com _p_ desconhecido, agrupamos , ou combinamos, os estimadores por ponto das duas amostras ( $\small \bar{p}_1 \textrm{ e }\bar{p}_2$) para obtermos um único estimador por ponto de _p_ da seguinte maneira:
+
+<div class="fontBlack">
+
+$$\small \bar{p}=\frac{n_1\bar{p}_1 + n_2 \bar{p}_2}{n_1 +n_2}$$
+
+</div>
+
+Esse **estimador agrupado** (pooled estimator) de _p_ é uma média ponderada de $\small \bar{p}_1 \textrm{ e }\bar{p}_2$. No caso teremos:
+
+<div class="fontGray">
+
+$$\small \bar{p}=\frac{n_1\bar{p}_1 + n_2 \bar{p}_2}{n_1 +n_2}$$
+
+$$\small \bar{p}=\frac{250 × 0,14+ 300 × 0,09}{250+300}$$
+
+$$\small \bar{p}=\frac{35+ 27}{550}$$
+
+$$\small \bar{p}=0,11\bar{27}$$
+
+</div>
+
+Agora vamos calcular a estatística de teste para o teste de hipóteses sobre $\small \bar{p}_1 -\bar{p}_2$:
+
+<div class="fontGray">
+
+$$\small z=\frac{ ( \bar{p}_1 - \bar{p}_2)}{\sqrt{\bar{p}(1-\bar{p}) (\frac{1}{n_1} +\frac{1}{n_2})}} $$
+
+$$\small z=\frac{(0,14 - 0,09)}{\sqrt{0,1127(1-0,1127)\frac{1}{250} +\frac{1}{300}}}$$
+
+$$\small z=\frac{0,05}{\sqrt{0,1127(0,8873)\frac{6 + 5}{1500}}}$$
+
+$$\small z=\frac{0,05}{\sqrt{0,09999871× \frac{11}{1500}}}$$
+
+$$\small z=\frac{0,05}{\sqrt{0,0073}}$$
+
+$$\small z=\frac{0,05}{0,02708}$$
+
+$$\small z=1,85$$
+
+</div>
+O _valor de p_ para este teste bicaudal é 0,0644 (0,0322 de cada lado).
+
+Como o valor de p (0,06) é menor que o α (0,10) podemos rejeitar a $\small H_0$. Portanto, as taxas de erro entre os dois escritórios são diferentes.
+
+O resultado apontado pelo teste de hipótese é coerente com a estimação por intervalo da diferença entre as taxas de erros entre os escritórios, admitindo o intervalo: $\small 0,005< \bar{p}_1- \bar{p}_2 <0,095$.
+
+Se observamos a taxa do escritório 1 (0,14), esta se encontra fora do intervalo, sendo maior que os valores admitidos.
+
+## Proporção de uma população multinomial
+
+Para realizar a comparação da diferença entre a **proporção de elementos de uma população pertencentes a somente uma das várias classes ou categorias**, precisamos realizar os seguintes passos:
+
+1. Estabelecer a hipótese nula e alternativa
+   1. $\small H_0$: A população segue uma distribuição multinomial com probabilidades especificadas para cada uma das _k_ categorias
+   2. $\small H_a$: A população não segue uma distribuição multinomial com as probabilidades especificadas para cada uma das _k_ categorias
+2. Selecione uma amostra aleatória e registre as frequências observadas <span class="highlightGray">$\small f_i$ para cada categoria</span>
+3. Suponha que a hipótese nula seja verdadeira e determine a frequência esperada <span class="highlightGray"> $\small e_i$ em cada categoria</span>
+4. Realizar um teste de hipótese
+
+A **população multinomial,** nada mais é que uma população que se divide em classes ou categorias onde um elemento pode pertencer a somente uma delas.
+
+A **distribuição multinomial** de probabilidade pode ser vista como uma extensão da distribuição binomial para o caso de três ou mais categorias de resultados, onde em casa ensaio ocorre um e somente um dos resultados (categorias). Presume-se a independência dos ensaios, ou seja, as probabilidades (das categorias) permaneçam as mesmas para cada ensaio.
+
+Para exemplificar o caso vamos tomar como **exemplo** a seguinte situação:
+
+Uma empresa de pesquisa de mercado foi contratada para verificar se o lançamento de um produto alterou a quota de mercado de três empresas. Consideremos:
+
+- $\small P_A$: fatia de mercado da empresa A
+- $\small P_B$: fatia de mercado da empresa B
+- $\small P_C$: fatia de mercado da empresa C
+
+Uma pesquisa amostral será feita e a partir dela será calculada a proporção dos que preferem o produto de uma das empresas e um teste de hipótese será realizado para verificar se o novo produto causou alguma alteração nas fatias de mercado.
+
+<span class="highlightOrange">Hipótese nula e alternativa</span>
+
+Supondo que o novo produto da empresa C não altere as fatias de mercado, as hipóteses nula e alternativa são estabelecidas da seguinte maneira:
+
+<div class="fontGray">
+
+$$
+\small H_0: P_A = 0,30 \textrm{ , } P_B =0,50\textrm{ e } P_C=0,20 \\
+H_a: \textrm{as proporções populacionais não são } P_A=0,30 \textrm{ , } P_B=0,50 \textrm{ e }  P_C=0,20
+$$
+
+</div>
+<span class="highlightOrange">Frequências</span>
+</br></br>
+A pesquisa de mercado consultou 200 consumidores acerca da preferência de compra entre as três alternativas (produtos da empresa A,B e C) e o resumo das respostas é o seguinte:
+
+<table>
+  <tr>
+    <th colspan="3">Frequência Observada </th>
+  </tr>
+  <tr>
+    <td align="center">Produto da Empresa A</td>
+    <td align="center">Produto da Empresa B</td>
+    <td align="center">Produto da Empresa C</td>
+  </tr>
+  <tr>
+    <td align="center">48</td>
+    <td align="center">98</td>
+    <td align="center">54</td>
+  </tr>
+</table>
+
+Agora o **teste de eficiência de ajuste** determinará se a amostra das preferências de compra é coerente com a hipótese nula.
+
+<span class="highlightOrange">Qui-Quadrado : Teste de eficiência de ajuste</span>
+
+O teste de eficiência de ajuste baseia-se na <span class="highlightRose2">comparação</span> da amostra de resultados <span class="highlightRose2">observados</span> e resultados <span class="highlightRose2">esperados</span> sob a suposição de que a hipótese nula é verdadeira. Portanto, agora basta calcular as frequências esperadas dos 200 clientes sob a suposição que <span class="highlightGray">$\small P_A=0,30 \textrm{ , } P_B=0,50 \textrm{ e }  P_C=0,20$
+
+<table>
+  <tr>
+    <th colspan="3">Frequência Esperada </th>
+  </tr>
+  <tr>
+    <td align="center">Produto da Empresa A</td>
+    <td align="center">Produto da Empresa B</td>
+    <td align="center">Produto da Empresa C</td>
+  </tr>
+  <tr>
+    <td align="center">200(0,3) = 60 </td>
+    <td align="center">200(0,5) = 100</td>
+    <td align="center">200(0,2) = 40 </td>
+  </tr>
+</table>
+
+Agora deve-se observar a diferença entre as frequências esperadas e observadas. Diferenças grandes entre as frequências levanta dúvidas sobre a suposição que as proporções hipotéticas estejam corretas. A estatística de teste explica o quão grande ou pequena é a diferença entre as frequências.
+
+<div class="fontBlack">
+
+$$\small χ^2=\sum_{i=1}^{k} \frac{(f_i - e_i)}{e_i}$$
+
+$\small f_i= \textrm{frequência observada para categoria i} \\
+e_i= \textrm{frequência esperada para categoria i} \\
+k= \textrm{número de categorias}$
+
+</div>
+
+**Obs**: A estatística de teste tem uma distribuição qui-quadrado com _k-1_ graus de liberdade, desde que as frequências esperadas sejam 5 ou mais para todas as categorias.
+
+**Obs**: O teste de eficiência de ajuste é sempre um teste unicaudal, e a rejeição ocorre na cauda superior da distribuição qui-quadrado
+
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Categoria</strong></th>
+<th align="left"><strong>Proporção Hipotética</strong></th>
+<th align="left"><p><strong>Frequência Observada</strong></p><p>($\small fi$)</p></th>
+<th align="left"><p><strong>Frequência Esperada</strong></p><p>($\small e_i$)</p></th>
+<th align="left"><p><strong>Diferença</strong></p><p></p><p>($\small f_i - e_i$)</p></th>
+<th align="left"><p><strong>Quadrado da Diferença</strong></p><p>($\small f_i - e_i)^2$</p></th>
+<th align="left" colspan="2"><p><strong>Quadrado Dividido pela Frequência Esperada</strong></p><p>($\small f_i - e_i)^2/e_i$</p></th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td align="left">Empresa A</td>
+    <td align="left">0,30</td>
+    <td align="left">48</td>
+    <td align="left">60</td>
+    <td align="left">-12</td>
+    <td align="left">144</td>
+    <td align="left">2,40</td>
+  </tr>
+  <tr>
+    <td align="left">Empresa B</td>
+    <td align="left">0,50</td>
+    <td align="left">98</td>
+    <td align="left">100</td>
+    <td align="left">-2</td>
+    <td align="left">4</td>
+    <td align="left">0,04</td>
+  </tr>
+  <tr>
+    <td align="left">Empresa C</td>
+    <td align="left">0,20</td>
+    <td align="left">54</td>
+    <td align="left">40</td>
+    <td align="left">14</td>
+    <td align="left">196</td>
+    <td align="left">4,90</td>
+  </tr>
+  <tr>
+    <td align="left"><strong>Total</strong></td>
+    <td align="left"></td>
+    <td align="left">200</td>
+    <td align="left"></td>
+    <td align="left"></td>
+    <td align="left"></td>
+    <td align="left"><span class="highlightBlue">$\small χ^2=7,34$</span></td>
+  </tr>
+</tbody>
+</table>
+
+```{r}
+  observada <- c(48,98,54)
+  esperada <- c(0.3 ,0.5, 0.2)
+  quiqua <-chisq.test(observada, p=esperada)
+  quiqua
+```
+
+Portanto, como o p-value (0,02) é menor que o alfa (0,05), rejeitamos a hipótese nula e concluímos que o novo produto da empresa C alterará a atual estrutura de participação de mercado,
+
+**Obs**: Graus de Liberdade (df.) : é a diferença entre o número de classes de resultados e o número de informações da amostra que são necessários ao cálculo dos valores esperados nessas classes
+
+## Teste exato de Fisher
+
+O teste exato de Fisher é um teste de significância estatística utilizado na análise de tabelas de contingência. Na prática ele é usado quando os tamanhos das amostras são pequenos, no entanto é válido para todos os tamanhos de amostra.
+
+É um teste exato porque fornece um valor p exato, e não uma aproximação, como no teste qui quadrado(onde quanto maior a amostra mais exato o valor de p se torna)
+
+Fisher teria concebido o teste depois de um comentário de uma senhora que afirmava ser capaz de detectar o que foi adicionado primeiro em sua xícara: o chá ou o leite. Ele realizou o teste no experimento "dama apreciadora de chá".
+
+<span class="highlightRose2">O experimento</span>
+
+No experimento Fisher ofereceu 8 xícaras a senhora, quatro de cada tipo, em ordem aleatória:
+
+- 4 preparadas adicionando primeiro leite,
+- 4 preparadas adicionando primeiro chá.
+
+A senhora deveria que selecionar 4 xícaras por um método.
+
+- Isso oferecia a vantagem de julgar as xícaras por comparação.
+- Ela estava inteiramente informada do método experimental.
+
+A hipótese nula era que a senhora não tinha tal habilidade. Não há hipótese alternativa; (abordagem Neyman-Pearson)
+
+- O teste estatístico era uma simples contagem do número de sucessos em selecionar 4 xícaras.
+- A distribuição da hipótese nula era computada pelo número de permutações. O número de permutações selecionadas igualava o número de permutações não selecionadas.
+
+| **Contagem de sucesso** |     **Permutações de seleção**     | **Número de permutações** |
+| :---------------------: | :--------------------------------: | :-----------------------: |
+|            0            |                oooo                |         1 × 1 = 1         |
+|            1            |       ooox, ooxo, oxoo, xooo       |        4 × 4 = 16         |
+|            2            | ooxx, oxox, oxxo, xoxo, xxoo, xoox |        6 × 6 = 36         |
+|            3            |       oxxx, xoxx, xxox, xxxo       |        4 × 4 = 16         |
+|            4            |                xxxx                |         1 × 1 = 1         |
+|                         |             **Total**              |            70             |
+
+A região crítica era o único caso de 4 sucessos de 4 possibilidades baseadas em um critério de probabilidade convencional (< 5%; 1 de 70 ≈ 1.4%).
+
+Se e somente se a senhora categorizasse corretamente todas as 8 xícaras Fisher estaria disposto a rejeitar a sua hipótese nula – efetivamente reconhecendo a capacidade da senhora ao nível de significância de 1,4% (mas sem quantificar sua capacidade).
+
+No teste, a senhora acertou todas as oito xícaras. As chances de alguém, com base em adivinhação, acertar todas as xícaras, (assumindo que ela supõe que em quatro o chá tenha sido colocado primeiro e em quatro o leite), seriam de apenas 1 em 70 (combinação de 8 tomados 4 a 4).
+
+<span class="highlightRose2">Usos</span>
+
+O teste é útil para dados categóricos, que resultam de classificação de objetos em duas maneiras diferentes; ele é usado para examinar a significância da associação (contingência) entre os dois tipos de classificação. Assim, no exemplo original de Fisher, um critério de classificação poderia ser se o leite ou chá foi colocado na xícara primeiro; o outro poderia ser se a senhora pensava que o leite ou chá, fora colocado em primeiro lugar. Queremos saber se essas duas classificações são associadas - isto é, se a senhora realmente poderia dizer se o leite ou o chá foi servido em primeiro lugar.
+
+A maioria dos usos do teste exato de Fisher envolvem, como neste exemplo, uma tabela de contingência 2×2. O p-valor do teste é calculado como se as margens da tabela fossem fixas, isto é, como se no exemplo da degustação de chá, a senhora soubesse o número de xícaras com cada tratamento (leite ou chá primeiro) que havia e poderia, portanto, fornecer estimativas com o número correto em cada categoria. Como apontado por Fisher, isso leva, sob a hipótese nula de independência a uma distribuição hipergeométrica dos números nas células da tabela.
+
+<span class="highlightRose2">Teste exato de Fisher Vs Teste Qui-Quadrado</span>
+
+O teste qui-quadrado é mais adequado para grandes amostras, visto que, em amostras pequenas ou desigualmente distribuídas entre as células da tabela (valores esperados ficam pequenos) a fórmula de obtenção de X² poderá produzir um valor significativo (> do que o X² crítico), e portanto maior do que o valor real.
+
+A regra de ouro usual para decidir se o teste de aproximação da qui-quadrado é bom o suficiente é não ser:
+
+- abaixo de 5
+- ou abaixo de 10 quando há apenas um grau de liberdade
+
+Em dados pequenos, esparsos, ou não balanceados, o p-valor exato e o assintótico podem ser muito diferentes e podem levar a conclusões opostas sobre a hipótese de interesse.
+
+O teste exato de Fisher é, como seu nome indica, exato, e mantém os totais das linhas e colunas fixos, e pode, portanto, ser utilizado independentemente das características da amostra. No entanto, é complexo de se calcular com amostras grandes ou tabelas bem equilibradas, as quais são exatamente as condições em que o teste qui-quadrado é apropriado.
+
+<span class="highlightRose2">Exemplo</span>
+
+Uma amostra de adolescentes pode ser dividida em masculino e feminino e entre os que estudam e não estudam. Vamos supor, por exemplo, que a proporção de pessoas estudando é maior entre mulheres do que entre os homens, e queremos testar se é significativa a diferença das proporções que observadas. Os dados podem parecer como a tabela abaixo:
+
+|                     | **Homens** | **Mulheres** | **Total da linha** |
+| :-----------------: | :--------: | :----------: | :----------------: |
+|   **Estudiosos**    |     1      |      9       |         10         |
+| **Não estudiosos**  |     11     |      3       |         14         |
+| **Total da coluna** |     12     |      12      |         24         |
+
+A pergunta que se faz sobre esses dados é: sabendo que 10 destes 24 adolescentes são estudiosos, e que 12 dos 24 são do sexo feminino, e supondo que a hipótese nula de que homens e mulheres têm a mesma probabilidade de estudar, qual é a probabilidade de que esses 10 estudiosos seria tão desigualmente distribuídos entre as mulheres e os homens? <span class="highlightYellow">Se tivéssemos que escolher 10 dos adolescentes ao acaso, qual a probabilidade de que 9 ou mais deles estarem entre as 12 mulheres, e apenas 1 ou menos estarem entre os 12 homens?</span>
+
+Nós representamos as células pelas letras a, b, c e d, chame os totais das linhas e colunas de totais marginais, e represente o total por n. Assim, a tabela agora tem esse aspecto:
+
+|                     | **Homens** | **Mulheres** | **Total da linha** |
+| :-----------------: | :--------: | :----------: | :----------------: |
+|   **Estudiosos**    |   **a**    |    **b**     |        a+b         |
+| **Não estudiosos**  |   **c**    |    **d**     |        c+d         |
+| **Total da coluna** |    a+c     |     b+d      |    a+b+c+d = n     |
+
+Fisher mostrou que a probabilidade de obtenção de tais valores é dada pela distribuição hipergeométrica:
+
+<div class="fontBlack">
+
+$$\small p=\frac{\binom{a+b}{a} + \binom{c+d}{c}}{\binom{n}{a+c}} = \frac{(a + b )! (c + d)! (a + c)! (b + d)!}{a! b! c! d! n!}$$
+
+</div>
+
+Onde $\binom{n}{k}$ é o coeficiente binomial. Com os dados acima, isso nos dá:
+
+<div class="fontGray">
+
+$$\small p=\frac{\binom{10}{1} + \binom{14}{11}}{\binom{24}{12}} = \frac{10! 14! 12! 12!}{1! 9! 11! 3! 24!} \approx 0,001346076$$
+
+</div>
+
+## ANOVA - Análise de Variância
+
+Análise da Variância (ANOVA) é um método para testar a igualdade de três ou mais médias populacionais, baseado na análise das variâncias amostrais.
+
+ANOVA pode ter utilizada para analisar dados obtidos tanto de um <span class="highlightGreen"> estudo observacional como de um estudo experimental</span>. Os experimentos podem envolver variáveis de resposta, fator e tratamento
+
+<span class="highlightRose">Exemplo:</span>
+
+Uma fábrica tem três linhas de produção e estão interessados em saber o quanto seus funcionários sabem sobre o gerenciamento de qualidade total. Uma amostra de 6 funcionários de cada linha foi selecionado e seus integrantes foram submetidos a um exame de seus conhecimentos sobre qualidade. As notas obtidas pelos funcionários estão listadas na tabela abaixo:
+
+|       **Observação**       | **Atlanta** | **Dallas** | **Seattle** |
+| :------------------------: | :---------: | :--------: | :---------: |
+|             1              |     85      |     71     |     59      |
+|             2              |     75      |     75     |     64      |
+|             3              |     82      |     73     |     62      |
+|             4              |     76      |     74     |     69      |
+|             5              |     71      |     69     |     75      |
+|             6              |     85      |     82     |     67      |
+|     **Média Amostral**     |     79      |     74     |     66      |
+|   **Variação Amostral**    |     34      |     20     |     32      |
+| **Desvio Padrão Amostral** |    5,83     |    4,47    |    5,66     |
+
+Os gerentes querem testar a hipótese de que a média das notas de exame é a mesma para todas as três fábricas. Consideremos as médias:
+
+- $\small μ_1$:média das notas de exame da população 1
+- $\small μ_2$:média das notas de exame da população 2
+- $\small μ_3$:média das notas de exame da população 3
+
+Embora jamais saibamos os valores reais de $\small μ_1,μ_2$ e $\small μ_3$, queremos usar os resultados amostrais para testar as seguintes hipóteses:
+
+<div class="fontBlack">
+
+$$\small H_0: μ_1= μ_2= μ_3$$
+
+$$\small H_a:\textrm{Nem todas as médias populacionais são iguais}$$
+
+</div>
+
+A ANOVA é um procedimento estatístico que pode ser usado para determinar se as diferenças observadas nas três médias amostrais são suficientemente grandes para rejeitarmos a $\small H_0$. A ANOVA analisa experimentos que envolvem variáveis de resposta, fator e tratamento.
+
+No exemplo as variáveis envolvidas são:
+
+- localização das fábricas
+- notas obtidas no exame de conhecimento sobre qualidade
+
+Dado que o objetivo é determinar se a média das notas do exame é a mesma para todas as três linhas de produção , as notas do exame são chamadas de **variável dependente** ou **variável de resposta** e o local da fábrica como **variável independente** ou **fator**.
+
+Em geral os valores de um fator selecionado para serem submetidos a uma investigação denominam-se **níveis do fator** ou **tratamentos**.
+
+### Hipótese sobre a análise de Variância
+
+Três hipóteses são necessárias para a análise de variância:
+
+1. **Para cada população, a variável de resposta está normalmente distribuída.**
+   - Implicação: As notas dos exames (variável resposta) devem estar normalmente distribuídas
+2. **A variância da variável de resposta, denotada por** $\small σ^2$, **é idêntica para todas as populações.**
+   - Implicação: A variância das notas obtidas no exame deve ser idêntica para todas as três linhas de produção.
+3. **As observações devem ser independentes.**
+   - Implicação: A nota de cada funcionário obteve no exame deve ser independente da nota obtida por qualquer outro funcionário.
+
+### Visão Conceitual
+
+Se as médias correspondentes às três populações forem iguais é esperado que as três médias amostrais estejam bem próximas entre si. Quanto mais próximas as médias amostrais estiverem, mais forte é a evidência que as médias populacionais são iguais.
+
+Por outro lado, quanto mais as médias amostrais forem distantes uma das outras mais forte é a evidência de que as médias populacionais não são iguais. Portanto:
+
+- Variabilidade pequena entre as médias amostrais: **evidência favorável a** $\small H_0$
+- Variabilidade grande entre as médias amostrais: **evidência favorável a** $\small H_0$
+
+Sendo <span class="highlightGreen">$\small H_a$ verdadeira</span> podemos usar a variabilidade entre as médias amostrais para desenvolver uma estimativa de $\small σ^2$. A distribuição amostral da média $\small \bar{x}$ da amostra correspondente a uma amostra aleatória simples de tamanho n extraída de uma população normal, estará normalmente distribuída e possui uma média μ com uma variância de $\small \frac{σ^2}{n}$ Como podemos observar na imagem abaixo:
+
+![](figures/hipoteseNula.png)
+
+<span class="highlightRose">Por exemplo (Hipótese nula verdadeira):</span>
+
+Sendo a hipótese nula verdadeira, as médias amostrais $\small \bar{x}_1= 79, \bar{x}_2= 74, \bar{x}_3= 66$ seriam valores extraídos aleatoriamente da distribuição amostral da mesma população ( como por exemplo, a exibida na figura acima). Neste caso, a média e a variância dos três valores podem ser usados para estimar a média e a variância da distribuição amostral.
+
+A estimativa da média seria dada por:
+
+<div class="fontGray">
+
+$$\small \frac{79+74+66}{3}=73$$
+
+</div>
+
+E essa estimativa chama-se: **média global da amostra.**
+
+A estimativa da variância da distribuição amostral de $\small \bar{x}, σ_{\bar{x}}^{2}$ é fornecida pela variância das três médias amostrais.
+
+<div class="fontGray">
+
+$$s_{\bar{x}}^{2} =\frac{(79 - 73)^2 + ( 74 - 73)^2 + ( 66 - 73)^2}{3 - 1} = 43$$
+
+</div>
+
+Dado que que $\small σ_{\bar{x}}^{2} = σ^2\/n$, a resolução de $\small σ^2$ fornece:
+
+<div class="fontBlack">
+
+$$σ^2 = nσ_{\bar{x}}^{2}$$
+
+</div>
+Portanto,
+
+<span class="highlightGray">Estimativa de $\small σ^2=n ( \textrm{Estimativa de }σ\bar{x}^{2} ) =ns_{\bar{x}}^{2} = 6 (43) = 258$</span>
+
+A essa estimativa, denomina-se: **estimativa de** $\small σ^2$ **entre tratamentos**
+
+```{r}
+sample = sort(rnorm(n = 100,mean = 73,sd = 43 ))
+a = dnorm(sample, mean = 73,sd = 43)
+plot(sample,a, type = "l", col="blue",ylim=c(0,0.01))
+lines(c(79, 79), c(0, 0.01), lwd = 2, col ="red",  lty = 2)
+lines(c(74, 74), c(0, 0.01), lwd = 2, col = "yellow",  lty = 2)
+lines(c(66, 66), c(0, 0.01), lwd = 2,  lty = 2)
+```
+
+Simulação de uma distribuição normal de média 73 e desvio padrão 43.
+
+- Amarelo = média amostral de 74
+- Preto = média amostral de 66
+- Vermelho = média amostral de 79
+
+Supondo a <span class="highlightGreen">$\small H_0$ falsa</span> , todas as médias de amostra iriam diferir. Seriam as amostras portanto, provenientes de populações normais com diferentes médias, elas resultarão em três diferentes distribuições amostrais, como pode ser observado na imagem abaixo:
+
+![](figures/hipoteseNulaFalsa.jpg)
+
+Dessa forma, $\small s_{\bar{x}}^{2}$será maior, fazendo que a estimativa de de $\small σ^2$ entre tratamentos seja maior.
+
+
