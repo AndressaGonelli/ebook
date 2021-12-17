@@ -1119,7 +1119,7 @@ A diferença entre as médias das populações é dado por: $\small μ_1- μ_2$ 
   $$\small H_0: μ_1- μ_2 = 0 \\ 
   H_a: μ_1- μ_2 ≠ 0$$
 
-<div>
+</div>
 
 Ao escolher o procedimento de amostragem que usaremos para coletar os dados referentes ao tempo de produção e testar as hipóteses, consideramos duas alternativas de projeto. Uma se baseia em amostras independentes e a outra em **amostras relacionadas:**
 
@@ -1187,7 +1187,7 @@ No método de amostras relacionadas, somente a diferença é levada em considera
   $$\small H_0: μ_d = 0 \\ 
   H_a: μ_d ≠ 0$$
 
-<div>
+</div>
 
 A média amostral e o desvio padrão amostral dos seis valores de diferença são os seguintes:
 
@@ -1197,7 +1197,7 @@ $$\small d=\frac{Σd_i}{n} = \frac{1,8}{6} = 0,30$$
 
 $$\small s_d=\sqrt{\frac{Σ(d_i- \bar{d})}{n -1}} =\sqrt{\frac{0,56}{5}}= 0,335$$
 
-<div>
+</div>
 
 Devido a amostra ser pequena, 6 elementos, precisamos levantar a hipótese de que a população de diferenças tem uma distribuição normal. Essa hipótese é necessária a fim de podermos usar a distribuição t para os procedimentos de teste de hipóteses e de estimação por intervalo. Com base nessa hipótese, a seguinte estatística de teste tem uma distribuição t com n -1 graus de liberdade:
 
@@ -1814,5 +1814,1564 @@ Supondo a <span class="highlightGreen">$\small H_0$ falsa</span> , todas as méd
 ![](figures/hipoteseNulaFalsa.jpg)
 
 Dessa forma, $\small s_{\bar{x}}^{2}$será maior, fazendo que a estimativa de de $\small σ^2$ entre tratamentos seja maior.
+
+#### Estimativa da variância dentro dos tratamentos
+
+A variância que ocorre dentro da cada uma das amostras também tem um efeito sobre a conclusão a que chegamos ao realizar a análise da variância. Quando uma amostra aleatória simples é selecionada de cada população, cada uma das variâncias amostrais oferece uma estimativa sem viés de $σ^2$. Portanto, podemos combinar ou agrupar as estimativas individuais de $\small σ^2$ em uma estimativa global.
+
+A estimativa global de $σ^2$ obtida dessa maneira é chamada de **estimativa agrupada** ou **estimativa de** $σ^2$ **dentro dos tratamentos** . Uma vez que cada variância amostral fornece uma estimativa de $\small σ^2$ baseada somente na variação existente dentro de cada amostra, a estimativa de $\small σ^2$ dentro dos tratamentos não é afetada pelo fato de as médias populacionais serem ou não serem iguais.
+
+Quando o tamanho das amostras é igual, a estimativa de $\small σ^2$ dentro dos tratamentos pode ser obtida calculando-se a média das variâncias individuais. Para o exemplo em questão temos:
+
+<span class="highlightGray">Estimativa de $\small σ^2$ dentro dos tratamentos = $\small \frac{34 + 20 + 32}{3} = 28,67$</span>
+
+No exemplo atual, a estimativa de $σ^2$ entre tratamentos (258) é muito maior que a estimativa de $\small σ^2$ dentro dos tratamentos (28,67). A razão das estimativas:
+
+<span class="highlightGray">$\small \frac{\textrm{Estimativa de } \sigma^2   \textrm{ entre tratamentos}}{\textrm{Estimativa de  } \sigma^2  \textrm{  dentro dos tratamentos}}
+ = \frac{258}{28,67} = 9$</span>
+
+A abordagem entre tratamentos produz uma boa estimativa de $\small σ^2$ somente se a hipótese nula for verdadeira; se a hipótese nula for falsa, a abordagem entre tratamentos superestimará $\small σ^2$.
+
+O critério **dentro do tratamento** fornece uma boa estima de $\small σ^2$ em qualquer um dos casos.
+
+Desse modo, <span class="highlightGreen">se a hipótese nula for verdadeira, as duas estimativas serão similares e suas razões serão próximas a 1.</span>
+
+Se a <span class="highlightRed">hipótese nula for falsa,</span> a estimativa <span class="highlightRed">entre tratamentos será maior que a estimativa dentro dos tratamentos </span> e a razão entre elas será grande.
+
+#### Resumo
+
+A lógica da ANOVA se baseia no desenvolvimento de duas estimativas independentes da variância populacional $σ^2$ comum:
+
+- Baseada na variabilidade existente **entre** as próprias médias amostrais
+- Baseada na variabilidade existente **dentro** de cada amostra
+
+Ao comparar as essas duas estimativas de $\small σ^2$, seremos capazes de determinar se as médias populacionais são iguais.
+
+### Observação
+
+Se os tamanhos das amostras forem iguais, a análise de variância não terá sensibilidade suficiente para detectar afastamentos da hipótese de que as populações estão normalmente distribuídas.
+
+### Fórmulas Matemáticas
+
+A análise de variância pode ser usada para testar a igualdade de k médias populacionais. A forma geral das hipóteses testadas é:
+
+<div class="fontBlack">
+
+$$\small H_0: μ_1= μ_2= ... = μ_k$$
+
+$$\small H_a:\textrm{Nem todas as médias populacionais são iguais}$$
+</div>
+em que:
+<div class="fontBlack">
+  $$\small μ_k = \textrm{média da k-ésima população}$$
+</div>
+Supomos que a amostra aleatória simples de tamanho $n_j$ tenha sido selecionada de cada uma das k populações ou tratamentos. Em relação aos dados amostrais resultantes, admitimos que:
+<div class="fontBlack">
+  - $\small x_{ij}$ = valor da observação i para o tratamento j
+  - $\small n_j$ = número de observações para o tratamento j
+  - $\small \bar{x}_j$ = média amostral para o tratamento j
+  - $\small s_j^2$ = variância amostral para o tratamento j
+  - $\small s_j$ = desvio padrão amostral para o tratamento j
+</div>
+
+A fórmula correspondente à média amostral para o tratamento j é a seguinte:
+<div class="fontBlack">
+
+  $$\small \bar{x}_j= \frac{\sum_{i=1}^{n_j} x_{ij}}{n_j}$$
+</div>
+A fórmula correspondente à variância amostral para o tratamento j é a seguinte:
+<div class="fontBlack">
+  $$\small s_j^2 = \frac{ \sum_{n_j}^{i = 1}(x_{ij} - \bar{x}_j)^2}{n_j - 1}$$
+</div>
+A média global da amostra, denotada por $\bar{x}$, é a soma de todas as observações divididas pelo número total de observações. Ou seja:
+<div class="fontBlack">
+  $$ \small 
+  \bar{\bar{x}}= \frac{\sum_{k}^{j = 1} \sum{n_j}{i = 1}x_
+  {ij}}{n_T}
+  $$
+</div>
+
+Em que:
+<div class="fontBlack">
+  $$\small n_T= n_1+n_2+ ⋅⋅⋅ + n_k$$
+</div>
+Se o tamanho de cada amostra for n, $\small n_T = k_n$. Nesse caso a equação se reduz a:
+<div class="fontBlack">
+  $$\small \bar{\bar{x}}= \frac{\sum_{j = 1}^{k} \sum_{i = 1}^{n_j}x_{ij}}{kn} = \frac{\sum_{j = 1}^{k} \sum_{i = 1}^{n_j}x_{ij/n}}{k} = \frac{\sum_{j = 1}^{k}\bar{x}_j}{k}$$
+</div>
+Em outras palavras, quando o tamanho das amostras forem iguais, a média global das amostras é simplesmente o valor médio das k médias amostrais.
+
+#### Estimativa da Variância Populacional entre Tratamentos
+
+O conceito da estimativa de $\small σ_2$ entre tratamentos é chamado **quadrado da média em razão do tratamento** e é denotada por MSTR (**mean square due to treatments**). A fórmula geral para calcular a MSTR é:
+<div class="fontBlack">
+  $$\small MSTR = \frac{\sum_{j = 1}^{k} n_j(\bar{x}_j - \bar{\bar{x}})^2}{k - 1}$$
+</div>
+O numerador é chamado **soma dos quadrados dos tratamentos** e é denotado por SSTR ( **sum of squares due to treatments**) O denominador, k-1, representa os graus de liberdade associados à SSTR. Portanto, o quadrado médio dos tratamentos pode ser calculado pela seguinte fórmula.
+
+<div class="fontBlack">
+  $$\small MSTR = \frac{SSTR}{k - 1}$$
+
+  $$\small SSTR = \sum_{j = 1}^{k}n_j\bar{(x}_j- \bar{\bar{x}})^2$$
+</div>
+Se $\small H_0$ for verdadeira, a MSTR produzirá uma estimativa sem viés de $\small σ^2$. Entretanto, se as médias de k populações não forem iguais, a MSTR não será um estimativa sem viés de $\small σ^2$; realmente, nesse caso, a MSTR deve superestimar $\small σ^2$.
+
+#### Estimativa da Variância Populacional dentro de Tratamentos
+
+Uma estimativa de $\small σ^2$ dentro de tratamentos é chamada **quadrado médio dos erros**, e é denotada por MSE ( **mean square due to error**). A fórmula geral para calcular o MSE é:
+
+<div class="fontBlack">
+  $$\small MSE =\frac{\sum_{j = 1}^{k}(nj - 1)s_j^2}{n_T - k}$$
+</div>
+O numerador é denominado **soma dos quadrados dos erros** e é denotado SSE ( **sum of square due to error**). O denominador de MSE, $\small n_T -k$, é o grau de liberdade associado à SSE. Portanto, a fórmula para calcular MSE também pode ser definida da seguinte forma:
+
+<div class="fontBlack">
+  $$\small MSE =\frac{SSE}{n_T - k}$$
+
+  $$\small SSE =\sum_{j = 1}^{k}(n_j - 1)s_j^2$$
+</div>
+O MSE baseia-se na variação dentro de cada um dos tratamentos; ele não é influenciado pelo fato de a hipótese nula ser ou não ser verdadeira. Portanto, o MSE sempre produz uma estimativa sem viés de $\small σ^2$.
+
+### Comparando as Estimativas de Variância: o Teste F
+
+Se a hipótese nula for verdadeira, o MSTR (estimativa entre tratamentos) e o MSE ( estimativa dentro dos tratamentos ) produzem duas estimativas independentes da variância populacional $\small σ^2$. Quando a hipótese nula é verdadeira e as pressuposições ANOVA são válidas, a distribuição amostral da razão MSTR/MSE tem uma **distribuição F** com k - 1 graus de liberdade no numerador e $n_T - 1$ graus de liberdade no denominador. A forma geral dessa distribuição F é mostrada abaixo:
+
+![](figures/distribuicaoF.jpg)
+
+<span class="highlightGreen">Se a hipótese nula for verdadeira,</span> o valor de MSTR/MSE parecerá que é proveniente dessa distribuição. <span class="highlightRed">Se a hipótese nula for falsa,</span> o valor de MSTR/MSE sofrerá uma inflação, porque um MSTR grande produz uma estimativa em excesso de $σ^2$. Os valores de MSTR/MSE, essa razão torna-se a estatística de teste do teste de hipóteses sobre a igualdade de k médias populacionais. A estatística de teste é a seguinte:
+
+<div class="fontBlack">
+  $$\small F = \frac{MSTR}{MSE}$$
+</div>
+A distribuição F tem k - 1 graus de liberdade no numerador e $\small n_T - k$ graus de liberdade no denominador.
+
+No exemplo, usando um nível de significância de α = 0,05 para realizar o teste de hipóteses. As hipóteses nula e alternativa são redefinidas da seguinte maneira:
+
+<div class="fontGray">
+  $$\small H_0: μ_1= μ_2= μ_3$$
+
+  $$\small H_a:\textrm{Nem todas as médias populacionais são iguais}$$
+</div>
+Com MSTR = 258 e MSE = 28,67 calculados anteriormente, o valor da estatística de teste é:
+<div class="fontGray">
+  $$\small F = \frac{MSTR}{MSE} = \frac{258}{28,67} = 9$$
+</div>
+- Os graus de liberdade do numerador são (k - 1)= (3 - 1) = 2
+- Os graus de liberdade do denominador são ($\small n_T - k$) = (18 - 3) = 15
+
+Uma vez que rejeitamos a hipótese nula para valores grandes da estatística de teste, calcularemos o valor p como a área da cauda superior da distribuição F à direita da estatística de teste F = 9. A regra de rejeição de $\small H_0$ dos testes de hipótese habituais se o valor p ≤ α aplica-se nesse caso.
+
+Um trecho da tabela F é exibido abaixo:
+
+<table>
+<thead>
+  <tr>
+    <th>Área da Cauda Superior<br></th>
+    <th>0,10</th>
+    <th>0,05</th>
+    <th>0,025</th>
+    <th><span class="highlightGreen round">0,01<span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Valor F ($\small gl_1 = 2, gl_2 = 15$)</td>
+    <td>2,70</td>
+    <td>3,68</td>
+    <td>4,77</td>
+    <td><span class="highlightGreen round">6,36<span></td>
+  </tr>
+</tbody>
+</table>
+
+Já que F = 9 é maior que 6,36, a área da cauda superior em F = 9 é menor que 0,01, portanto, o valor p é menor que 0,01. <span class="highlightGreen"> Com o valor de α = 0,05 a $\small H_0$é rejeitada.</span> O teste estão fornece suficientes evidências para concluirmos que as médias das três populações não são iguais, ou seja, a média populacional das notas de exame nas três fábricas não é igual.
+
+O critério do valor crítico também poderia ser utilizado, no caso ficaria da seguinte forma:
+<div class="fontGray">
+  $$\small \textrm{Rejeitar }H_0\textrm{ se F ≥ }3,68$$
+</div>
+Com F = 9 rejeitamos a $\small H_0$ e concluímos que a média das três populações não são iguais.
+
+Em resumo, com o exemplo obtivemos os seguintes resultados:
+
+<table>
+<thead>
+  <tr>
+    <th>Fonte de Variação</th>
+    <th>Soma dos Quadrados</th>
+    <th>Graus de Liberdade</th>
+    <th>Quadrado Médio</th>
+    <th>F</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Tratamentos</strong></td>
+    <td>516</td>
+    <td>2</td>
+    <td>258</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td><strong>Erro</strong></td>
+    <td>430</td>
+    <td>15</td>
+    <td>28,67</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td>946</td>
+    <td>17</td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+A soma do quadrados associada à fonte de variação que recebe o rótulo de “Total” denomina-se **soma total dos quadrados** - SST (total sum of squares).
+<div class="fontBlack">
+  $$\small SST = SSTR + SSE$$
+</div>
+Os graus de liberdade associadas a essa soma total de quadrados é a soma dos graus de liberdade associados com a estimativa de $σ_2$ entre tratamentos e com a estimativa de $σ_2$ dentro dos tratamentos.
+
+A soma total dos quadrados (SST) dividida por seus graus de liberdade <span class="highlightBlue">$n_T - 1$</span> é a <u>variância amostral global </u>que seria obtida se tratássemos o conjunto inteiro de 18 observações como um conjunto de dados. Quando se tem o conjunto de dados inteiro como uma única amostra, a fórmula para calcular a soma total dos quadrados, SST, é:
+<div class="fontBlack">
+  $$\small SST= \sum_{j = 1}^{k}\sum_ {i = 1}^{n_j}(x_{ij}- \bar{\bar{x}} )^2$$
+</div>
+Em outras palavras, a SST pode ser dividida em duas somas de quadrados:
+
+- a soma dos quadrados dos tratamentos (SSTR)
+- a soma dos quadrados dos erros (SSE)
+
+Os graus de liberdade correspondentes a SST ( <span class="highlightBlue">$\small n_T - 1$</span>), podem ser divididos nos graus de liberdade correspondentes a SSTR (<span class="highlightBlue">$\small k - 1$</span> ), e nos graus de liberdade correspondentes a MSE (<span class="highlightBlue">$\small n_T - k$</span>).
+
+A análise de variância pode ser vista como um processo de **partição** da soma total dos quadrados e os graus de liberdade em suas fontes correspondentes: tratamento e erro. Dividir a soma dos quadrados pelos graus de liberdade apropriados produzirá as estimativas de variância e o valor F que são usadas para testar a hipótese de médias populacionais iguais.
+
+No caso do exemplo teremos:
+<div class="fontGray">
+  $$\small SST = SSTR + SSE$$
+
+  $$\small SST = 516+ 430 = 946$$
+</div>
+O Desvio Padrão Agrupado (estimativa de σ) é dado por:
+<div class="fontGray">
+$$\small s = \sqrt{MSE}$$
+
+$$\small s = \sqrt{28,7} = 5,354$$
+</div>
+### Estimação por intervalo
+
+A forma geral de uma estimação por intervalo de uma média populacional é:
+<div class="fontBlack">
+  $$\small \bar{x}± t_{α / 2} \frac{s}{\sqrt{n}}$$
+</div>
+em que σ é a estimativa do desvio padrão _s_ da população. Na análise de variância, a melhor estimativa de σ é fornecida pela raiz quadrada do MSE ou do Desvio Padrão Agrupado. No caso do exemplo temos (especificamente para fábrica de Atlanta):
+<div class="fontGray">
+
+  $$\small \bar{x}± t_{α / 2} \frac{s}{\sqrt{n}}$$
+
+  $$\small 79± 2,131 \frac{5,354}{\sqrt{6}}$$
+
+  $$\small 79± 4,66$$
+
+  $$\small 74,34 ≤ μ ≤ 83,66$$
+</div>
+Usamos o grau de liberdade associado à estimativa de $σ^2$ dentro dos tratamentos e a média obtida na fábrica de Atlanta.
+
+### Resumo
+
+<b>Teste da igualdade de <i>k</i> médias populacionais</b>
+$$\small H_0: \mu_1 = \mu_2=...=\mu_k$$
+$$\small H_a: \textrm{Nem todas as médias populacionais são iguais}$$
+
+<b>Estatística de Teste</b>
+$$\small F = \frac{MSTR}{MSE}$$
+
+<b>Estatística de Teste</b>
+
+Critério do valor <i>p</i>: Rejeitar $\small H_0$ se o valor de $\small p \leq \alpha$
+
+Critério do valor crítico: Rejeitar $\small H_0$ se o valor de $\small F \geq F_{\alpha}$
+
+em que o valor de $\small F_{\alpha}$ baseia-se em uma distribuição F com $\small k-1$ graus de liberdade no numerador e $\small n_T - k$ graus de liberdade no denominador.
+
+#### Tabela de análise de variância
+
+<table>
+<thead>
+  <tr>
+    <th>Fonte de Variação</th>
+    <th>Graus de Liberdade</th>
+    <th>Soma dos quadrados</th>
+    <th>Quadrado Médio</th>
+    <th>Estatística F</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Tratamentos</strong></td>
+    <td>k - 1</td>
+    <td>SQ ( Tr )</td>
+    <td>QM  ( Tr )</td>
+    <td>$\frac{Qm ( Tr )}{QME}$</td>
+  </tr>
+  <tr>
+    <td><strong>Erro</strong></td>
+    <td>k (n  - 1)</td>
+    <td>SQE</td>
+    <td>QME</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td>kn - 1</td>
+    <td>SQT</td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+<div class="fontBlack">
+  $$\small SQ ( Tr) = s_{\bar{x}}^{2} =Σ\frac{(\bar{x}_i - \bar{x})^2}{k - 1} =\textrm{Soma dos quadrados entre tratamentos}$$
+
+  $\small \bar{x}$ = média global
+  $\small \bar{x}_i$ = média do tratamento
+
+  $$\small QM ( Tr ) = \frac{SQ ( Tr)}{k - 1} = \textrm{Quadrado Médio de Tratamento}$$
+
+  $$\small SQE = s_{\bar{x}}^2 =Σ\frac{(\bar{x}_{ij} - \bar{x}_i)^2}{k (n - 1)} =\textrm{Soma dos quadrados entre tratamentos}$$
+
+  $\small \bar{x}_{ij}$= elemento do tratamento
+  $\small \bar{x}_i$ = média do tratamento
+
+  $$\small QME= \frac{SQE}{k (n - 1)} = \textrm{Quadrado Médio de Erro}$$
+
+  $$\small SQT = \sum_ {i = 1}^{k} \sum_{j =1}^n(x_{ij} - \bar{x} )^2 $$
+
+  $\small \bar{x}_{ij}$= j-ésimo elemento do i-ésimo tratamento ou
+
+  $\small SQT =SQ ( Tr) + SQE$
+</div>
+
+### Comparações Múltiplas
+
+Os testes de comparações múltiplas, ou teste de comparações de médias, servem como uma complemento ao teste F, para detectar diferenças de efeitos entes tratamentos. Ou seja, quando a ANOVA detectou que existe uma diferença significativa entre as médias o teste de comparações múltiplas permite ranquear tais diferenças.
+
+São utilizados para testar todo e qualquer contraste entre duas médias e não permite comparar grupos de médias entre si.
+
+E porque não simplesmente utilizar um teste t? Porque assim a possibilidade de cometer um erro de tipo I (atribuir diferenças significativas quando elas realmente não existem) aumentam exponencialmente ao número de pares.
+<div class="fontBlack">
+$$\small Erro = 1 - (α)^n$$
+</div>
+n = número de pares possíveis
+
+A tabela abaixo auxílio na escolha do teste adequado de acordo com o coeficiente de variação da amostra e o número de tratamentos.
+
+<table>
+<thead>
+  <tr>
+    <th rowspan="2">Coeficiente de Variação</th>
+    <th colspan="2">Número de tratamentos</th>
+  </tr>
+  <tr>
+    <th>&lt; 4 tratamentos</th>
+    <th>&gt; 4 tratamentos</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Menor que 15%</td>
+    <td>Tukey, SNK ou Sheffé</td>
+    <td>Tukey ou SNK</td>
+  </tr>
+  <tr>
+    <td>Entre 15% e 30%</td>
+    <td>Teste t</td>
+    <td>Duncan ou SNK</td>
+  </tr>
+  <tr>
+    <td>Maior que 15%</td>
+    <td>Teste t</td>
+    <td>Teste t, Duncan</td>
+  </tr>
+</tbody>
+</table>
+
+O teste Scott-Knott é sempre recomendado.
+
+<span class="highlightRose">Exemplo:</span>
+
+Os dados abaixo, informam o tempo em minutos que uma certa pessoa levou para dirigir para o local de trabalho em cinco duas, selecionadas ao acaso, ao longo de quatro trajetos diferentes:
+
+|                            |     |     |     |     |     | $\small \bar{x}$ |
+| :------------------------- | :-- | :-- | :-- | :-- | :-- | :-------: |
+| <strong>Trajeto 1</strong> | 25  | 26  | 25  | 25  | 28  |   25,8    |
+| <strong>Trajeto 2</strong> | 27  | 27  | 28  | 26  | 26  |   26,8    |
+| <strong>Trajeto 3</strong> | 28  | 29  | 33  | 30  | 30  |   30,0    |
+| <strong>Trajeto 4</strong> | 28  | 29  | 27  | 30  | 27  |   28,2    |
+
+Iremos verificar por meio da ANOVA se são significantes as diferenças entre as quatro médias amostrais. Os resultados da análise são os seguintes (utilizando uma significância de 0,01):
+
+<div class="fontGray">
+  $$\small H_0: μ_1= μ_2= μ_3= μ_4$$
+
+  $$\small H_a:\textrm{Nem todas as médias populacionais são iguais}$$
+</div>
+<table>
+<thead>
+  <tr>
+    <th>Fonte de Variação</th>
+    <th>Graus de Liberdade</th>
+    <th>Soma dos quadrados</th>
+    <th>Quadrado Médio</th>
+    <th>Estatística F</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Tratamentos</strong></td>
+    <td>3</td>
+    <td>49.8</td>
+    <td>16.6</td>
+    <td>8.736842105</td>
+  </tr>
+  <tr>
+    <td><strong>Erro</strong></td>
+    <td>16</td>
+    <td>30.4</td>
+    <td>1.9</td>
+    <td>P-Value: .0011581109</td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td>19</td>
+    <td>80.2</td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+Sxp = 1.37840488
+
+O p-value é menor que a significância (0.001 < 0.01), portanto o hipótese nula deve ser rejeitada. Ou seja, nem todas as médias são iguais. Mas então qual seria a ordem dessas médias? Quais são maiores ou menores?
+
+Se fossemos fazer um teste t de duas amostras teríamos um total de $\small \binom{4}{2} =6$ pares possíveis. Se os testes t forem feitos ao nível 0,05 de significância a probabilidade é de $\small 1 - (0,95)^6 ≈0,26$ de cometer pelo menos um erro de tipo I.
+
+Para responder essa questão controlando a probabilidade de erros de tipo I utilizamos as comparações múltiplas. O método a seguir é chamado de **intervalo studentizado.**
+
+**Intervalo studentizado - Teste Tukey ( HSD - honestly significant difference )**
+
+O **intervalo studentizado, também chamado teste post-hoc** foi projetado para controlar a probabilidade global de cometermos pelo menos um erro tipo I quando comparamos os diferentes pares de médias. Ele é baseado no argumento que a diferença entre as médias de dois tratamentos (digamos, os tratamentos i e j) é significante se:
+<div class="fontBlack">
+  $$\small | \bar{x}_i - \bar{x}_j | ≥ \frac{q_α}{\sqrt{n}} s$$
+</div>
+s = raiz quadrado de do erro quadrático médio ( QME)
+
+α = nível geral se significância
+
+$\small q_α$ = valor calculado a partir do número de tratamentos, significância e graus de liberdade para o erro Tabela Q - Tukey
+
+Portanto, a distância mínima significativa é:
+
+<div class="fontGray">
+  $$\small | \bar{x}_i - \bar{x}_j | ≥ \frac{\bar{q_α}}{{\sqrt{n}}} s$$
+
+  $$\small \frac{4,05}{\sqrt{5}} 1,38=2,50$$
+</div>
+Em R o $\small q_α$ pode ser dado por:
+
+```{r}
+qtukey(p = 0.95, df = 16, nmeans = 4)
+```
+
+Quando utilizamos as comparações múltiplas devemos organizar os tratamentos de acordo com o tamanho de suas médias e realizar o cálculo das diferenças das médias de todos os pares de trajetos possíveis, portanto:
+
+| Trajeto 1 | Trajeto 2 | Trajeto 3 | Trajeto 4 |
+| :-------: | :-------: | :-------: | :-------: |
+|   25,8    |   26,8    |   28,2    |    30     |
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Trajeto 1</th>
+    <th>Trajeto 2</th>
+    <th>Trajeto 3</th>
+    <th>Trajeto 4</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Trajeto 1</td>
+    <td>*</td>
+    <td>1</td>
+    <td>2,4</td>
+    <td><span class="highlightRed round">4,2</span></td>
+  </tr>
+  <tr>
+    <td>Trajeto 2</td>
+    <td>**</td>
+    <td>*</td>
+    <td>1,4</td>
+    <td><span class="highlightRed round">3,2</span></td>
+  </tr>
+  <tr>
+    <td>Trajeto 3</td>
+    <td>**</td>
+    <td>**</td>
+    <td>*</td>
+    <td>1,8</td>
+  </tr>
+  <tr>
+    <td>Trajeto 4</td>
+    <td>***</td>
+    <td>**</td>
+    <td>**</td>
+    <td>*</td>
+  </tr>
+</tbody>
+</table>
+
+Como podemos observar, somente os trajetos 1 e 4 e 2 e 4 apresentaram diferenças significativas. Ou seja, os trajetos 1,2 e 3 não são muito diferentes entre si e os trajetos 3 e 4 também não são muito diferentes entre si. É como se formassem dois grupos, onde os mais indicados seriam o grupo 1,2,3 ao invés do grupo dos trajetos 3 e 4.
+
+Em R teríamos:
+
+```{r}
+a <- read.csv("data/trajetos.csv")
+trajeto <- c(rep("Trajeto1",5),rep("Trajeto2",5),rep("Trajeto3",5),rep("Trajeto4",5))
+tempo = c(a$Trajeto.1, a$Trajeto.2, a$Trajeto.3, a$Trajeto.4)
+data <- data.frame(trajeto, tempo)
+TukeyHSD(aov(lm(tempo ~ trajeto, data = data)))
+```
+
+### Princípios básicos da experimentação
+
+Os princípios básicos da experimentação:
+
+- repetição
+- casualização
+- controle local
+
+**Repetição**: Corresponde ao número de parcelas que receberão um mesmo tratamento. Quanto maior a variabilidade do meio em que se realiza o experimento, e (ou) quando se deseja que os tratamentos apresentem poucas diferenças, maior o número de repetições, isso possibilita que o experimento tenha uma menor probabilidade de erro. Contudo, alguns fatores podem limitar o número de repetições como: o número de tratamentos que serão comparados, pela disponibilidade de material e de área experimental, entre outros. Além de permitir a estimativa do erro experimental, a repetição também aumentar a precisão das estimativas e o poder dos testes estatísticos
+
+**Casualização**: consiste em se distribuir, aleatoriamente, os tratamentos nas parcelas, de modo que cada um tenha a mesma chance de ocupar qualquer parcela na área experimental. Com isso, a casualização evita que determinado tratamento seja favorecido e garanta que os erros sejam independentes.
+
+**Controle Loca**l: serve para evitar as influências externas, que seriam responsáveis pela diferenciação dentro e entre tratamentos, fato que mascararia os resultados da pesquisa.
+
+##### Como definir o número de repetições de um experimento?
+
+O número ótimo de repetições deve levar em conta os recursos disponíveis e em geral seguem as seguintes regras:
+
+- Obter no mínimo vinte parcelas
+- Graus de liberdade dos resíduos deve ser maior que 10
+
+Ou ainda se basear pela revisão de literatura, verificando a quantidade de repetições geralmente utilizadas para aquele tipo de experimento. As repetições também podem ser definidas por meio de métodologias estatísticas como:
+
+- análise do coeficiente de variação da característica, observado a diferença mínima significativa
+
+#### Pressupostos do modelo estatístico
+
+Os pressupostos do modelo estatístico são que os erros são independentes, homocedásticos e normais.
+
+**Erros independentes**: Se o experimento é independentes, os dados coletados serão independentes e assim também seus erros.
+
+**Homocedasticidade** da variância: Constância da variância ao longo do eixo X. A variância em questão trata da distância entre o ponto predito pelo modelo e o ponto observado(resíduo), a homocedasticidade se refere a variância entre predito x observado não aumentar ao longo do eixo x, ou seja, a variância é constante no modelo. Caso a variância aumente/diminua com o tempo o dado é dito heterocedástico.
+
+**Normalidade da distribuição**: Os dados devem estar normalmente distribuídos, ou seja, seguir uma distribuição normal. O teste de normalidade pode ser efetuado por meio do **Teste de Shapiro Wilk**
+
+O pressuposto do erro é expresso pela seguinte equação:
+
+$\small ε ∼ N ( 0, I σ^2)$
+
+##### Consequências da não-validação de pressupostos
+
+A violação do pressuposto de normalidade é crítica se os grupos forem pequenos (abaixo de 30 observações) e não tão importante se forem grandes. A violação do pressuposto de homogeneidade pode levar a detecção das diferenças entre os grupos, que de fato existem. Seja como for, a ANOVA é um teste bastante robusto.
+
+Regra geral é apenas quando o resultado está na “zona cinzenta”, i.e. de p-value 1-10%, que não se deve tirar conclusões se houver pressupostos não validados.
+
+##### Testes não paramétricos
+
+No caso de múltiplas violações grosseiras dos pressupostos será necessário recorrer a um método não paramétrico para analisar o planejamento experimental elaborado.
+
+###### _Um fator - Teste de Krustal-Wallis_
+
+Um teste alternativo quando não estão validados os pressupostos da ANOVA é o teste de Kruskal-Wallis. Este é um teste não-paramétrico, as suas hipóteses H0 e Ha . não se referem a parâmetros da distribuição das variáveis estatísticas, como a média μ , mas sim a características gerais dessas distribuições:
+
+<div class="fontGray">
+  $$\small H_0: \textrm{os grupos têm a mesma distribuição}$$
+
+  $$\small H_a: \textrm{Há pelo menos um grupo com distribuição diferente dos restantes}$$
+</div>
+O teste de Kruskal-Wallis pode ser executado independentemente do tipo de dados, mas tem mais dificuldades em identificar diferenças entre grupos, no geral devolve p-values mais elevados. O teste funciona transformando as observações em postos (ranks), após o que calcula um valor, H, e com ele obtém um p-value. Esta transformação de valores em postos chama-se rank transform e é uma das formas principais de relacionar a estatística paramétrica com a não-paramétrica.
+
+Compare o p-value obtido pelo teste anova e abaixo pelo krustal.test:
+
+```{r}
+prod = c(8.7, 8.3, 7.6, 6.0, 7.9, 5.7, 8.0, 7.0, 8.7, 8.7, 4.7,
+4.0, 6.7, 6.3, 5.0)
+vinha = c(rep("SGab",5),rep("SMig",5),rep("SRaf",5))
+dados = data.frame(prod,vinha)
+anova(lm(prod ~ vinha, data = dados))
+kruskal.test(prod ~ vinha, data = dados)
+```
+
+Como vemos, o teste de Kruskal-Wallis devolve um p-value maior do que a ANOVA, mas também próximo de 1%, confirmando mais uma vez que (pelo menos) um dos grupos é diferente dos restantes.
+
+###### _Dois fatores - Teste de rank ANOVA_
+
+Para realização do teste ANOVA de dois fatores, no caso de múltiplas violações grosseiras, é preciso realizar um teste não paramétrico. Para ANOVA de um fator, o teste de Kruskal-Wallis é útil, porém no caso de dois fatores. De acordo com Conover e Iman podemos substituir as observações das variáveis em estudo pelos seus postos (ranks) e realizar a ANOVA tradicional sobre eles.
+
+A transformação de posto ( rank transformation ) pode ser feito em R com o comando rank():
+
+```{r}
+grau = c(14, 11, 11, 11, 8, 10, 11, 11, 10, 17, 16, 14, 10, 10, 7,
+5, 8, 8, 8, 7, 4, 6, 7, 8, 17, 21, 17, 15, 19, 16, 15, 21, 18, 16,
+17, 19)
+tipoVinho = c(rep("bairrada",12),rep("verde",12),rep("porto",12))
+tipoCasco = c(rep(c(rep("carvalho",6),rep("pinho",6)),3))
+grauVinho = data.frame(grau,tipoVinho,tipoCasco)
+anova(lm(rank(grau)~tipoVinho*tipoCasco,data=grauVinho))
+```
+
+A ANOVA sobre os postos pode depois ser complementada pelos testes post-hoc usuais, bastando
+
+para isso ter novamente o cuidado de usar sempre rank(nome) como variável de resposta. A
+
+interpretação destes testes não é em termos de médias da variável de resposta, mas sim,
+
+naturalmente, em termos do rank médio das observações dos grupos, ou seja, “grupo A tem rank médio maior que grupo B” ou algo de semelhante.
+
+A ANOVA sobre os postos também pode ser usada como uma alternativa ao teste de Kruskal-Wallis
+
+para o caso de um fator, com a vantagem de poder ser seguida de um banal teste de Tukey sobre os postos.
+
+##### Problemas do teste anova por ranks
+
+Como para todo teste paramétrico de ANOVA existe um teste não paramétrico pode parecer uma boa ideia ignorar os pressupostos e sempre partir para um teste não paramétrico. Porém existem algumas observações a serem feitas:
+
+- Para testes de um fator
+  - p-value dos ranks se diferem de um teste de Krustal-Wallis (que seria o teste exato)
+    - Não são grandes, mas existem - Conover e Iman
+  - Portanto, em caso de violação dos pressupostos só se deve recorrer ao ANOVA por ranks dado a inexistência do outro teste não paramétrico
+- Para teste de dois ou mais fatores
+  - o p-value do teste de interação por ranks deflaciona ( cresce) artificialmente quando há rejeição da $H_0$ nos fatores 1 e 2. Ou seja, caso ambos os fatores influenciem a variável de resposta é possível que o teste à interação fique enviesado no sentido de rejeição (detectando interação onde não existem).
+  - Portanto em caso de tripla rejeição ( influência de ambos os fatores e interação) deve ser observado o diagrama de interação para confirmação dos resultados.
+    - Dada a não evidência clara de interação a hipótese de interação deve ser rejeitada.
+  - Em alternativa, se se quiser mesmo um p-value exato ao teste de interação, há que correr uma ANOVA específica para o efeito, a “ANOVA-ART” (aligned rank transform ANOVA), disponível no pacote R ARTool
+
+#### Delineamentos
+
+Os delineamentos mais comuns são os:
+
+- DIC - Delineamento Inteiramente Casualizado
+- DBC - Delineamento em Blocos Casualizados
+- DBC - Blocos ao acaso
+
+Eles tem por objetivo remover parte do erro experimental do experimento, de modo que as diferenças que forem apontadas numa comparação entre médias, ou numa análise de variância sejam, de fato, em função de diferenças entre os dados e não em função da variância devido a um fator externo ao experimento (ou não medido)- que é chamado de variação ao acaso.
+
+##### Delineamento Inteiramente Casualizado
+
+É o delineamento mais simples, onde a área do experimento é dividido em blocos e por meio de sorteio os tratamentos são destinados a cada área.
+
+| T1  | T2  | T2  | T1  |
+| :-- | :-- | :-- | :-- |
+| T1  | T1  | T2  | T2  |
+
+Dessa forma, nenhum tratamento é favorecido por uma variabilidade (não aparente) e o experimento fica protegido pela aleatoriedade.
+
+Neste caso somente os princípios da aleatorização e da casualização são levados em conta, não existindo portanto o controle local. Devido a isso, o ambiente do experimento deve ser o mais uniforme possível
+
+**Vantagens**
+
+- Qualquer número de tratamentos e repetições pode ser usado
+- As repetições podem variar entre tratamentos
+- É simples de ser implantado
+- O número de graus de liberdade para o resíduo é o maior possível
+
+**Desvantagens**
+
+- Exige homogeneidade total das condições experimentais
+- Conduz estimativas elevadas do erro experimental
+
+**Objetivo**
+
+- Permitir a estimativa do erro experimental
+- Contribuir para aumentar a precisão dos experimentos
+- Fornecer informações sobre o procedimento mais apropriado para proceder os testes de significância
+
+##### Delineamento em Blocos Casualizados
+
+O delineamento em blocos casualizados é o delineamento mais utilizado nas pesquisas devidos sua simplicidade e alta precisão. Neste delineamento são levadas em consideração os princípios da repetição, casualização e do controle local.
+
+Quando existe uma variabilidade entre as áreas experimentais, como no exemplo abaixo, um terreno em declive, onde quanto mais embaixo no terreno, maior a fertilidade e maior a umidade. Dessa forma se os tratamentos fossem somente repetidos e aleatorizados algum tratamento poderia ser favorecido ao ter mais parcelas da área baixa do terreno.
+
+![](figures/Blocos1.png)
+
+Para contornar esse problema de enviesamento de dados podemos criar conjuntos ambientais homogêneos chamados blocos, sendo esta a aplicação do princípio do controle local:
+
+![](figures/Blocos2.png)
+
+Os blocos tem por objetivo homogeneizar as unidades experimentais dentro de cada bloco, de modo a minimizar a variabilidade dentros dos blocos e maximizar a variabilidade entre os blocos.
+
+Dentro desses blocos será realizada uma distribuição casualizada, que é a aplicação do princípio da repetição e casualização, podendo ter uma ou mais repetições dentro da cada bloco.
+
+**Vantagens**
+
+- A perda de um ou mais blocos não dificulta a análise estatística
+- Conduz estimativas com erro experimental menos elevado
+- A análise é simples
+- Permite, dentro de certos limites, utilizar qualquer número de tratamentos e repetições
+- Controla homogeneidade do ambiente onde o experimento é conduzido
+- Melhor estimativa da variância residual (QMR)
+
+**Desvantagens**
+
+- Redução dos graus de liberdade dos resíduos
+- Exige homogeneidade dentro do bloco
+- Susceptível ao desbalanceamento
+- Não permite um número muito grande de tratamentos
+
+##### Delineamento em Quadrado Latino
+
+Quando existem heterogeneidade em dois sentidos como no exemplo abaixo onde a seta azul indica a umidade e a seta preta a fertilidade:
+
+![](figures/BlocoLatino.png)
+
+A solução é dividir a área em blocos, horizontais e verticais na mesma quantidade que os tratamentos e os tratamentos deveriam ser distribuídos de forma a não haver o mesmo tratamento numa mesma linha ou coluna, sendo então o controle local aplicado em dois sentidos (linha e coluna). Assim todos os tratamentos estão bem representados nas duas condições de heterogeneidade
+
+![](figures/BlocoLatino2.png)
+
+Vantagens
+
+- Ideal para condição de grande heterogeneidade na área experimental
+- É mais informativo em situações em que se quer obter informações sobre as linhas e as colunas
+
+Desvantagens
+
+- Baixa flexibilidade
+- Número de tratamentos, repetições, linhas e colunas devem ser os mesmos
+- Não possibilita a avaliação de muitos tratamentos
+- Números de parcelas =( Número de tratamentos )²
+- Perda severa de graus de liberdade do resíduo
+- A perda de blocos/parcelas causa um grave desbalanceamento
+
+### ANOVA de dois critérios (sem interação)
+
+A formulação de hipóteses a serem testadas no caso de duas variáveis é representada da seguinte forma:
+
+<div class="fontBlack">
+  $$\small μ_{ij}= μ + α_{i} + β_{j}$$
+</div>
+$\small μ_{ij}$ = média populacional que corresponde ao i-ésimo tratamento e j-ésimo bloco
+
+μ = média global - média de todas as médias populacionais $\small μ_{ij}$
+
+$\small α_i$ =efeitos do tratamento (cuja soma é zero)
+
+$\small β_j$= efeitos de bloco (cuja soma é zero)
+
+As duas hipóteses que serão testadas são escritas:
+
+<div class="fontGray">
+  $$\small H_0 : α_1 = α_2 = ... = α_k = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do tratamento αi são iguais a zero}$$
+</div>
+e
+<div class="fontGray">
+  $$\small H_0: β_1 = β_2 = ... = β_n = 0$$
+  
+  $$\small H_a:\textrm{Nem todas os efeitos do bloco βi são iguais a zero}$$
+</div>
+Para testar a segunda hipótese é necessária uma grandeza análoga à soma dos quadrados de tratamentos que meça a variação entre as médias de blocos. Para tanto temos a **soma de quadrados de blocos**:
+<div class="fontBlack">
+  $$\small SQB = \frac{1}{k} . \sum_{j = 1}^{n}T_{. j}^{2} - \frac{1}{kn^.} T_{..}^{2}$$
+</div>
+$\small T . j$ = total de todos os valores de j-ésimo bloco
+
+$\small x_{ij}$ = valor da observação i para o tratamento j
+
+$\small n_j$ = número de observações para o tratamento j
+
+<div class="fontBlack">
+$$\small STQ =\sum_{i = 1}^{k} \sum_{j = 1}^{n}x_{ij}^{2}- \frac{1}{kn} . T_{..}^{2}$$
+
+$$\small SQ (Tr) =\frac{1}{n^.} \sum_{i = 1}^{k}T_{i.}^{2}- \frac{1}{kn} . T_{..}^{2}$$
+
+$$\small STQ = SQ (Tr) + SQB + SQE$$
+
+$$\small SQE = STQ -[ SQ (Tr) + SQB]$$
+</div>
+<table>
+<thead>
+  <tr>
+    <th>Fonte de Variação</th>
+    <th>Graus de Liberdade</th>
+    <th>Soma dos quadrados</th>
+    <th>Quadrado Médio</th>
+    <th>Estatística F</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Tratamentos</strong></td>
+    <td>k - 1</td>
+    <td>SQ ( Tr )</td>
+    <td>$\small QM  ( Tr ) = \frac{SQ (Tr )}{k  -1}$ </td>
+    <td>$\small \frac{Qm ( Tr )}{QME}$</td>
+  </tr>
+  <tr>
+    <td><strong>Blocos</strong></td>
+    <td>n  - 1</td>
+    <td>SQB</td>
+    <td>$\small QMB = \frac{SQB}{n -1}$</td>
+    <td>$\small \frac{QMB}{QME}$</td>
+  </tr>
+  <tr>
+    <td><strong>Erro</strong></td>
+    <td>(k - 1) (n  - 1)</td>
+    <td>SQE</td>
+    <td>$\small QME = \frac{SQE}{(k - 1(n - 1))}$</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td>kn - 1</td>
+    <td>SQT</td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<span class="highlightRose">Exemplo:</span>
+
+Suponhamos que seja aplicado um teste de compreensão de leitura a amostras aleatórias de alunos da oitava série de quatro escolas com os resultados seguintes:
+
+|              |     |     |     | Média | Variância | Amplitude |
+| :----------- | :-- | :-- | :-- | :---- | :-------- | :-------- |
+| **Escola A** | 87  | 70  | 92  | 83    | 133       | 22        |
+| **Escola B** | 43  | 75  | 56  | 58    | 259       | 32        |
+| **Escola C** | 70  | 66  | 50  | 62    | 112       | 20        |
+| **Escola D** | 67  | 85  | 79  | 77    | 84        | 18        |
+
+Como as médias são bem diferentes podemos imaginar que haja algumas diferenças reais entre os graus de compreensão de leitura dos alunos. Não é o que decorre entretanto, de uma análise de variância de um critério:
+
+<div class="fontGray">
+  $$\small H_0: μ_1= μ_2= μ_3 = μ_4$$
+
+  $$\small Ha:\textrm{Nem todas as médias populacionais são iguais}$$
+</div>
+| Fonte de Variação | Graus de Liberdade | Soma dos quadrados | Quadrado Médio | Estatística F |
+| :---------------: | :----------------: | :----------------: | :------------: | :-----------: |
+|    Tratamentos    |         3          |        1278        |      426       |     2.90      |
+|       Erro        |         8          |        1176        |      147       |               |
+|       Total       |         11         |        2454        |                |               |
+
+O F crítico para 3 e 8 graus de liberdade e 0,05 para significância é de 4,07. Portanto, a hipótese nula não pode ser rejeitada ao nível de 0,05 de significância.
+
+A razão disso é que não há somente grandes diferenças entre as médias, mas também grandes diferenças entre os valores dentro das amostras que pode ser observada na amplitude dos dados.
+
+Analisando a questão podemos supor que as diferenças possam ser causadas por diferenças de capacidade (um fator irrelevante que poderíamos considerar um fator de “incomodação”) que foi aleatorizado ao tomarmos uma amostra aleatória de alunos de cada escola.
+
+Assim as variações causadas por diferenças de capacidade foram incluídas no erro experimental; isso “inflacionou” a soma de quadrados de erros, o denominador da estatística F e devido a isso os resultados não foram significantes.
+
+Para evitar essa situação poderíamos:
+
+- manter fixo o fator irrelevante
+- mas isso raramente nos dará a informação desejada
+- limitar os estudos a alunos de nota média maior que 90
+- mas isso limitaria o estudo a alunos de nota maior que 90
+- fazer o fator de variabilidade (o fator irrelevante) variar deliberadamente variar deliberadamente sobre um intervalo tão amplo quanto necessário, de forma que a variabilidade causada possa ser medida e assim eliminada do erro experimental
+
+Ao escolher a terceira opção podemos planejar o experimento de forma a realizar uma análise de variância de dois critérios, onde a variabilidade total dos dados seja dividida em três componentes atribuídos aos tratamentos, ao fator irrelevante, e ao erro experimental.
+
+No exemplo podemos dividir os alunos em três grupos de acordo com as notas médias. Dessa forma, seriam selecionados aleatoriamente, em cada escola, alunos que se encaixassem em cada grupo. O resultado dessa divisão seria o seguinte:
+
+|              | Nota média Baixa | Nota média Típica | Nota média Alta |
+| :----------- | :--------------: | :---------------: | :-------------: |
+| **Escola A** |        71        |        92         |       89        |
+| **Escola B** |        44        |        51         |       85        |
+| **Escola C** |        50        |        64         |       72        |
+| **Escola D** |        67        |        81         |       86        |
+
+Essa divisão é denominada Delineamento em Blocos Casualizados. e cada bloco são os níveis que mantemos fixo um fator irrelevante, de modo que possamos medir sua contribuição para a variabilidade total dos dados por meio de uma análise de variância de dois critérios.
+
+As hipóteses seriam as seguintes:
+
+<div class="fontGray">
+  $$\small H_0 : α_1 = α_2 = ... = α_k = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do tratamento } α_i \textrm{ são iguais a zero}$$
+</div>
+e
+<div class="fontGray">
+  $$\small H_0: β_1 = β_2 = ... = β_n = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do bloco } β_i \textrm{ são iguais a zero}$$
+</div>
+Onde:
+
+- $\small α_i$ equivale à hipótese de que o grau médio de compreensão de leitura dos alunos da oitava série é o mesmo nas quatro escolas.
+- $\small β_i$ equivale à hipótese de que a compreensão média de leitura dos alunos da oitava série é a mesma para todos os três níveis de nota média.
+<div class="fontBlack">
+$$\small SQB = \frac{1}{k} . \sum_{j = 1}^{n}T_{. j}^{2} - \frac{1}{kn^.} T_{..}^{2}$$
+</div>
+$\small T . j$ = total de todos os valores de j-ésimo bloco
+
+$\small x_{ij}$ = valor da observação i para o tratamento j
+
+$\small n_j$ = número de observações para o tratamento j
+
+$\small k$ = número de blocos
+
+|                  | Nota média Baixa | Nota média Típica | Nota média Alta | Total Tratamentos |
+| :--------------- | :--------------: | :---------------: | :-------------: | :---------------: |
+| **Escola A**     |        71        |        92         |       89        |        252        |
+| **Escola B**     |        44        |        51         |       85        |        180        |
+| **Escola C**     |        50        |        64         |       72        |        186        |
+| **Escola D**     |        67        |        81         |       86        |        234        |
+| **Total Blocos** |       232        |        288        |       332       |                   |
+
+T.. = 232 + 288 + 332 = 852
+
+k = 4 (tratamentos)
+
+n = 3 (blocos)
+
+j = 4 ( tratamentos)
+
+i = 3 (observação do tratamento j)
+<div class="fontGray">
+  $$\small SQB = \frac{1}{k} . \sum_{j = 1}^{n}T_{. j}^{2} - \frac{1}{kn^.} T_{..}^{2}$$
+
+  $$\small SQB = \frac{1}{4} . (232^2 + 288^2+ 332^2) - \frac{1}{12}. (852)^2$$
+
+  $$\small SQB = \frac{1}{4} . (53824 + 82944+ 110224) - \frac{1}{12}. (725904)$$
+
+  $$\small SQB = \frac{1}{4} . (246992) - 60492$$
+
+  $$\small SQB =1256$$
+</div>
+
+<table>
+<thead>
+  <tr>
+    <th colspan="5"><br>$$\small \sum_{i=1}^{k}\sum_{j=1}^{n}x_{ij}^{2}$$</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td></td>
+    <td><strong>Nota média Baixa</strong></td>
+    <td><strong>Nota média Típica</strong></td>
+    <td><strong>Nota média Alta</strong></td>
+    <td><strong>Total Tratamentos</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Escola A</strong></td>
+    <td>$\small (71)^2 = 5041$</td>
+    <td>$\small (92)^2 =8464$</td>
+    <td>$\small (89)^2 = 7921$</td>
+    <td>21426</td>
+  </tr>
+  <tr>
+    <td><strong>Escola B</strong></td>
+    <td>$\small (44)^2=1936$</td>
+    <td>$\small (51)^2 =2601$</td>
+    <td>$\small (85)^2=7225$</td>
+    <td>11762</td>
+  </tr>
+  <tr>
+    <td><strong>Escola C</strong></td>
+    <td>$\small (50)^2=2500$</td>
+    <td>$\small (64)^2 =4096$</td>
+    <td>$\small (72)^2 = 5184$</td>
+    <td>11780</td>
+  </tr>
+  <tr>
+    <td><strong>Escola D</strong></td>
+    <td>$\small (67)^2=4489$</td>
+    <td>$\small (81)^2=6561$</td>
+    <td>$\small (86)^2=7396$</td>
+    <td>18446</td>
+  </tr>
+  <tr>
+    <td><strong>Total Blocos</strong></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><strong>63.414</strong></td>
+  </tr>
+</tbody>
+</table>
+
+<div class="fontGray">
+  $$\small STQ =\sum_{i = 1}^{k} \sum_{j = 1}^{n}x_{ij}^{2}- \frac{1}{kn} . T_{..}^{2}$$
+
+  $$\small STQ =63414 - \frac{1}{12} (852)^2$$
+
+  $$\small STQ =63414 - 60492 = 2922$$
+
+<br />
+
+  $$\small SQ (Tr) =\frac{1}{n^.} \sum_{i = 1}^{k}T_{i.}^{2}- \frac{1}{kn} . T_{..}^{2}$$
+
+  $$\small SQ (Tr) =\frac{1}{3} (252^2 + 180^2+ 186^2+ 234^2) - \frac{1}{12} (852)^2$$
+
+  $$\small SQ (Tr) =\frac{1}{3} (63504 + 32400+ 34596+ 54756) - \frac{1}{12} (725904)^2$$
+
+  $$\small SQ (Tr) =\frac{1}{3} . (185256) - 60492$$
+
+  $$\small SQ (Tr) =61752 - 60492 =1260$$
+
+<br />
+
+  $$\small STQ = SQ (Tr) + SQB + SQE$$
+
+  $$\small SQE = STQ -[ SQ (Tr) + SQB]$$
+
+  $$\small SQE = 2922-[ 1260 + 1256] = 406$$
+</div>
+
+<table>
+<thead>
+  <tr>
+    <th>Fonte de Variação</th>
+    <th>Graus de Liberdade</th>
+    <th>Soma dos quadrados</th>
+    <th>Quadrado Médio</th>
+    <th>Estatística F</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Tratamentos</td>
+    <td>$\small k - 1$ <br>$\small 4 - 1 = 3$</td>
+    <td>$\small SQ ( Tr )=1260$</td>
+    <td>$\small QM  ( Tr ) = \frac{SQ (Tr )}{k-1}$<br>$12603=420$ </td>
+    <td>$\small \frac{Qm ( Tr )}{QME}$<br>$\small \frac{420}{67,67} =6,21$</td>
+  </tr>
+  <tr>
+    <td>Blocos</td>
+    <td>$\small n  - 1$<br>$\small 3  - 1 = 2$</td>
+    <td>$\small SQB=1256$</td>
+    <td>$\small QMB = \frac{SQB}{n -1}$<br>$\small \frac{1256}{2}=628$</td>
+    <td>$\small \frac{QMB}{QME}$<br>$\small \frac{628}{67.67}=9,28$</td>
+  </tr>
+  <tr>
+    <td>Erro</td>
+    <td>$\small (k - 1) (n - 1)$ <br>$\small (4 - 1) (3 - 1) = 6$</td>
+    <td>$\small SQE=406$</td>
+    <td>$\small QME = \frac{SQE}{(k - 1)(n - 1)}$<br>$\small \frac{406}{6} \approx 67,67$</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td>$\small kn - 1$<br>$\small 4 \times 3 - 1 = 11$</td>
+    <td>$\small STQ=2922$</td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+F crítico para os tratamentos: ≈ 4,76
+
+```{r}
+qf(p = 0.95, df1 = 3, df2 = 6)
+```
+
+F crítico para os blocos ≈ 5,14
+
+```{r}
+qf(p = 0.95, df1 = 2, df2 = 6)
+```
+
+Portanto, como o F observado nos tratamentos foi de 6,21 e o F crítico foi de 4,76 a hipótese nula relacionada aos tratamentos deve ser rejeitada). O F observado nos blocos foi de 9,28 e o F crítico foi de 5,14 , então a hipótese nula relacionada aos blocos deve ser rejeitada.
+
+Ou seja, concluímos que o grau médio de compreensão de leitura de alunos da oitava série não é o mesmos para as quatro escolas e o grau médio de compreensão de leitura de alunos da oitava série não é o mesmo para os três níveis de média de notas.
+
+```{r}
+pf(q = 6.21, df1 = 3 , df2 = 6, lower.tail = F)
+pf(q = 9.28, df1 = 2 , df2 = 6, lower.tail = F)
+```
+
+Ambos os p-values são menores que a significância de 0.05 , confirmando novamente a rejeição de ambas as hipóteses nulas.
+
+<span class="highlightRed">Como pode ser observado, obtivemos diferenças significativas entre os graus médios de compreensão de leitura com o uso de bloqueamento, o que não ocorreu com o uso da ANOVA de um fator (sem bloqueamento).</span>
+
+### ANOVA de dois critérios (com interação)
+
+A formulação de hipóteses a serem testadas no caso de duas variáveis é representada da seguinte forma:
+
+<div class="fontBlack">
+$$\small μ_{ij}= μ + α_i + β_j + γ_{ij}$$
+</div>
+$\small μ_{ij}$ = média populacional que corresponde ao i-ésimo tratamento e j-ésimo bloco
+
+$\small μ$ = média global - média de todas as médias populacionais $\small μ_{ij}$
+
+$\small α_i$ =efeitos do fator A(cuja soma é zero)
+
+$\small β_j$= efeitos do fator B(cuja soma é zero)
+
+$\small γ_{ij}$ = efeitos do fator A e B combinados
+
+As duas hipóteses que serão testadas são escritas:
+
+**Teste ao fator 1:**
+
+<div class="fontGray">
+  $$\small H_0 : α_1 = α_2 = ... = α_k = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do fator αi são iguais a zero}$$
+</div>
+e **Teste ao fator 2:**
+<div class="fontGray">
+  $$\small H_0: β_1 = β_2 = ... = β_n = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do fator βi são iguais a zero}$$
+</div>
+e **Teste à interação dos fatores:**
+<div class="fontGray">
+  $$\small H_0: ∀_{ij} γ_{ij} = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos das combinações dos fatores são iguais a zero}$$
+</div>
+<span class="highlightRose">Exemplo:</span>
+
+Um experimento projetado para testar se o alcance de vôo de um míssil (em quilômetros) é afetado pelas diferenças entre os lançadores e também pelas diferenças entre os tipos de combustível:
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Combustível 1</th>
+    <th>Combustível 2</th>
+    <th>Combustível 3</th>
+    <th>Combustível 4</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Lançador X</strong></td>
+    <td>45,9</td>
+    <td>57,6</td>
+    <td>52,2</td>
+    <td>41,7</td>
+  </tr>
+  <tr>
+    <td><strong>Lançador Y</strong></td>
+    <td>46,0</td>
+    <td>51,0</td>
+    <td>50,1</td>
+    <td>38,8</td>
+  </tr>
+  <tr>
+    <td><strong>Lançador Z</strong></td>
+    <td>45,7</td>
+    <td>56,9</td>
+    <td>55,3</td>
+    <td>48,1</td>
+  </tr>
+</tbody>
+</table>
+
+As duas variáveis serão chamadas de Fator A e Fator B.
+
+Para que ser possível analisar as interações entre os dois fatores (Fator AB) é necessário que cada grupo tenha mais de um elemento representativo (para que a variância dentro do grupo não seja 0). Portanto, iremos aplicar o princípio da repetição e repetir o experimento. A repetição rendeu as seguintes observações:
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Combustível 1</th>
+    <th>Combustível 2</th>
+    <th>Combustível 3</th>
+    <th>Combustível 4</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>Lançador X</strong></td>
+    <td>46,1</td>
+    <td>55,9</td>
+    <td>52,6</td>
+    <td>44,3</td>
+  </tr>
+  <tr>
+    <td><strong>Lançador Y</strong></td>
+    <td>46,3</td>
+    <td>52,1</td>
+    <td>51,4</td>
+    <td>39,6</td>
+  </tr>
+  <tr>
+    <td><strong>Lançador Z</strong></td>
+    <td>45,8</td>
+    <td>57,9</td>
+    <td>56,2</td>
+    <td>47,6</td>
+  </tr>
+</tbody>
+</table>
+
+A primeira análise será baseada na hipótese:
+<div class="fontGray">
+  $$\small H_0 : α_1 = α_2 = ... = α_k = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do tratamento αi são iguais a zero}$$
+</div>
+e
+<div class="fontGray">
+  $$\small H_0: β_1 = β_2 = ... = β_n = 0$$
+
+  $$\small Ha:\textrm{Nem todas os efeitos do bloco } β_i \textrm{ são iguais a zero}$$
+</div>
+Sendo α o lançador e β o combustível. O resultado da análise ANOVA para as hipóteses acima é a seguinte:
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Df</th>
+    <th>Sum Sq</th>
+    <th>Mean Sq</th>
+    <th>F value</th>
+    <th>Pr(&gt;F)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td></td>
+    <td>&lt;int&gt;</td>
+    <td>&lt;dbl&gt;</td>
+    <td>&lt;dbl&gt;</td>
+    <td>&lt;dbl&gt;</td>
+    <td>&lt;dbl&gt;</td>
+  </tr>
+  <tr>
+    <td><strong>lancador</strong></td>
+    <td>2</td>
+    <td>91.50333</td>
+    <td>45.751667</td>
+    <td>14.02668</td>
+    <td>2.128629e-04</td>
+  </tr>
+  <tr>
+    <td><strong>combustivel</strong></td>
+    <td>3</td>
+    <td>570.82458</td>
+    <td>190.274861</td>
+    <td>58.33504</td>
+    <td>1.800197e-09</td>
+  </tr>
+  <tr>
+    <td><strong>Residuals</strong></td>
+    <td>18</td>
+    <td>58.71167</td>
+    <td>3.261759</td>
+    <td>NA</td>
+    <td>NA</td>
+  </tr>
+</tbody>
+</table>
+
+O p-value para α e β são menores que a significância de 0,05, então ambas as hipótese nulas devem ser rejeitadas. Ou seja, existe diferença significativa entre as distâncias de arremesso dos diferentes lançadores e combustíveis.
+
+Agora vamos realizar a análise considerando a hipótese de haver uma interação entre os fatores combustível e lançador. As hipóteses a serem analisadas são as seguintes:
+
+<div class="fontGray">
+  $$\small H_0 : α_1 = α_2 = ... = α_k = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do tratamento } α_k \textrm{ são iguais a zero}$$
+</div>
+e
+<div class="fontGray">
+  $$\small H_0: β_1 = β_2 = ... = β_n = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do bloco } β_n \textrm{ são iguais a zero}$$
+</div>
+e
+<div class="fontGray">
+  $$\small H_0: α_1 β_1 = α_2 β_2 = ... = α_kβ_n = 0$$
+
+  $$\small H_a:\textrm{Nem todas os efeitos do bloco } α_k β_n \textrm{  são iguais a zero}$$
+</div>
+Sendo α o lançador e β o combustível e αβ a interação entre os fatores . O resultado da análise ANOVA para as hipóteses acima é a seguinte:
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Df</th>
+    <th>Sum Sq</th>
+    <th>Mean Sq</th>
+    <th>F value</th>
+    <th>Pr(&gt;F)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td></td>
+    <td>&lt;int&gt;</td>
+    <td>&lt;dbl&gt;</td>
+    <td>&lt;dbl&gt;</td>
+    <td>&lt;dbl&gt;</td>
+    <td>&lt;dbl&gt;</td>
+  </tr>
+  <tr>
+    <td><strong>combustivel</strong></td>
+    <td>3</td>
+    <td>570.82458</td>
+    <td>190.2748611</td>
+    <td>293.67181</td>
+    <td>1.716617e-11</td>
+  </tr>
+  <tr>
+    <td><strong>lancador</strong></td>
+    <td>2</td>
+    <td>91.50333</td>
+    <td>45.7516667</td>
+    <td>70.61350</td>
+    <td>2.307148e-07</td>
+  </tr>
+  <tr>
+    <td><strong>combustivel:lancador</strong></td>
+    <td>6</td>
+    <td>50.93667</td>
+    <td>8.4894444</td>
+    <td>13.10268</td>
+    <td>1.187165e-04</td>
+  </tr>
+  <tr>
+    <td><strong>Residuals</strong></td>
+    <td>12</td>
+    <td>7.77500</td>
+    <td>0.6479167</td>
+    <td>NA</td>
+    <td>NA</td>
+  </tr>
+</tbody>
+</table>
+O p-value para α , β , αβ são menores que a significância de 0,05, então todas as hipótese nulas devem ser rejeitadas. Ou seja, existe diferença significativa entre as distâncias de arremesso dos diferentes lançadores e combustíveis.
+
+O gráfico de interação pode ser obtido pelo comando:
+
+```{r}
+L_X<- c(45.9,57.6,52.2,41.7)
+L_Y<- c(46,51,50.1,38.8)
+L_Z<- c(45.7,56.9,55.3,48.1)
+alcance1 <- c(L_X,L_Y,L_Z)
+#replicação
+L_X<- c(46.1,55.9,52.6,44.3)
+L_Y<- c(46.3,52.1,51.4,39.6)
+L_Z<- c(45.8,57.9,56.2,47.6)
+alcance2 <- c(L_X,L_Y,L_Z)
+
+alcance <- c(alcance1, alcance2)
+lancador <- rep(c("Lançador X","Lançador Y","Lançador Z"),each=4, times = 2)
+combustivel <- rep(c("Combustível 1","Combustível 2", "Combustível 3", "Combustível 4"),each=1,times = 6)
+data = data.frame(alcance, lancador, combustivel)
+interaction.plot(data$combustivel, data$lancador, data$alcance)
+```
+
+A partir do gráfico podemos perceber que os lançadores fazem uma grande diferença no alcance, porém a maior diferença é vista nos diferentes combustíveis.
+
+### Resumo : Anova dois critérios
+
+**O que é?**
+
+Essencialmente, a ANOVA de dois fatores é um modelo de regressão múltipla com duas variáveis categóricas (fatores ) como variáveis explanatórias.
+
+**Usado quando?**
+
+- Avaliação inicial do modelo
+- Teste de interação
+- Teste de fatores individuais
+
+**Condições**
+
+Variável resposta é independente, homogênea dentro dos grupos e normalmente distribuída. Caso as observações sejam desequilibradas (diferente números de observações (n) para cada combinação de tratamentos (ab)).
+
+**Modelo saturado - não aditivo**
+
+No modelo não aditivo, os efeitos de um fator são possivelmente diferentes em todos os níveis do outro fator
+→ há interação. Essencialmente, o modelo de linhas separadas em regressão múltipla.
+
+<div class="fontBlack">
+  $$\small μ( Y | A,B) = β_0 + A + B + AB$$
+</div>
+
+**Modelo aditivo**
+
+Em um modelo aditivo, os efeitos de um fator são todos iguais em todos os níveis do outro fator → não há interação. Essencialmente, o modelo de linhas paralelas na regressão múltipla..
+<div class="fontBlack">
+  $$\small μ( Y | A,B) = β_0 + A + B$$
+</div>
+
+## Transformação de dados
+
+A transformação de dados nada mais é do que modificar cada ponto de um dataset por meio da aplicação de uma função matemática. Isso geralmente é realizado com o objetivo de tornar os dados apropriados para serem utilizados num teste ou método estatístico, como por exemplo:
+
+- Utilizar o inverso : $\small \frac{1}{x}$ para reduzir efeito aparente dos outliers
+- A função log: para estabilizar a variância
+- Ocorre quando os dados cobrem diferentes ordens de magnitude
+- Elevar a potência: para induzir a normalidade ou simetria dos dados
+- Melhorar a exibição gráfica dos dados, como reduzir o domínio de outliers em dados fortemente agrupados
+
+### Rank
+
+A transformação de dados em rank trata de substituir o valor do dado pela sua posição ordenada em relação ao demais dados:
+
+Original: s = {4.001 , 1, -10, 4 , 76328632586325 }
+
+Rank: s = {4 , 2 , 1 , 3 , 5}
+
+Percebe-se:
+
+- que o valor dos dados foram substituídos pela posição relativa dos valores ordenados
+- trata-se uma **transformação não linear** dos dados visto que:
+- 4.001 e 4 são próximos, mas estão separados por um index, assim como o maior valor do grupo em relação a 4.001
+- é uma **transformação que perde informação**: (**não invertível**)
+- depois de feita a transformação não é possível retornar ao valor original
+
+#### Tipos
+
+RT = Ranking transformation
+
+##### RT - 1
+
+O conjunto inteiro de observações é rankeado do menor para o maior. Em caso de valores iguais, o rank é dado pela média entre as posições.
+
+##### RT - 2
+
+As observações são divididas em subgrupos, onde cada subgrupo tem um rank próprio, independente.
+
+##### RT - 3
+
+O RT - 1 é aplicado depois da transformação dos dados ( log, raiz quadrada, etc.).
+
+##### RT - 4
+
+O RT - 2 é aplicado depois da transformação dos dados ( log, raiz quadrada, etc.).
+
+### Raiz Quadrada
+
+A transformação raiz quadrada é utilizada quando se tratam:
+
+- dados de contagem
+- ex: número de carrapatos em uma determinada área do corpo de um animal, número de vezes que o animal vai ao cocho,...
+- a distribuição é de poisson (média igual à variância)
+
+Seja Y uma variável aleatória mensurada na unidade de observação:
+
+<div class="fontGray">
+  $\small Y' = \sqrt{Y}$
+</div>
+
+Caso hajam zeros na distribuição basta adicionar meio ou 1 (a todos os elementos):
+
+<div class="fontBlack">
+  $\small Y' = \sqrt{Y + 0,5}$
+</div>
+Graficamente teríamos os seguintes resultados:
+<br />
+![](figures/normalidade-homo.png)
+<br />
+![](figures/transformacao.png)
+<br />
+![](figures/transformacao-valor.png)
+<br />
+
+### Logarítmica
+
+A transformação logarítmica é usada quando:
+
+- Os dados são contínuos e mesmo assim não aderem a distribuição normal
+- Quando há proporcionalidade entre as médias e os desvios padrões dos tratamentos
+
+<span class="highlightRed">Não há diferença da base logarítmica ser 10 ou neperiana (ϱ)</span>
+
+Portanto, seja Y uma variável aleatória mensurada na unidade de observação, tem-se a seguinte transformação:
+<div class="fontBlack">
+  $$\small Y' =log(Y) \textrm{ ou }  Y' =ln(Y)$$
+</div>
+Caso hajam zeros na distribuição basta adicionar meio ou 1 (a todos os elementos):
+
+<div class="fontBlack">
+$$\small Y' = log(Y' + 0,5) \textrm{ ou }  ln(Y' + 0,5)$$
+</div>
+Graficamente teríamos os seguintes resultados:
+<br />
+![](figures/normalidade-homo-log.png)
+<br />
+![](figures/transformacao-log.png)
+<br />
+![](figures/transformacao-log-valor.png)
+<br />
+
+### Arcoseno Raiz Quadrada (Angular)
+
+A transformação arcoseno raiz qadrada é usada quando:
+
+- dados binomiais
+- proporções ou percentagens
+- se os dados variam entre 30-70% (15- 85% )- dispensável
+
+A função arcoseno é a inversa da função seno com domínio no intervalo[- π2 , π2] e domínio no intervalo [-1, 1 ].
+
+Portanto, seja Y uma variável aleatória mensurada na unidade de observação, tem-se a seguinte transformação para decimais:
+
+<div class="fontBlack">
+  $$\small Y' = arcsin \sqrt{Y}$$
+</div>
+
+E a seguinte transformação para percentagens:
+
+<div class="fontBlack">
+  $$\small Y' = arcsin \sqrt{\frac{ Y}{100}}$$
+</div>
+
+Graficamente temos:
+<br />
+![](figures/normalidade-homo-arco.png)
+<br />
+![](figures/transformacao-arco.png)
+<br />
+![](figures/transformacao-arco-valor.png)
+<br />
+
+### Transformação BoxCox
+
+A transformação BoxCox é a mais recentes das transformações e <span class="highlightBlue">é aplicável a qualquer tipo de variável e geralmente resolve a grande maioria dos casos (principalmente nos casos</span> em que as transformações usuais não funcionam).
+
+Dado Y, que é uma variável aleatória discreta ou contínua, a transformação é realizada da seguinte forma:
+
+<div class="fontBlack">
+  $$\small Y' = \frac{Y^λ - 1}{λ} \textrm{ se } λ ≠ 0$$
+
+  $$\small Y' = log(Y) \textrm{ se } λ = 0$$
+</div>
+Sendo o parâmetro λ o que queremos encontrar, pois ele é o que maximiza a função de verossimilhança para uma distribuição normal.
+
+Ao utilizar a função no R teremos como retorno o MLE ( Maximum-likelihood ) e este valor deverá ser utilizado para elevar à potência a variável resposta.
+
+Como o método trabalha com o logaritmo da função de verossimilhança, caso tenha zeros nos dados, também podemos acrescentar 0,5 aos dados para que seja possível a transformação.
+
+Graficamente temos:
+<br />
+![](figures/normalidade-homo-boxcox.png)
+<br />
+![](figures/transformacao-boxcox.png)
+<br />
+![](figures/transformacao-boxcox-valor.png)
+<br />
+
+## Comparações Envolvendo Proporções e Teste de Independência
+
+
 
 

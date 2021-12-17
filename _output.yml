@@ -2,12 +2,21 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: none
+      toc_depth: 6
+      split_by: subsection
+      number_sections: true
       before: |
         <li><a href="./">Estatística por uma quase estatística</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
-    download: ["epub"]
+    edit: https://github.com/AndressaGonelli/ebook/edit/main/%s
+    download: false
+    toolbar: 
+      position: fixed
+      edit: null
+      download: false
+    sharing: null
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
