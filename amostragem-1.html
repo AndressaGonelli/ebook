@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Amostragem | Estatística por uma quase estatística</title>
+  <meta name="description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Amostragem | Estatística por uma quase estatística" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  <meta name="github-repo" content="AndressaGonelli/ebook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Amostragem | Estatística por uma quase estatística" />
+  
+  <meta name="twitter:description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  
+
+<meta name="author" content="Andressa Gonelli" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="medidas-de-associação-entre-duas-variáveis.html"/>
+<link rel="next" href="probabilidade.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estatística por uma quase estatística</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sobre</a></li>
+<li class="chapter" data-level="2" data-path="estatística.html"><a href="estatística.html"><i class="fa fa-check"></i><b>2</b> Estatística</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística.html"><a href="estatística.html#definição"><i class="fa fa-check"></i><b>2.1</b> Definição</a></li>
+<li class="chapter" data-level="2.2" data-path="estatística.html"><a href="estatística.html#tipos-de-estatística"><i class="fa fa-check"></i><b>2.2</b> Tipos de estatística</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística.html"><a href="estatística.html#descritiva"><i class="fa fa-check"></i><b>2.2.1</b> Descritiva</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística.html"><a href="estatística.html#inferencial"><i class="fa fa-check"></i><b>2.2.2</b> Inferencial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estatística.html"><a href="estatística.html#população"><i class="fa fa-check"></i><b>2.3</b> População</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística.html"><a href="estatística.html#tipos"><i class="fa fa-check"></i><b>2.3.1</b> Tipos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estatística.html"><a href="estatística.html#amostragem"><i class="fa fa-check"></i><b>2.4</b> Amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="estatística.html"><a href="estatística.html#amostra"><i class="fa fa-check"></i><b>2.5</b> Amostra</a></li>
+<li class="chapter" data-level="2.6" data-path="estatística.html"><a href="estatística.html#censo"><i class="fa fa-check"></i><b>2.6</b> Censo</a></li>
+<li class="chapter" data-level="2.7" data-path="estatística.html"><a href="estatística.html#observação"><i class="fa fa-check"></i><b>2.7</b> Observação</a></li>
+<li class="chapter" data-level="2.8" data-path="estatística.html"><a href="estatística.html#variáveis"><i class="fa fa-check"></i><b>2.8</b> Variáveis</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística.html"><a href="estatística.html#variáveis-nominais"><i class="fa fa-check"></i><b>2.8.1</b> Variáveis nominais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="estatística.html"><a href="estatística.html#variáveis-ordinais"><i class="fa fa-check"></i><b>2.8.2</b> Variáveis ordinais</a></li>
+<li class="chapter" data-level="2.8.3" data-path="estatística.html"><a href="estatística.html#variáveis-intervalares"><i class="fa fa-check"></i><b>2.8.3</b> Variáveis intervalares</a></li>
+<li class="chapter" data-level="2.8.4" data-path="estatística.html"><a href="estatística.html#variáveis-proporcionais"><i class="fa fa-check"></i><b>2.8.4</b> Variáveis proporcionais</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística.html"><a href="estatística.html#tipos-de-estatística-1"><i class="fa fa-check"></i><b>2.9</b> Tipos de estatística</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística.html"><a href="estatística.html#estatística-descritiva"><i class="fa fa-check"></i><b>2.9.1</b> Estatística descritiva</a></li>
+<li class="chapter" data-level="2.9.2" data-path="estatística.html"><a href="estatística.html#estatística-indutiva-ou-inferêncial"><i class="fa fa-check"></i><b>2.9.2</b> Estatística Indutiva ou Inferêncial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3</b> Dados</a><ul>
+<li class="chapter" data-level="3.1" data-path="dados.html"><a href="dados.html#classificação"><i class="fa fa-check"></i><b>3.1</b> Classificação</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="dados.html"><a href="dados.html#qualitativos"><i class="fa fa-check"></i><b>3.1.1</b> Qualitativos</a></li>
+<li class="chapter" data-level="3.1.2" data-path="dados.html"><a href="dados.html#quantitativa"><i class="fa fa-check"></i><b>3.1.2</b> Quantitativa</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="dados.html"><a href="dados.html#fontes-de-dados"><i class="fa fa-check"></i><b>3.2</b> Fontes de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="medida-de-posição.html"><a href="medida-de-posição.html"><i class="fa fa-check"></i><b>4</b> Medida de posição</a><ul>
+<li class="chapter" data-level="4.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média"><i class="fa fa-check"></i><b>4.1</b> Média</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média-ajustada"><i class="fa fa-check"></i><b>4.1.1</b> Média Ajustada</a></li>
+<li class="chapter" data-level="4.1.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média-aritmética-ponderada"><i class="fa fa-check"></i><b>4.1.2</b> Média Aritmética ponderada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#mediana"><i class="fa fa-check"></i><b>4.2</b> Mediana</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r"><i class="fa fa-check"></i><b>4.2.1</b> R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#mediana-em-dados-agrupados"><i class="fa fa-check"></i><b>4.2.2</b> Mediana em dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="medida-de-posição.html"><a href="medida-de-posição.html#moda"><i class="fa fa-check"></i><b>4.3</b> Moda</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#moda-em-dados-agrupados"><i class="fa fa-check"></i><b>4.3.1</b> Moda em dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="medida-de-posição.html"><a href="medida-de-posição.html#valor-máximo-e-valor-mínimo"><i class="fa fa-check"></i><b>4.4</b> Valor máximo e valor mínimo</a></li>
+<li class="chapter" data-level="4.5" data-path="medida-de-posição.html"><a href="medida-de-posição.html#quartil"><i class="fa fa-check"></i><b>4.5</b> Quartil</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r-1"><i class="fa fa-check"></i><b>4.5.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="medida-de-posição.html"><a href="medida-de-posição.html#percentil"><i class="fa fa-check"></i><b>4.6</b> Percentil</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r-2"><i class="fa fa-check"></i><b>4.6.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html"><i class="fa fa-check"></i><b>5</b> Medidas de variabilidade</a><ul>
+<li class="chapter" data-level="5.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#amplitude"><i class="fa fa-check"></i><b>5.1</b> Amplitude</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-3"><i class="fa fa-check"></i><b>5.1.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#amplitude-interquartil"><i class="fa fa-check"></i><b>5.2</b> Amplitude Interquartil</a></li>
+<li class="chapter" data-level="5.3" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#variância"><i class="fa fa-check"></i><b>5.3</b> Variância</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-4"><i class="fa fa-check"></i><b>5.3.1</b> R</a></li>
+<li class="chapter" data-level="5.3.2" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#variância-para-dados-agrupados"><i class="fa fa-check"></i><b>5.3.2</b> Variância para dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#desvio-padrão"><i class="fa fa-check"></i><b>5.4</b> Desvio Padrão</a></li>
+<li class="chapter" data-level="5.5" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#coeficiente-de-variação"><i class="fa fa-check"></i><b>5.5</b> Coeficiente de variação</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-5"><i class="fa fa-check"></i><b>5.5.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html"><i class="fa fa-check"></i><b>6</b> Métodos tabulares e métodos gráficos</a><ul>
+<li class="chapter" data-level="6.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabelas"><i class="fa fa-check"></i><b>6.1</b> Tabelas</a></li>
+<li class="chapter" data-level="6.2" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabelas-de-contingência"><i class="fa fa-check"></i><b>6.2</b> Tabelas de contingência</a></li>
+<li class="chapter" data-level="6.3" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#definição-de-classes"><i class="fa fa-check"></i><b>6.3</b> Definição de Classes</a></li>
+<li class="chapter" data-level="6.4" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-absoluta"><i class="fa fa-check"></i><b>6.4</b> Frequência Absoluta</a></li>
+<li class="chapter" data-level="6.5" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-relativa"><i class="fa fa-check"></i><b>6.5</b> Frequência Relativa</a></li>
+<li class="chapter" data-level="6.6" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-acumulada"><i class="fa fa-check"></i><b>6.6</b> Frequência acumulada</a></li>
+<li class="chapter" data-level="6.7" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-acumulada-relativa"><i class="fa fa-check"></i><b>6.7</b> Frequência acumulada relativa</a></li>
+<li class="chapter" data-level="6.8" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#polígono-de-frequências"><i class="fa fa-check"></i><b>6.8</b> Polígono de frequências</a></li>
+<li class="chapter" data-level="6.9" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#histograma"><i class="fa fa-check"></i><b>6.9</b> Histograma</a></li>
+<li class="chapter" data-level="6.10" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#gráfico-ogiva-de-galton---frequência-acumulada"><i class="fa fa-check"></i><b>6.10</b> Gráfico Ogiva de Galton - Frequência Acumulada</a></li>
+<li class="chapter" data-level="6.11" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#apresentação-ramo-e-folha"><i class="fa fa-check"></i><b>6.11</b> Apresentação Ramo-e-folha</a></li>
+<li class="chapter" data-level="6.12" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#coeficiente-de-assimetria"><i class="fa fa-check"></i><b>6.12</b> Coeficiente de Assimetria</a><ul>
+<li class="chapter" data-level="6.12.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#r-6"><i class="fa fa-check"></i><b>6.12.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#coeficiente-de-curtose"><i class="fa fa-check"></i><b>6.13</b> Coeficiente de curtose</a><ul>
+<li class="chapter" data-level="6.13.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#r-7"><i class="fa fa-check"></i><b>6.13.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.14" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#boxplot"><i class="fa fa-check"></i><b>6.14</b> BoxPlot</a></li>
+<li class="chapter" data-level="6.15" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabulação-cruzada"><i class="fa fa-check"></i><b>6.15</b> Tabulação Cruzada</a><ul>
+<li class="chapter" data-level="6.15.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#paradoxo-de-simpson"><i class="fa fa-check"></i><b>6.15.1</b> Paradoxo de Simpson</a></li>
+</ul></li>
+<li class="chapter" data-level="6.16" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#diagrama-de-dispersão"><i class="fa fa-check"></i><b>6.16</b> Diagrama de Dispersão</a></li>
+<li class="chapter" data-level="6.17" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#métodos-tabulares-e-gráficos-de-sintetizar-os-dados"><i class="fa fa-check"></i><b>6.17</b> Métodos tabulares e gráficos de sintetizar os dados</a></li>
+<li class="chapter" data-level="6.18" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#análise-exploratória-de-dados"><i class="fa fa-check"></i><b>6.18</b> Análise exploratória de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html"><i class="fa fa-check"></i><b>7</b> Medidas de associação entre duas variáveis</a><ul>
+<li class="chapter" data-level="7.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#covariância"><i class="fa fa-check"></i><b>7.1</b> Covariância</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#r-8"><i class="fa fa-check"></i><b>7.1.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#coeficiente-de-correlação"><i class="fa fa-check"></i><b>7.2</b> Coeficiente de correlação</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#r-9"><i class="fa fa-check"></i><b>7.2.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="amostragem-1.html"><a href="amostragem-1.html"><i class="fa fa-check"></i><b>8</b> Amostragem</a><ul>
+<li class="chapter" data-level="8.1" data-path="amostragem-1.html"><a href="amostragem-1.html#probabilística"><i class="fa fa-check"></i><b>8.1</b> Probabilística</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="amostragem-1.html"><a href="amostragem-1.html#aleatória-simples"><i class="fa fa-check"></i><b>8.1.1</b> Aleatória simples</a></li>
+<li class="chapter" data-level="8.1.2" data-path="amostragem-1.html"><a href="amostragem-1.html#sistemática"><i class="fa fa-check"></i><b>8.1.2</b> Sistemática</a></li>
+<li class="chapter" data-level="8.1.3" data-path="amostragem-1.html"><a href="amostragem-1.html#estratificada"><i class="fa fa-check"></i><b>8.1.3</b> Estratificada</a></li>
+<li class="chapter" data-level="8.1.4" data-path="amostragem-1.html"><a href="amostragem-1.html#conglomerados-cluster"><i class="fa fa-check"></i><b>8.1.4</b> Conglomerados (cluster)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="amostragem-1.html"><a href="amostragem-1.html#reamostragem-bootstrap"><i class="fa fa-check"></i><b>8.1.5</b> Reamostragem (bootstrap)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="amostragem-1.html"><a href="amostragem-1.html#não-probabilística"><i class="fa fa-check"></i><b>8.2</b> Não probabilística</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="amostragem-1.html"><a href="amostragem-1.html#conveniência-ou-acessibilidade"><i class="fa fa-check"></i><b>8.2.1</b> Conveniência ou acessibilidade</a></li>
+<li class="chapter" data-level="8.2.2" data-path="amostragem-1.html"><a href="amostragem-1.html#intencional-ou-por-julgamento"><i class="fa fa-check"></i><b>8.2.2</b> Intencional ou por Julgamento</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="amostragem-1.html"><a href="amostragem-1.html#estimação-por-ponto"><i class="fa fa-check"></i><b>8.3</b> Estimação por ponto</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="amostragem-1.html"><a href="amostragem-1.html#distribuição-amostral-de-barx"><i class="fa fa-check"></i><b>8.3.1</b> Distribuição amostral de <span class="math inline">\(\bar{x}\)</span></a></li>
+<li class="chapter" data-level="8.3.2" data-path="amostragem-1.html"><a href="amostragem-1.html#distribuição-amostral-de-barp"><i class="fa fa-check"></i><b>8.3.2</b> Distribuição amostral de <span class="math inline">\(\bar{p}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="amostragem-1.html"><a href="amostragem-1.html#estimação-por-intervalo"><i class="fa fa-check"></i><b>8.4</b> Estimação por intervalo</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="amostragem-1.html"><a href="amostragem-1.html#média-da-população-desvio-padrão-σconhecido"><i class="fa fa-check"></i><b>8.4.1</b> Média da população : Desvio Padrão (σ)Conhecido</a></li>
+<li class="chapter" data-level="8.4.2" data-path="amostragem-1.html"><a href="amostragem-1.html#média-da-população-desvio-padrão-σ-desconhecido"><i class="fa fa-check"></i><b>8.4.2</b> Média da população: Desvio Padrão ( σ) Desconhecido</a></li>
+<li class="chapter" data-level="8.4.3" data-path="amostragem-1.html"><a href="amostragem-1.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>8.4.3</b> Determinação do tamanho da amostra</a></li>
+<li class="chapter" data-level="8.4.4" data-path="amostragem-1.html"><a href="amostragem-1.html#proporção-da-população"><i class="fa fa-check"></i><b>8.4.4</b> Proporção da população</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="amostragem-1.html"><a href="amostragem-1.html#teorema-do-limite-central"><i class="fa fa-check"></i><b>8.5</b> Teorema do Limite Central</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="probabilidade.html"><a href="probabilidade.html"><i class="fa fa-check"></i><b>9</b> Probabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="probabilidade.html"><a href="probabilidade.html#conceitos"><i class="fa fa-check"></i><b>9.1</b> Conceitos</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="probabilidade.html"><a href="probabilidade.html#espaço-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Espaço da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="probabilidade.html"><a href="probabilidade.html#evento"><i class="fa fa-check"></i><b>9.1.2</b> Evento</a></li>
+<li class="chapter" data-level="9.1.3" data-path="probabilidade.html"><a href="probabilidade.html#experimento"><i class="fa fa-check"></i><b>9.1.3</b> Experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="probabilidade.html"><a href="probabilidade.html#atribuição-de-probabilidade"><i class="fa fa-check"></i><b>9.2</b> Atribuição de probabilidade</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-clássica"><i class="fa fa-check"></i><b>9.2.1</b> Probabilidade clássica</a></li>
+<li class="chapter" data-level="9.2.2" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-empírica"><i class="fa fa-check"></i><b>9.2.2</b> Probabilidade empírica</a></li>
+<li class="chapter" data-level="9.2.3" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-subjetiva"><i class="fa fa-check"></i><b>9.2.3</b> Probabilidade Subjetiva</a></li>
+<li class="chapter" data-level="9.2.4" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-em-eventos-compostos"><i class="fa fa-check"></i><b>9.2.4</b> Probabilidade em eventos compostos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="probabilidade.html"><a href="probabilidade.html#teorema-de-bayes"><i class="fa fa-check"></i><b>9.3</b> Teorema de Bayes</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="probabilidade.html"><a href="probabilidade.html#abordagem-tabular"><i class="fa fa-check"></i><b>9.3.1</b> Abordagem Tabular</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-de-probabilidade"><i class="fa fa-check"></i><b>9.4</b> Distribuição de probabilidade</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-discreta"><i class="fa fa-check"></i><b>9.4.1</b> Distribuição Discreta</a></li>
+<li class="chapter" data-level="9.4.2" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-de-probabilidade-contínua"><i class="fa fa-check"></i><b>9.4.2</b> Distribuição de Probabilidade Contínua</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html"><i class="fa fa-check"></i><b>10</b> Teste de hipótese</a><ul>
+<li class="chapter" data-level="10.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#como-formular-hipóteses"><i class="fa fa-check"></i><b>10.1</b> Como formular hipóteses?</a></li>
+<li class="chapter" data-level="10.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#erros-do-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>10.2</b> Erros do tipo I e tipo II</a></li>
+<li class="chapter" data-level="10.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#média-da-população-desvio-padrão-σ-conhecido"><i class="fa fa-check"></i><b>10.3</b> Média da população: Desvio Padrão σ conhecido</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-unicaudal"><i class="fa fa-check"></i><b>10.3.1</b> Teste unicaudal</a></li>
+<li class="chapter" data-level="10.3.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-bicaudal"><i class="fa fa-check"></i><b>10.3.2</b> Teste Bicaudal</a></li>
+<li class="chapter" data-level="10.3.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo"><i class="fa fa-check"></i><b>10.3.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#média-da-população-desvio-padrão-σ-desconhecido-1"><i class="fa fa-check"></i><b>10.4</b> Média da população: Desvio Padrão (σ) desconhecido</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-unicaudal-1"><i class="fa fa-check"></i><b>10.4.1</b> Teste Unicaudal</a></li>
+<li class="chapter" data-level="10.4.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-bicaudal-1"><i class="fa fa-check"></i><b>10.4.2</b> Teste Bicaudal</a></li>
+<li class="chapter" data-level="10.4.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-1"><i class="fa fa-check"></i><b>10.4.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#proporção-da-população-1"><i class="fa fa-check"></i><b>10.5</b> Proporção da população</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#valor-p-4"><i class="fa fa-check"></i><b>10.5.1</b> Valor p</a></li>
+<li class="chapter" data-level="10.5.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#valor-crítico-4"><i class="fa fa-check"></i><b>10.5.2</b> Valor crítico</a></li>
+<li class="chapter" data-level="10.5.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-2"><i class="fa fa-check"></i><b>10.5.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#inferência-acerca-da-diferença-entre-médias"><i class="fa fa-check"></i><b>10.6</b> Inferência acerca da diferença entre médias</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#desvio-padrão-conhecido"><i class="fa fa-check"></i><b>10.6.1</b> Desvio padrão conhecido</a></li>
+<li class="chapter" data-level="10.6.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#desvio-padrão-desconhecido"><i class="fa fa-check"></i><b>10.6.2</b> Desvio padrão desconhecido</a></li>
+<li class="chapter" data-level="10.6.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#amostras-relacionadas-ou-dependentes"><i class="fa fa-check"></i><b>10.6.3</b> Amostras relacionadas ou dependentes</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#inferência-acerca-da-diferença-entre-duas-proporções"><i class="fa fa-check"></i><b>10.7</b> Inferência acerca da diferença entre duas proporções</a></li>
+<li class="chapter" data-level="10.8" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#proporção-de-uma-população-multinomial"><i class="fa fa-check"></i><b>10.8</b> Proporção de uma população multinomial</a></li>
+<li class="chapter" data-level="10.9" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-exato-de-fisher"><i class="fa fa-check"></i><b>10.9</b> Teste exato de Fisher</a></li>
+<li class="chapter" data-level="10.10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova---análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> ANOVA - Análise de Variância</a><ul>
+<li class="chapter" data-level="10.10.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#hipótese-sobre-a-análise-de-variância"><i class="fa fa-check"></i><b>10.10.1</b> Hipótese sobre a análise de Variância</a></li>
+<li class="chapter" data-level="10.10.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#visão-conceitual"><i class="fa fa-check"></i><b>10.10.2</b> Visão Conceitual</a></li>
+<li class="chapter" data-level="10.10.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#observação-2"><i class="fa fa-check"></i><b>10.10.3</b> Observação</a></li>
+<li class="chapter" data-level="10.10.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#fórmulas-matemáticas"><i class="fa fa-check"></i><b>10.10.4</b> Fórmulas Matemáticas</a></li>
+<li class="chapter" data-level="10.10.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparando-as-estimativas-de-variância-o-teste-f"><i class="fa fa-check"></i><b>10.10.5</b> Comparando as Estimativas de Variância: o Teste F</a></li>
+<li class="chapter" data-level="10.10.6" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#estimação-por-intervalo-1"><i class="fa fa-check"></i><b>10.10.6</b> Estimação por intervalo</a></li>
+<li class="chapter" data-level="10.10.7" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-4"><i class="fa fa-check"></i><b>10.10.7</b> Resumo</a></li>
+<li class="chapter" data-level="10.10.8" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparações-múltiplas"><i class="fa fa-check"></i><b>10.10.8</b> Comparações Múltiplas</a></li>
+<li class="chapter" data-level="10.10.9" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>10.10.9</b> Princípios básicos da experimentação</a></li>
+<li class="chapter" data-level="10.10.10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova-de-dois-critérios-sem-interação"><i class="fa fa-check"></i><b>10.10.10</b> ANOVA de dois critérios (sem interação)</a></li>
+<li class="chapter" data-level="10.10.11" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova-de-dois-critérios-com-interação"><i class="fa fa-check"></i><b>10.10.11</b> ANOVA de dois critérios (com interação)</a></li>
+<li class="chapter" data-level="10.10.12" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-anova-dois-critérios"><i class="fa fa-check"></i><b>10.10.12</b> Resumo : Anova dois critérios</a></li>
+</ul></li>
+<li class="chapter" data-level="10.11" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#transformação-de-dados"><i class="fa fa-check"></i><b>10.11</b> Transformação de dados</a><ul>
+<li class="chapter" data-level="10.11.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#rank"><i class="fa fa-check"></i><b>10.11.1</b> Rank</a></li>
+<li class="chapter" data-level="10.11.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#raiz-quadrada"><i class="fa fa-check"></i><b>10.11.2</b> Raiz Quadrada</a></li>
+<li class="chapter" data-level="10.11.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#logarítmica"><i class="fa fa-check"></i><b>10.11.3</b> Logarítmica</a></li>
+<li class="chapter" data-level="10.11.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#arcoseno-raiz-quadrada-angular"><i class="fa fa-check"></i><b>10.11.4</b> Arcoseno Raiz Quadrada (Angular)</a></li>
+<li class="chapter" data-level="10.11.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#transformação-boxcox"><i class="fa fa-check"></i><b>10.11.5</b> Transformação BoxCox</a></li>
+</ul></li>
+<li class="chapter" data-level="10.12" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparações-envolvendo-proporções-e-teste-de-independência"><i class="fa fa-check"></i><b>10.12</b> Comparações Envolvendo Proporções e Teste de Independência</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística por uma quase estatística</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="amostragem-1" class="section level1">
+<h1><span class="header-section-number">8</span> Amostragem</h1>
+<style>
+.highlightRed { background-color:#ffcdd2; }
+.highlightBlue { background-color:#bbdefb; }
+.highlightGreen { background-color:#a2fca2; }
+.highlightAmber { background-color:#ffecb3; }
+</style>
+<p>A amostragem é a técnica, processo ou pesquisa que podem ser realizadas para obter uma amostra. A qual utiliza-se coleta, organização, apresentação e análise dos dados como meio de estudar os parâmetros de uma população.</p>
+<p>Faz-se uso da amostragem devido ao fato de nem sempre ser possível ou desejável testar toda a população para se obter os parâmetros e conclusões desejadas. A amostragem é uma estimativa, e portanto tal, se torna mais assertiva pelo uso de técnicas de amostragem e pela regulação dos níveis de confiança.</p>
+<ul>
+<li>Prós
+<ul>
+<li>Economia de tempo e dinheiro</li>
+<li>Pode-se obter uma acurácia/ precisão muito próxima do uso da população
+<ul>
+<li>A <a href="#_phy34zavw3s0">margem de erro</a> pode ser calculada</li>
+</ul></li>
+</ul></li>
+<li>Contras
+<ul>
+<li>Não pode ser feito “de qualquer jeito”</li>
+<li>É preciso conhecimento e aplicação de técnicas</li>
+</ul></li>
+<li>Pontos de atenção
+<ul>
+<li>O encaixe da técnica <strong>x</strong> dados <strong>x</strong> objetivos precisa ser bem avaliada</li>
+<li>Caso contrário irá produzir anomalias que irão inutilizar os dados</li>
+</ul></li>
+</ul>
+<div id="probabilística" class="section level2">
+<h2><span class="header-section-number">8.1</span> Probabilística</h2>
+<ul>
+<li>Características
+<ul>
+<li>Objetiva</li>
+<li>Escolha aleatória</li>
+<li>Sorteio não viciado</li>
+<li>Probabilidade conhecida dos elementos serem escolhidos</li>
+<li>todos têm alguma chance de serem escolhidos</li>
+<li>Distribuição amostral pode ser identificada</li>
+<li>Erro amostral pode ser calculado - amostragem pode ser avaliada</li>
+</ul></li>
+</ul>
+<div id="aleatória-simples" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Aleatória simples</h3>
+<div id="população-finita" class="section level4">
+<h4><span class="header-section-number">8.1.1.1</span> População Finita</h4>
+<p>Trata-se de uma coleta dentro de uma população finita onde todos os elementos têm a mesma probabilidade de serem selecionados. Comumente é utilizada de sem substituição ( após um elemento ser selecionado ele sai da lista.</p>
+<p>Para tanto, é feita a coleta na população até que se obtenha o tamanho da amostra desejado, por meio de um método de sorteio não viciado, onde pode-se realizar a amostragem com ou sem substituição.</p>
+</div>
+<div id="população-infinita" class="section level4">
+<h4><span class="header-section-number">8.1.1.2</span> População Infinita</h4>
+<p>São consideradas populações infinitas:</p>
+<ul>
+<li>Populações não contadas / listadas</li>
+<li>Populações muito grandes</li>
+<li>Populações contínuas (cliente em um restaurante)</li>
+</ul>
+<p>Nesses casos, para que a amostragem seja feita de forma correta, deve-se satisfazer as seguintes condições:</p>
+<ul>
+<li>Cada elemento selecionado vem dessa população</li>
+<li>Cada elemento é selecionado de forma independente</li>
+</ul>
+<p>O número de amostras aleatórias simples de tamanho n que podem ser obtidas de uma população infinita tamanho N é dado por:</p>
+<p><span class="math display">\[\frac{N!}{n!(N - n!)}\]</span></p>
+</div>
+<div id="população-amostrada" class="section level4">
+<h4><span class="header-section-number">8.1.1.3</span> População Amostrada</h4>
+<p>A amostra coletada não se dá exatamente da população de interesse (população alvo) mas de uma população mais acessível, conveniente.</p>
+<p>Ex. Busca-se conhecer os hábitos noturno de mulheres divorciadas com mais de 40 anos. Para tanto se extrai uma amostra em uma grande cidade para estudo.</p>
+<ul>
+<li>População alvo: mulheres divorciadas com mais de 40 anos do país</li>
+<li>População amostrada: mulheres divorciadas com mais de 40 anos da cidade amostrada</li>
+</ul>
+<p>Pode-se então obter conclusões válidas apenas para os elementos da grande cidade (população amostrada), mas se pode usar o julgamento do pesquisados para extrapolar os resultados para a população alvo (com cautela e reservas).</p>
+</div>
+</div>
+<div id="sistemática" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Sistemática</h3>
+<p>A amostragem sistemática é útil quando se trata de grandes populações, onde seria um trabalho muito dispendioso utilizar o método da amostragem aleatória simples. A partir da definição do tamanho da amostra desejado, o índice é definido a partir da fórmula:</p>
+<p><span class="math display">\[i = \frac{N}{n}\]</span></p>
+<p><span class="math inline">\(i = índice\)</span></p>
+<p><span class="math inline">\(n = \textrm{ tamanho da amostra desejada}\)</span></p>
+<p><span class="math inline">\(N =\textrm{tamanho da população}\)</span></p>
+<p>A partir do índice, pode-se escolher duas abordagens:</p>
+<ul>
+<li>Selecionar aleatoriamente um dos primeiros <strong>i</strong> elementos da lista da população</li>
+<li>E selecionar na lista, a partir do elemento anteriormente escolhido, o i° elemento, seguidas vezes, até completar a amostra desejada
+<ul>
+<li>Por exemplo, a cada 100 biscoitos que passam na linha de produção, um é selecionado para teste.</li>
+</ul></li>
+</ul>
+<p><span class="highlightRed">A desvantagem é que a população precisa ser listada e estando ordenada, precisa-se ter cuidado para não haver algum tipo de periodicidade nos dados. E precisa ser o mais homogênea possível, para não haver enviesamento.</span></p>
+</div>
+<div id="estratificada" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Estratificada</h3>
+<p>Na amostragem aleatória estratificada os dados são divididos em estratos (grupos), de forma sistemática, de forma que cada elemento pertença a somente um estrato. Um estrato pode ser formado a partir de : idade, departamento, local, tipo de indústria, etc.</p>
+<p>Os melhores resultados são obtidos quando os <span class="highlightAmber"> elementos de um estrato são os mais similares possíveis. </span> Pois quanto maior a homogeneidade do grupo, menor o enviesamento da amostra.</p>
+<p>Após ser formado os estratos, uma amostra aleatória simples é extraída de cada um deles. Há fórmulas disponíveis para se combinar os resultados das amostras de estrato individuais em uma estimativa do parâmetro populacional de interesse.</p>
+</div>
+<div id="conglomerados-cluster" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Conglomerados (cluster)</h3>
+<p>Na amostragem por conglomerados os elementos da população são divididos em grupos distintos chamados de conglomerados, onde cada elemento pertence somente a um conglomerado. Os conglomerados devem ser o mais diversos possível, pois devem ser uma pequena amostra representativa da população.</p>
+<p>Uma das principais aplicações da amostragem por conglomerados é a amostragem por áreas, em que os conglomerados são quarteirões de uma cidade ou outras áreas bem definidas.</p>
+<p><span class="highlightRed">A amostragem por conglomerados geralmente requer uma amostra maior que a amostragem aleatória simples ou a amostragem aleatória estratificada.</span></p>
+</div>
+<div id="reamostragem-bootstrap" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> Reamostragem (bootstrap)</h3>
+<ul>
+<li>Características
+<ul>
+<li>Várias amostras (com reposição) são repetidamente extraídas da população
+<ul>
+<li>pode-se estimar parâmetros da população como média e proporção</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="não-probabilística" class="section level2">
+<h2><span class="header-section-number">8.2</span> Não probabilística</h2>
+<ul>
+<li>Características
+<ul>
+<li>Subjetiva -&gt; decisão do pesquisador</li>
+<li>Não tem a mesma probabilidade entre si de serem escolhidos</li>
+<li>Probabilidade dos elementos serem escolhidos é desconhecida</li>
+<li>Não é possível avaliar a qualidade dos dados amostrais em relação à população</li>
+</ul></li>
+<li>Ex
+<ul>
+<li>Pesquisa social</li>
+</ul></li>
+</ul>
+<div id="conveniência-ou-acessibilidade" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Conveniência ou acessibilidade</h3>
+<p>A amostragem por conveniência é uma técnica onde a amostra é identificada primeiramente por conveniência. Os elementos são incluídos sem probabilidades previamente especificadas ou conhecidas de serem selecionada.</p>
+<p>São exemplos:</p>
+<ul>
+<li>selecionar laranjas de engradados aleatórios (contar e rotular todas as laranjas seria impraticável)</li>
+<li>grupos de voluntários para pesquisa de consumidores (são voluntários, não aleatórios)</li>
+<li>captura de animais selvagens para análise de hábitos ( não é aleatório, ou rotulado, é o que estava disponível)</li>
+</ul>
+<p>A vantagem da amostra por conveniência é a facilidade de coleta e análise dos dados, entretanto, não se pode avaliar a excelência da amostral em termos da sua representatividade em relação à população.</p>
+</div>
+<div id="intencional-ou-por-julgamento" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Intencional ou por Julgamento</h3>
+<p>Na amostragem por julgamento, o pesquisador escolhe os elementos que considera serem os mais representativos da população.</p>
+<p>Por exemplo, selecionar como amostra a opinião de dois ou três senadores, julgando que estes representam a opinião geral de todos os senadores.</p>
+<p>No caso, a qualidade da amostra depende da qualidade do julgamento da pessoa que faz a escolha.</p>
+</div>
+</div>
+<div id="estimação-por-ponto" class="section level2">
+<h2><span class="header-section-number">8.3</span> Estimação por ponto</h2>
+<p>As médias(<span class="math inline">\(\bar{x}\)</span>), desvios padrão(<span class="math inline">\(s\)</span>) e proporções (<span class="math inline">\(\bar{p}\)</span>) entrados em amostras são chamadas estimação por ponto da média(<span class="math inline">\(\mu\)</span>), desvio padrão(<span class="math inline">\(\sigma\)</span>) e proporção da população(<span class="math inline">\(p\)</span>).</p>
+<ul>
+<li>Parâmetro = População</li>
+<li>Estatística amostral = amostra</li>
+</ul>
+<p>Quando o valor esperado de um estimador por ponto é igual ao parâmetro populacional, o estimador é considerado sem viés.</p>
+<div id="distribuição-amostral-de-barx" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Distribuição amostral de <span class="math inline">\(\bar{x}\)</span></h3>
+<p><span class="math inline">\(\bar{x}\)</span> = média da amostra</p>
+<p>Qualquer estimação por ponto possui uma margem de erro, como pode ser observado no exemplo abaixo:</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="59%" />
+<col width="16%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetros Populacionais</th>
+<th align="left">Valor</th>
+<th align="left">Parâmetros Amostrais</th>
+<th align="left">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">μ - Salário Médio anual</td>
+<td align="left">51.800</td>
+<td align="left"><span class="math inline">\(\bar{x}\)</span> - Salário Médio anual</td>
+<td align="left">51.814</td>
+</tr>
+<tr class="even">
+<td align="left">σ - Desvio Padrão do salário</td>
+<td align="left">4.000</td>
+<td align="left">s -Desvio Padrão do salário</td>
+<td align="left">3.348</td>
+</tr>
+<tr class="odd">
+<td align="left">p - Proporção da população que concluiu o programa de treinamento gerencial</td>
+<td align="left">0,60</td>
+<td align="left"><span class="math inline">\(\bar{p}\)</span> - Proporção da população que concluiu o programa de treinamento gerencial</td>
+<td align="left">0,63</td>
+</tr>
+</tbody>
+</table>
+<p>Para diminuir o erro da estimação de média, podemos realizar diversas coletas de amostras na população e tirar a média de cada uma dessas amostras.</p>
+<p>Como <span class="math inline">\(\bar{x}\)</span> também é uma variável aleatória e podemos a partir dela fazer uma distribuição amostral.</p>
+<p>A tabela de distribuição de frequência abaixo ilustra o processo de coleta de 500 amostras aleatórias numa população de 2500 registros.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Salário Anual Médio ($)</th>
+<th>Frequência</th>
+<th>Frequência Relativa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>49.500,00 - 49.999,99</td>
+<td>2</td>
+<td>0,004</td>
+</tr>
+<tr class="even">
+<td>50.000,00 - 50.499,99</td>
+<td>16</td>
+<td>0,032</td>
+</tr>
+<tr class="odd">
+<td>50.500,00 - 50.999,99</td>
+<td>52</td>
+<td>0,104</td>
+</tr>
+<tr class="even">
+<td>51.000,00 - 51.499,99</td>
+<td>101</td>
+<td>0,202</td>
+</tr>
+<tr class="odd">
+<td>51.500,00 - 51.999,99</td>
+<td>133</td>
+<td>0,266</td>
+</tr>
+<tr class="even">
+<td>52.000,00 - 52.499,99</td>
+<td>110</td>
+<td>0,220</td>
+</tr>
+<tr class="odd">
+<td>52.500,00 - 52.999,99</td>
+<td>54</td>
+<td>0,108</td>
+</tr>
+<tr class="even">
+<td>53.000,00 - 53.499,99</td>
+<td>26</td>
+<td>0,052</td>
+</tr>
+<tr class="odd">
+<td>53.500,00 - 53.999,99</td>
+<td>6</td>
+<td>0,012</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>500</strong></td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="amostragem-1.html#cb96-1"></a>amostra =<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/EAI.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">as.is =</span> F)</span>
+<span id="cb96-2"><a href="amostragem-1.html#cb96-2"></a><span class="kw">str</span>(amostra)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    2500 obs. of  2 variables:
+##  $ Salary  : num  55770 50823 48408 49788 52802 ...
+##  $ Training: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 2 1 1 2 1 2 1 2 1 ...</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="amostragem-1.html#cb98-1"></a>media_amostras &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb98-2"><a href="amostragem-1.html#cb98-2"></a>proporcao_amostras &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb98-3"><a href="amostragem-1.html#cb98-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">500</span>) {</span>
+<span id="cb98-4"><a href="amostragem-1.html#cb98-4"></a>  coleta =<span class="st"> </span><span class="kw">sample</span>(amostra<span class="op">$</span>Salary,<span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb98-5"><a href="amostragem-1.html#cb98-5"></a>  media_amostras &lt;-<span class="st"> </span><span class="kw">append</span>(<span class="kw">mean</span>(coleta),media_amostras)</span>
+<span id="cb98-6"><a href="amostragem-1.html#cb98-6"></a>  coleta =<span class="st"> </span><span class="kw">sample</span>(amostra<span class="op">$</span>Training,<span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb98-7"><a href="amostragem-1.html#cb98-7"></a>  proporcao_amostras &lt;-<span class="kw">append</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(coleta))[<span class="st">&quot;Yes&quot;</span>],proporcao_amostras)</span>
+<span id="cb98-8"><a href="amostragem-1.html#cb98-8"></a></span>
+<span id="cb98-9"><a href="amostragem-1.html#cb98-9"></a>}</span>
+<span id="cb98-10"><a href="amostragem-1.html#cb98-10"></a></span>
+<span id="cb98-11"><a href="amostragem-1.html#cb98-11"></a><span class="kw">hist</span>(media_amostras, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">500</span> ), <span class="dt">main =</span> <span class="st">&quot;Histograma de frequência relativa dos valores da média de </span><span class="ch">\n</span><span class="st"> 500 amostras aleatórias simples com tamanho 30 cada uma&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequência Relativa&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Valores das médias das amostras&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="amostragem-1.html#cb99-1"></a><span class="kw">hist</span>(proporcao_amostras, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="fl">0.10</span>,<span class="fl">0.99</span>,<span class="fl">0.08</span>),<span class="dt">main =</span> <span class="st">&quot;Histograma de frequência relativa dos valores da proporção de </span><span class="ch">\n</span><span class="st"> 500 amostras aleatórias simples com tamanho 30 cada uma&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequência Relativa&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Valores médios das proporções das amostras&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
+<p>A distribuição amostral de x é a distribuição de probabilidade de todos os valores possíveis da amostrais de x</p>
+<div id="valor-esperado" class="section level4">
+<h4><span class="header-section-number">8.3.1.1</span> Valor esperado</h4>
+<p>É a média de todos os possíveis valores de x que podem ser gerados a partir das amostras aleatórias simples.</p>
+<p><span class="math display">\[ E (\bar{x}) = \mu \]</span></p>
+</div>
+<div id="desvio-padrão-1" class="section level4">
+<h4><span class="header-section-number">8.3.1.2</span> Desvio Padrão</h4>
+<p>O desvio padrão de <span class="math inline">\(\bar{x}\)</span> é chamado de erro padrão da média. Em geral, o termo erro padrão se refere ao desvio padrão de um estimador por ponto. Neste caso será útil para demonstrar quão distante a média amostral se encontra da média da população.</p>
+<div id="população-finita-1" class="section level5">
+<h5><span class="header-section-number">8.3.1.2.1</span> População Finita</h5>
+<p><span class="math display">\[\sigma_{\bar{x}}=\sqrt{\frac{N - n}
+                              {N - 1} (\frac{\sigma}
+                                      {\sqrt{n}})}\]</span></p>
+<p><span class="math inline">\(\sqrt{\frac{N-n}{N-1}}\)</span> = Fator de correção para populações finitas</p>
+</div>
+<div id="população-infinita-1" class="section level5">
+<h5><span class="header-section-number">8.3.1.2.2</span> População Infinita</h5>
+<p>Utiliza-se esta fórmula para populações infinitas e populações finitas onde o tamanho da amostra for menor ou igual a 5% do tamanho da população, ou seja, <span class="math inline">\(\frac{n}{N} ≤0,05\)</span>. Isto porque, o fator de correção para populações finitas terá pouca influência sobre o resultado.</p>
+<p><span class="math display">\[\sigma_{\bar{x}}=\frac{\sigma}
+                        {\sqrt{n}}\]</span></p>
+<p>No exemplo acima temos que:</p>
+<p><span class="math inline">\(\frac{n}{N} ≤0,05\)</span></p>
+<p><span class="math inline">\(\frac{30}{2500} = 0,012 ≤0,05\)</span></p>
+<p>Portanto utilizaremos a fórmula da população infinita.</p>
+<p><span class="math display">\[\sigma_{\bar{x}}=\frac{\sigma}
+                        {\sqrt{n}}\]</span></p>
+<p><span class="math inline">\(\sigma_{\bar{x}}=\frac{4000}  {\sqrt{30}}=730,3\)</span></p>
+</div>
+</div>
+<div id="forma-da-distribuição-amostral-de-barx" class="section level4">
+<h4><span class="header-section-number">8.3.1.3</span> Forma da Distribuição Amostral de <span class="math inline">\(\bar{x}\)</span></h4>
+<p>Dado o <a href="#_4lvujapuzgsk">Teorema do Limite Central</a>, podemos afirmar que a amostra de gerentes está normalmente distribuída, pelo fato de n ≥ 30.</p>
+<p>O valor da média da amostra é sempre utilizada para aproximar o valor da média da população. Porém, como se pode saber o quão aproximada essa média se encontra? Se o observarmos a média das 500 amostras, veremos que algumas se distanciam em torno de 2 mil dólares da média da população, no caso, seria aceitável uma amostra que se distancia tanto da média da população?</p>
+<p>Caso fosse solicitado que a média da amostra estivesse dentro de 500 dólares da média da população, qual a probabilidade disso ocorrer?</p>
+<p>Sabendo-se que a média populacional é de 51.800, qual a probabilidade da média amostral estar entre 51.300 e 52.300?</p>
+<p>A probabilidade é dada pela área sob a curva sombreada:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-20-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-20-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-20-4.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-20-5.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-20-6.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-20-7.png" width="672" /></p>
+<p>A fórmula correspondente seria então:</p>
+<p><span class="math display">\[
+z = \frac{x_1 - \mu}
+          {\sigma_\bar{x}}
+\]</span></p>
+<p><span class="math inline">\(z = \frac{51.300 - 51.800}{730,3} = - 0,68\)</span></p>
+<p><span class="math display">\[
+z = \frac{x_2 - \mu}
+          {\sigma_\bar{x}}
+\]</span></p>
+<p><span class="math inline">\(z = \frac{52.300 - 51.800}{730,3} = 0,68\)</span></p>
+<p>Consultando a tabela da distribuição normal verificamos a área entre</p>
+<ul>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = 0,68\)</span> é <span class="math inline">\(0,2517\)</span></li>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = -0,68\)</span> é <span class="math inline">\(0,2517\)</span></li>
+</ul>
+<p>Portanto, a probabilidade de o valor da média da amostra estar entre 51.300 - 52.300 é 0,2517 + 0,2517 = 0,5034.</p>
+<p>E analogamente, a probabilidade da amostra estar fora do intervalo de 51.300 - 52.300 é de 1 - 0,5034 = 0,4966</p>
+<p>Portanto, a probabilidade é de aproximadamente 50-50 de produzir uma média amostral dentro dos limites de 500 dólares.</p>
+<p><span class=highlightAmber>Seria uma tamanho de amostra maior a solução para que a probabilidade da média fique contida no intervalo ?<span></p>
+<p>Dada uma amostra de n = 100 teremos um erro amostral (desvio padrão):</p>
+<p><span class="math display">\[ \sigma_\bar{x} = \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p><span class="math inline">\(\sigma_\bar{x} = \frac{4000}{\sqrt{100}}=400\)</span></p>
+<p>Como podemos observar, o erro padrão diminui, portanto a distribuição muda de forma, se torna mais acentuada:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="amostragem-1.html#cb100-1"></a>mean=<span class="dv">51800</span>; </span>
+<span id="cb100-2"><a href="amostragem-1.html#cb100-2"></a>sd=<span class="fl">730.3</span>;</span>
+<span id="cb100-3"><a href="amostragem-1.html#cb100-3"></a>sd_<span class="dv">2</span> &lt;-<span class="dv">400</span></span>
+<span id="cb100-4"><a href="amostragem-1.html#cb100-4"></a></span>
+<span id="cb100-5"><a href="amostragem-1.html#cb100-5"></a>lcb &lt;-<span class="st"> </span>((mean <span class="op">-</span><span class="st"> </span>(<span class="dv">3</span> <span class="op">*</span><span class="st"> </span>sd)) <span class="op">-</span><span class="st"> </span><span class="dv">5</span>)</span>
+<span id="cb100-6"><a href="amostragem-1.html#cb100-6"></a>ucb &lt;-<span class="st"> </span>((mean <span class="op">+</span><span class="st"> </span>(<span class="dv">3</span> <span class="op">*</span><span class="st"> </span>sd)) <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)</span>
+<span id="cb100-7"><a href="amostragem-1.html#cb100-7"></a></span>
+<span id="cb100-8"><a href="amostragem-1.html#cb100-8"></a>u &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> lcb,</span>
+<span id="cb100-9"><a href="amostragem-1.html#cb100-9"></a>         <span class="dt">to =</span> ucb)</span>
+<span id="cb100-10"><a href="amostragem-1.html#cb100-10"></a>v1 &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="dt">x =</span> u,</span>
+<span id="cb100-11"><a href="amostragem-1.html#cb100-11"></a>            <span class="dt">mean =</span> mean,</span>
+<span id="cb100-12"><a href="amostragem-1.html#cb100-12"></a>            <span class="dt">sd =</span> sd)</span>
+<span id="cb100-13"><a href="amostragem-1.html#cb100-13"></a>v2 &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="dt">x =</span> u,</span>
+<span id="cb100-14"><a href="amostragem-1.html#cb100-14"></a>            <span class="dt">mean =</span> mean,</span>
+<span id="cb100-15"><a href="amostragem-1.html#cb100-15"></a>            <span class="dt">sd =</span> sd_<span class="dv">2</span>)</span>
+<span id="cb100-16"><a href="amostragem-1.html#cb100-16"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="kw">data.frame</span>(<span class="dt">u =</span> <span class="kw">c</span>(lcb, ucb)),</span>
+<span id="cb100-17"><a href="amostragem-1.html#cb100-17"></a>       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> u)) <span class="op">+</span></span>
+<span id="cb100-18"><a href="amostragem-1.html#cb100-18"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">colour =</span> <span class="st">&quot;n=30 sd=730.3&quot;</span>),</span>
+<span id="cb100-19"><a href="amostragem-1.html#cb100-19"></a>                <span class="dt">fun =</span> dnorm,</span>
+<span id="cb100-20"><a href="amostragem-1.html#cb100-20"></a>                <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> mean,</span>
+<span id="cb100-21"><a href="amostragem-1.html#cb100-21"></a>                            <span class="dt">sd =</span> sd)) <span class="op">+</span></span>
+<span id="cb100-22"><a href="amostragem-1.html#cb100-22"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">colour =</span> <span class="st">&quot;n=100 sd=400&quot;</span>),</span>
+<span id="cb100-23"><a href="amostragem-1.html#cb100-23"></a>                <span class="dt">fun =</span> dnorm,</span>
+<span id="cb100-24"><a href="amostragem-1.html#cb100-24"></a>                <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> mean,</span>
+<span id="cb100-25"><a href="amostragem-1.html#cb100-25"></a>                            <span class="dt">sd =</span> sd_<span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb100-26"><a href="amostragem-1.html#cb100-26"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></span>
+<span id="cb100-27"><a href="amostragem-1.html#cb100-27"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;salários&quot;</span>,</span>
+<span id="cb100-28"><a href="amostragem-1.html#cb100-28"></a>       <span class="dt">y =</span> <span class="st">&quot;densities&quot;</span>,</span>
+<span id="cb100-29"><a href="amostragem-1.html#cb100-29"></a>       <span class="dt">title =</span> <span class="st">&quot;Comparação entre distribuições com 30 e 100 elementos para </span><span class="ch">\n</span><span class="st"> amostras aleatórias simples dos salários dos gerentes EAI&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Agora, se formos considerar a probabilidade da média amostral se encontrar em torno de 500 dolares da média populacional teremos:</p>
+<p><span class="math display">\[z = \frac{x_1 - \mu}{ \sigma_\bar{x}}\]</span></p>
+<p><span class="math inline">\(z = \frac{51.300 - 51.800}{400} = -1,25\)</span></p>
+<p><span class="math display">\[z = \frac{x_2 - \mu}{ \sigma_\bar{x}}\]</span></p>
+<p><span class="math inline">\(z = \frac{52.300 - 51.800}{400} = 1,25\)</span></p>
+<p>Consultando a tabela da distribuição normal verificamos a área entre</p>
+<ul>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = 1,25\)</span> é <span class="math inline">\(0,3944\)</span></li>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = -1,25\)</span> é <span class="math inline">\(0,3944\)</span></li>
+</ul>
+<p>Portanto, a probabilidade de o valor da média da amostra estar entre 51.300 - 52.300 é 0,3944 + 0,3944 = 0,7888.</p>
+<p>E analogamente, a probabilidade da amostra estar fora do intervalo de 51.300 - 52.300 é de 1 - 0,5034 = 0,2112</p>
+<p>Portanto, a probabilidade do intervalo (51.300 - 52.300 ) conter a média populacional aumentou de 0,5034 para 0,7888</p>
+<p>Obs: Demonstrações teóricas do teorema do limite central requerem observações independentes, ou seja, amostragem com substituição.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="amostragem-1.html#cb101-1"></a>lb&lt;-<span class="dv">51300</span></span>
+<span id="cb101-2"><a href="amostragem-1.html#cb101-2"></a>ub&lt;-<span class="dv">52300</span></span>
+<span id="cb101-3"><a href="amostragem-1.html#cb101-3"></a>sd&lt;-<span class="dv">400</span></span>
+<span id="cb101-4"><a href="amostragem-1.html#cb101-4"></a>mean&lt;-<span class="dv">51800</span></span>
+<span id="cb101-5"><a href="amostragem-1.html#cb101-5"></a><span class="kw">pnormGC</span>(<span class="kw">c</span>(lb,ub),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>,<span class="dt">mean=</span>mean,</span>
+<span id="cb101-6"><a href="amostragem-1.html#cb101-6"></a>        <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre><code>## [1] 0.7887005</code></pre>
+</div>
+</div>
+<div id="distribuição-amostral-de-barp" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Distribuição amostral de <span class="math inline">\(\bar{p}\)</span></h3>
+<p>A proporção amostral <span class="math inline">\(\bar{p}\)</span> é o estimador por ponto da proporção p da população. E é dado por:</p>
+<p><span class="math display">\[\bar{p} =\frac{x}{n}\]</span></p>
+<p><span class="math inline">\(x =\textrm{número de elementos da amostra com a característica de interesse}\)</span></p>
+<p><span class="math inline">\(n = \textrm{o tamanho da amostra}\)</span></p>
+<div id="valor-esperado-de-barp" class="section level4">
+<h4><span class="header-section-number">8.3.2.1</span> Valor esperado de <span class="math inline">\(\bar{p}\)</span></h4>
+<p>O valor esperado de <span class="math inline">\(\bar{p}\)</span> , que é a média de todos os valores possíveis de <span class="math inline">\(\bar{p}\)</span> , é igual a proporção populacional de p</p>
+<p><span class="math display">\[E(\bar{p} ) = p\]</span></p>
+<p><span class="math inline">\(E(\bar{p} )= \textrm{o valor esperado de } \bar{p}\)</span></p>
+<p><span class="math inline">\(p = \textrm{proporção populacional}\)</span></p>
+</div>
+<div id="desvio-padrão-de-barp" class="section level4">
+<h4><span class="header-section-number">8.3.2.2</span> Desvio padrão de <span class="math inline">\(\bar{p}\)</span></h4>
+<p>O desvio padrão de <span class="math inline">\(\bar{p}\)</span> é chamado de erro padrão da proporção. Em geral, o termo erro padrão se refere ao desvio padrão de um estimador por ponto. Neste caso será útil para demonstrar quão distante a proporção amostral se encontra da proporção da população.</p>
+<div id="população-finita-2" class="section level5">
+<h5><span class="header-section-number">8.3.2.2.1</span> População Finita</h5>
+<p><span class="math display">\[\sigma_\bar{p} = \sqrt{\frac{N-n}{N-1}}
+\sqrt{\frac{p(1 - p)}{n}}\]</span></p>
+<p><span class="math inline">\(\sqrt{\frac{N-n}{N-1}}= \textrm{Fator de correção para populações finitas}\)</span></p>
+</div>
+<div id="população-infinita-2" class="section level5">
+<h5><span class="header-section-number">8.3.2.2.2</span> População Infinita</h5>
+<p>Utiliza-se esta fórmula para populações infinitas e populações finitas onde o tamanho da amostra for menor ou igual a 5% do tamanho da população, ou seja,<span class="math inline">\(\frac{n}{N}≤0,05\)</span> . Isto porque, o fator de correção para populações finitas terá pouca influência sobre o resultado.</p>
+<p><span class="math display">\[\sigma_\bar{p} = 
+\sqrt{\frac{p(1 - p)}{n}}\]</span></p>
+<p>No exemplo acima, temos que:</p>
+<p><span class="math inline">\(\frac{n}{N}\)</span> ≤0,05</p>
+<p><span class="math inline">\(\frac{30}{2500}= 0,012 ≤ 0,05\)</span></p>
+<p>Portanto utilizaremos a fórmula da população infinita:</p>
+<p><span class="math display">\[\sigma_\bar{p} = 
+\sqrt{\frac{p(1 - p)}{n}}\]</span></p>
+<p><span class="math inline">\(\sigma_\bar{p} = \sqrt{\frac{0,60(1 - 0,60)}{100}} = 0,0894\)</span></p>
+<p>Se amostra fosse aumentada para 100:</p>
+<p><span class="math display">\[\sigma_\bar{p} = 
+\sqrt{\frac{p(1 - p)}{n}}\]</span></p>
+<p><span class="math inline">\(\sigma_\bar{p} = \sqrt{\frac{0,60(1 - 0,60)}{100}} = 0,049\)</span></p>
+</div>
+</div>
+<div id="forma-da-distribuição-amostral-de-barp" class="section level4">
+<h4><span class="header-section-number">8.3.2.3</span> Forma da distribuição amostral de <span class="math inline">\(\bar{p}\)</span></h4>
+<p>Agora para determinarmos a forma da distribuição de <span class="math inline">\(\bar{p}\)</span>, devemos considerar que esta se trata de uma variável aleatória binomial (ou é característica específica ou não ( “sucesso ou fracasso”) que indica o número de elementos na população que possuem a variável de interesse.</p>
+<p>Dado que a proporção é dada por <span class="math inline">\(\bar{p} = \frac{x}{n}\)</span> e n é uma constante, a probabilidade <span class="math inline">\(\frac{x}{n}\)</span> é idêntica a probabilidade binomial de x, o que significa que a distribuição amostral de <span class="math inline">\(\bar{p}\)</span> também é uma distribuição discreta de probabilidade e que a probabilidade correspondente a cada valor de <span class="math inline">\(\frac{x}{n}\)</span> é idêntica a probabilidade binomial de x.</p>
+<p>Sendo satisfeitas as condições:</p>
+<ul>
+<li><span class="math inline">\(n × p ≥ 5\)</span></li>
+<li><span class="math inline">\(n ( 1 - p) ≥ 5\)</span></li>
+</ul>
+<p>A distribuição de probabilidade de x pode ser aproximada por meio de uma distribuição normal. E desde que n seja uma constante a distribuição amostral de <span class="math inline">\(\bar{p} = \frac{x}{n}\)</span> também pode.</p>
+<p>Caso fosse desejado saber a probabilidade da proporção amostral se encontrar em 0,05 da média populacional, teríamos:</p>
+<p><span class="math inline">\(P( 0,55- 0,65)\)</span></p>
+<p><span class="math display">\[z = \frac{x_1 - \mu}{ \sigma_\bar{x}}\]</span></p>
+<p><span class="math inline">\(z = \frac{0,55 - 0,60}{ 0,0894}=-0,56\)</span></p>
+<p><span class="math display">\[z = \frac{x_2 - \mu}{ \sigma_\bar{x}}\]</span></p>
+<p><span class="math inline">\(z = \frac{0,65 - 0,60}{ 0,0894}= 0,56\)</span></p>
+<p>Consultando a tabela da distribuição normal verificamos a área entre</p>
+<ul>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = 0,56\)</span> é <span class="math inline">\(0,2123\)</span></li>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = -0,56\)</span> é <span class="math inline">\(0,2123\)</span></li>
+</ul>
+<p>Portanto, a probabilidade de o valor da proporção da amostra estar entre 0,55- 0,65 é 0,2123 + 0,2123 = 0,4246.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="amostragem-1.html#cb103-1"></a>lb&lt;-<span class="fl">0.55</span></span>
+<span id="cb103-2"><a href="amostragem-1.html#cb103-2"></a>ub&lt;-<span class="fl">0.65</span></span>
+<span id="cb103-3"><a href="amostragem-1.html#cb103-3"></a>mean&lt;-<span class="fl">0.60</span></span>
+<span id="cb103-4"><a href="amostragem-1.html#cb103-4"></a>sd&lt;-<span class="fl">0.0894</span></span>
+<span id="cb103-5"><a href="amostragem-1.html#cb103-5"></a></span>
+<span id="cb103-6"><a href="amostragem-1.html#cb103-6"></a><span class="kw">pnormGC</span>(<span class="kw">c</span>(lb,ub),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>,<span class="dt">mean=</span>mean,</span>
+<span id="cb103-7"><a href="amostragem-1.html#cb103-7"></a>        <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre><code>## [1] 0.4240322</code></pre>
+<p>E analogamente, a probabilidade da amostra estar fora do intervalo de 0,55- 0,65 é de 1 - 0,4246 = 0,5754</p>
+<p>Se a amostra fosse aumentada para 100:</p>
+<p><span class="math display">\[z = \frac{x_1 - \mu}{ \sigma_\bar{x}}\]</span></p>
+<p><span class="math inline">\(z = \frac{0,55 - 0,60}{ 0,049}=-1,02\)</span></p>
+<p><span class="math display">\[z = \frac{x_2 - \mu}{ \sigma_\bar{x}}\]</span></p>
+<p><span class="math inline">\(z = \frac{0,65 - 0,60}{ 0,049}= 1,02\)</span></p>
+<p>Consultando a tabela da distribuição normal verificamos a área entre</p>
+<ul>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = 1,02\)</span> é <span class="math inline">\(0,3461\)</span></li>
+<li><span class="math inline">\(z = 0\)</span> e <span class="math inline">\(z = -1,02\)</span> é <span class="math inline">\(0,3461\)</span></li>
+</ul>
+<p>Portanto, a probabilidade de o valor da proporção da amostra estar entre 0,55- 0,65 é 0,3461 + 0,3461 = 0,6922.</p>
+<p>E analogamente, a probabilidade da amostra estar fora do intervalo de 0,55- 0,65 é de 1 - 0,6922 = 0,3078</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="amostragem-1.html#cb105-1"></a>lb&lt;-<span class="fl">0.55</span></span>
+<span id="cb105-2"><a href="amostragem-1.html#cb105-2"></a>ub&lt;-<span class="fl">0.65</span></span>
+<span id="cb105-3"><a href="amostragem-1.html#cb105-3"></a>mean&lt;-<span class="fl">0.60</span></span>
+<span id="cb105-4"><a href="amostragem-1.html#cb105-4"></a>sd&lt;-<span class="fl">0.049</span></span>
+<span id="cb105-5"><a href="amostragem-1.html#cb105-5"></a></span>
+<span id="cb105-6"><a href="amostragem-1.html#cb105-6"></a><span class="kw">pnormGC</span>(<span class="kw">c</span>(lb,ub),<span class="dt">region=</span><span class="st">&quot;between&quot;</span>,<span class="dt">mean=</span>mean,</span>
+<span id="cb105-7"><a href="amostragem-1.html#cb105-7"></a>        <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<pre><code>## [1] 0.6924651</code></pre>
+</div>
+</div>
+</div>
+<div id="estimação-por-intervalo" class="section level2">
+<h2><span class="header-section-number">8.4</span> Estimação por intervalo</h2>
+<p>Dado que um estimador por ponto é uma estatística da amostra usada para estimar um parâmetro populacional e que não se pode esperar que um estimador produza o valor exato da do parâmetro populacional, uma <strong>estimação por intervalo</strong> frequentemente é calculada adicionando ou subtraindo-se um valor, denotado de <strong>margem de erro</strong>, ao estimador por ponto. A forma geral da estimação por ponto é dada por:</p>
+<p><span class="highlightBlue">Estimação por ponto ± Margem de erro</span></p>
+<p>A finalidade de uma estimação por intervalo é fornecer informações sobre o quão próximo o estimador por ponto, produzido pela amostra, está do valor do parâmetro populacional.</p>
+<div id="média-da-população-desvio-padrão-σconhecido" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Média da população : Desvio Padrão (σ)Conhecido</h3>
+<p>Para desenvolver uma estimação por intervalo da média populacional o <span class="highlightGreen"> desvio padrão</span> da população σ ou o s da amostra devem ser conhecidos <span class="highlightGreen"> para se calcular a margem de erro </span>. Sendo o σ desconhecido, utiliza-se o s.</p>
+<p>Tendo-se grandes quantidades de dados históricos, pode-se calcular o σ da população antes de se fazer a amostragem, assim como em situações de controle de qualidade nas quais se supõe que um processo esteja operando corretamente.</p>
+<p>Exemplo:</p>
+<p>Dado um histórico de compras normalmente distribuído, de desvio padrão de 20 dólares, uma amostra de 100 clientes é retirada e obtendo-se uma média ${x}= 82 $ dólares por compra. Sabemos, que a estimação por ponto possui um erro padrão (desvio padrão da estimação por ponto) de:</p>
+<p><span class="math display">\[\sigma_x=\frac{\sigma}{\sqrt{n}}\]</span></p>
+<p><span class="math inline">\(\sigma_x=\frac{20}{\sqrt{100}} =2\)</span></p>
+<p>Consultando a tabela de score z sabemos que numa distribuição normal, 95% dos valores estarão contidos em um desvio padrão de ±1,96 desvio padrão da média. Sabendo então que o desvio padrão da amostra é 2:</p>
+<p><span class="math inline">\(1,96 × \sigma\)</span></p>
+<p><span class="math inline">\(1,96 × 2 = 3,92\)</span></p>
+<p>Podemos então concluir que 95% de todos os valores da média da amostra (<span class="math inline">\(\bar{x}\)</span>) estarão contidos em ± 3,92 da média populacional <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="math inline">\(82 + 3,92 = 85,92\)</span></p>
+<p><span class="math inline">\(82 - 3,92 = 78,08\)</span></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="amostragem-1.html#cb107-1"></a>mean&lt;-<span class="dv">82</span></span>
+<span id="cb107-2"><a href="amostragem-1.html#cb107-2"></a>sd&lt;-<span class="dv">2</span></span>
+<span id="cb107-3"><a href="amostragem-1.html#cb107-3"></a></span>
+<span id="cb107-4"><a href="amostragem-1.html#cb107-4"></a><span class="kw">qnormGC</span>(<span class="fl">0.95</span>,<span class="dt">region=</span><span class="st">&quot;between&quot;</span>,<span class="dt">mean=</span>mean,</span>
+<span id="cb107-5"><a href="amostragem-1.html#cb107-5"></a>        <span class="dt">sd=</span>sd,<span class="dt">graph=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<pre><code>## [1] 78.08007 85.91993</code></pre>
+<p>Portanto, podemos concluir com grau de confiança de 95% que o intervalo de 78,08 - 85,92 contém a média populacional μ.</p>
+<p><span class="highlightGreen"><strong>0,95</strong> = coeficiente de confiança</span></p>
+<p><span class="highlightGreen"><strong>78,08 - 85,92</strong> = intervalo de confiança de 95%</span></p>
+<p>A forma geral da estimação por intervalo é dada por:</p>
+<p><span class="math display">\[\bar{x} ±  z_\frac{\alpha}{2} \frac{\sigma}{\sqrt{n}} \]</span></p>
+<p><span class="math inline">\(( 1 - \alpha) = \textrm{coeficiente de confiança}\)</span></p>
+<p><span class="math inline">\(\alpha = \textrm{Nível de significância}\)</span></p>
+<p><span class="math inline">\(z_\frac{α}{2} = \textrm{é o valor de z que produz uma área de α/2 na cauda superior da distribuição normal padrão de probabilidade}\)</span></p>
+<p><span class="math inline">\(z_\frac{\alpha}{2} = \textrm{Semi amplitude}\)</span></p>
+</div>
+<div id="média-da-população-desvio-padrão-σ-desconhecido" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> Média da população: Desvio Padrão ( σ) Desconhecido</h3>
+<p>Quando o σ populacional é desconhecido é necessário utilizar-se a mesma amostra para se estimar o μ e o σ . Nos casos em que o s é usado para estimar o σ a margem de erro e a estimação por intervalo da média populacional baseiam-se em uma distribuição de probabilidade chamada de <strong>Distribuição t.</strong></p>
+<p>Isso porque como não se trabalha com o Desvio Padrão da população, não se pode mais trabalhar com a curva normal ou com as probabilidades dadas pela áreas de curva normal. A Distribuição T de Studant traz um fator de correção por se trabalhar com o desvio padrão da amostra, ou seja, um menor nível de precisão.</p>
+<div id="distribuição-de-probabilidade-t-de-studant" class="section level4">
+<h4><span class="header-section-number">8.4.2.1</span> Distribuição de Probabilidade T de Studant</h4>
+<p>A distribuição T de Student é uma distribuição de probabilidade estatística, publicada por um autor que se</p>
+<p>chamou de Student, pseudônimo de William Sealy Gosset, que não podia usar seu nome verdadeiro para publicar trabalhos enquanto trabalhasse para a cervejaria Guinness.</p>
+<p>A distribuição t também tem a forma normal e é simétrica sobre a média. A média, moda e mediana são iguais à zero. A principal diferença é que <span class="highlightGreen">a distribuição t tem mais áreas nas caudas, fazendo com que seus valores críticos sejam maiores que os da distribuição Normal.</span> Como consequência, o intervalo de confiança usando a distribuição t ficará mais largo se usa-se a distribuição Normal. A idéia aqui é que você deve pagar um preço por trabalhar com pequenas amostras.</p>
+<p><span class="highlightGreen">Cada tamanho amostral possui sua própria distribuição t</span>, ou seja, ao contrário da distribuição normal, a distribuição t não tem forma fixa, mas sim uma família de curvas. Cada curva é determinada por um parâmetro chamado grau de liberdade, encontrado pelo tamanho da amostra menos um (GL = n - 1). A idéia aqui é que o preço a ser pago por se ter uma amostra muito pequena, como 5, é mais alto do que o preço por se ter uma amostra de tamanho um pouco maior, como 10 ou 20. A medida que o número de graus de liberdade aumenta, a diferença entre a distribuição t e a distribuição normal padrão torna-se cada vez menor, acima de 30 graus de liberdade a diferença é tão insignificante que pode-se trabalhar com a normal.</p>
+<p>O <strong>grau de liberdade</strong> se refere ao número de valores que são livres para variar após estabelecerem algumas restrições de dados.</p>
+<p>V = (n - 1) graus de liberdade</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="amostragem-1.html#cb109-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">100</span>)</span>
+<span id="cb109-2"><a href="amostragem-1.html#cb109-2"></a>hx &lt;-<span class="st"> </span><span class="kw">dnorm</span>(x)</span>
+<span id="cb109-3"><a href="amostragem-1.html#cb109-3"></a></span>
+<span id="cb109-4"><a href="amostragem-1.html#cb109-4"></a>degf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">30</span>)</span>
+<span id="cb109-5"><a href="amostragem-1.html#cb109-5"></a>colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#ef5350&quot;</span>, <span class="st">&quot;#29b6f6&quot;</span>, <span class="st">&quot;#66bb6a&quot;</span>, <span class="st">&quot;#ffca28&quot;</span>, <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb109-6"><a href="amostragem-1.html#cb109-6"></a>labels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;df=1&quot;</span>, <span class="st">&quot;df=3&quot;</span>, <span class="st">&quot;df=8&quot;</span>, <span class="st">&quot;df=30&quot;</span>, <span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb109-7"><a href="amostragem-1.html#cb109-7"></a></span>
+<span id="cb109-8"><a href="amostragem-1.html#cb109-8"></a><span class="kw">plot</span>(x, hx, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">xlab=</span><span class="st">&quot;x value&quot;</span>,</span>
+<span id="cb109-9"><a href="amostragem-1.html#cb109-9"></a>  <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Comparison of t Distributions&quot;</span>)</span>
+<span id="cb109-10"><a href="amostragem-1.html#cb109-10"></a></span>
+<span id="cb109-11"><a href="amostragem-1.html#cb109-11"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>){</span>
+<span id="cb109-12"><a href="amostragem-1.html#cb109-12"></a>  <span class="kw">lines</span>(x, <span class="kw">dt</span>(x,degf[i]), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span>colors[i])</span>
+<span id="cb109-13"><a href="amostragem-1.html#cb109-13"></a>}</span>
+<span id="cb109-14"><a href="amostragem-1.html#cb109-14"></a></span>
+<span id="cb109-15"><a href="amostragem-1.html#cb109-15"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">inset=</span>.<span class="dv">05</span>, <span class="dt">title=</span><span class="st">&quot;Distributions&quot;</span>,</span>
+<span id="cb109-16"><a href="amostragem-1.html#cb109-16"></a>  labels, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">col=</span>colors)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div id="graus-de-liberdade" class="section level5">
+<h5><span class="header-section-number">8.4.2.1.1</span> Graus de liberdade</h5>
+<p>Podemos definir graus de liberdade de diversas maneiras:</p>
+<ul>
+<li>O número de elementos que são livres para variar</li>
+<li>Maneira de quantificar as estimativas métricas para um cálculo estatístico qualquer</li>
+<li>O número de determinações independentes (dimensão da amostra) menos o número de parâmetros estatísticos a serem avaliados na população</li>
+<li><span class="highlightGreen"> Medida da dependência das suas estimativas (das suas métricas estatísticas) em relação a sua amostragem</span></li>
+</ul>
+<p>Ou seja, nada mais que é que uma <span class="highlightGreen">maneira de contar quantos parâmetros já foram estimados para que se possa calcular uma outra estimativa e descontando isso do número de observações</span>, trata-se da independência entre os termos a partir do tamanho da sua observação.</p>
+<p>Quanto menos graus de liberdade você tem, mais restritivo vai sendo pra se achar uma diferença significativa - porque as estimativas vão ficando dependentes umas das outras e a penalização é a diminuição da confiança !</p>
+<p>Por exemplo, no caso de se estimar a variância de uma população a partir da amostra, temos uma amostra com n observações, para calcular a variância é preciso calcular a média, logo sobram n-1 graus de liberdade para calcular a variância, pois existe uma dependência entre as estimativas</p>
+<p>Para calcular a variância para dois grupos de dados sabemos que para calcular a variância é preciso calcular duas médias (uma de cada grupo) portanto, e sobram n1+ n2 – 2 graus de liberdade para calcular a variância.</p>
+</div>
+</div>
+<div id="margem-de-erro" class="section level4">
+<h4><span class="header-section-number">8.4.2.2</span> Margem de erro</h4>
+<p>A estimação por intervalo de uma média populacional com σ conhecido é dada por:</p>
+<p><span class="math display">\[\bar{x} ± z_\frac{\alpha}{2}\frac{\sigma}{\sqrt{n}}\]</span></p>
+<p>No entanto, para calcular a estimação por intervalo de μ para o caso de σ desconhecido , o desvio padrão da amostra é usado para estimar σ e <span class="math inline">\(z_\alpha/2\)</span> é substituído pelo valor da distribuição t, <span class="math inline">\(t_\alpha/2\)</span>. A margem de erro é dada</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="amostragem-1.html#cb110-1"></a><span class="kw">qnormGC</span>(<span class="fl">0.025</span>,<span class="dt">region=</span><span class="st">&quot;above&quot;</span>,<span class="dt">mean=</span><span class="dv">0</span>,</span>
+<span id="cb110-2"><a href="amostragem-1.html#cb110-2"></a>        <span class="dt">sd=</span><span class="dv">1</span>,<span class="dt">graph=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre><code>## [1] 1.959964</code></pre>
+<p>Com essa margem de erro a expressão geral de uma estimação por intervalo de uma média populacional quando o σ é desconhecido é dado por:</p>
+<p><span class="math display">\[\bar{x} ± t_\frac{\alpha}{2}\frac{s}{\sqrt{n}}\]</span></p>
+<p><span class="math inline">\(( 1 - α) = \textrm{ coeficiente de confiança}\)</span></p>
+<p><span class="math inline">\(α = \textrm{Nível de significância}\)</span></p>
+<p><span class="math inline">\(s = \textrm{Desvio padrão da amostra}\)</span></p>
+<p><span class="math inline">\(t_\frac{α}{2} = \textrm{ é o valor de t que produz uma área de α/2 na cauda superior da dist. t de probabilidade com n - 1 graus de liberdade}\)</span></p>
+<p><span class="math inline">\(t_\frac{α}{2} = \textrm{ Semi amplitude}\)</span></p>
+<p>A razão pela qual o número de graus de liberdade associado ao valor de t é <strong>n - 1</strong> refere-se ao uso de <strong>s</strong> como uma estimativa do desvio padrão <strong>s</strong> da população. A expressão de desvio padrão da amostra é :</p>
+<p><span class="math display">\[s =\sqrt{ \frac{\sum(x_i- x)^2}{n - 1}}\]</span></p>
+<p>Exemplo:</p>
+<p>Dada um conjunto de saldos de cartão de crédito em uma amostra de 85 famílias, onde os parâmetros populacionais são desconhecidos, desenvolva uma estimativa de 95% de confiança para média e desvio padrão populacionais.</p>
+<p>A média amostral é : 5.900</p>
+<p>O desvio Padrão amostral é: 3.058</p>
+<p>Dado:</p>
+<ul>
+<li>95% de confiança</li>
+<li>n - 1 graus de liberdade
+<ul>
+<li>grau de liberdade = 85 -1 → 84</li>
+</ul></li>
+<li>t0,025 = 1,989 → De acordo com tabela t</li>
+</ul>
+<p><span class="math display">\[ \bar{x}\pm t_\frac{\alpha}{2} \frac{s}{\sqrt{n}}
+\]</span></p>
+<p><span class="math inline">\(5900 ± 1,989 \frac{3.058}{\sqrt{85}}\)</span></p>
+<p><span class="math inline">\(45900 ± 6604\)</span></p>
+<p>Portanto a estimação por intervalo, com confiança de 95% é :</p>
+<p>$5.240 ≤ μ ≤ 6560 $</p>
+</div>
+</div>
+<div id="determinação-do-tamanho-da-amostra" class="section level3">
+<h3><span class="header-section-number">8.4.3</span> Determinação do tamanho da amostra</h3>
+<p>Se uma margem de erro for escolhida antes da amostragem, o procedimento a seguir é útil para determinar o tamanho de amostra mínimo necessário para satisfazer os requisitos da margem de erro:</p>
+<p><span class="math display">\[n = \frac{(z_{\frac{α}{2}})^2σ^2}{E^2}\]</span></p>
+<p><span class="math inline">\(E= \textrm{margem de erro escolhida}\)</span></p>
+<p><span class="math inline">\(z_{\frac{α}{2}} = \textrm{grau de confiança a ser usado na estimação por intervalo}\)</span></p>
+<p><span class="math inline">\(α = \textrm{Nível de significância}\)</span></p>
+<p><span class="math inline">\(σ = \textrm{Desvio padrão planejado}\)</span></p>
+<p>O valor de σ pode ser conhecido ou planejado, o qual pode ser obtido a partir dos seguintes procedimentos:</p>
+<ul>
+<li>Usar a estimativa do desvio padrão da populacional, calculada a partir de dados históricos</li>
+<li>Usar um estudo piloto para selecionar uma amostra preliminar e calcular o desvio da amostra</li>
+<li>Usar julgamento ou melhor palpite de σ, que pode ser calculada pela amplitude dividida por quatro. É uma aproximação tosca, porém aceitável para σ.</li>
+</ul>
+</div>
+<div id="proporção-da-população" class="section level3">
+<h3><span class="header-section-number">8.4.4</span> Proporção da população</h3>
+<p>De forma geral, a estimação por intervalo de uma proporção é dada por:</p>
+<p><span class="math display">\[p ± \textrm{Margem de erro}\]</span></p>
+<p>A distribuição amostral de <span class="math inline">\(\bar{p}\)</span> desempenha um papel fundamental no cálculo da margem de erro dessa estimação por intervalo. Sabe-se que a distribuição amostral de <span class="math inline">\(\bar{p}\)</span> pode ser aproximada por meio de uma distribuição normal quando:</p>
+<p><span class="math display">\[n × p ≥ 5\]</span></p>
+<p><span class="math display">\[n (1 - p) ≥ 5\]</span></p>
+<p><span class="highlightAmbar">A média da distribuição amostral de <span class="math inline">\(\bar{p}\)</span> </span>é a proporção p da população.</p>
+<p>O desvio padrão de <span class="math inline">\(\bar{p}\)</span> é dado por:</p>
+<p><span class="math display">\[σ_{\bar{p}}= \sqrt{\frac{p(1 - p)}{n}}\]</span></p>
+<p>Dado que a distribuição amostral de <span class="math inline">\(\bar{p}\)</span> está normalmente distribuída:</p>
+<ul>
+<li>se <span class="math inline">\(z_{\frac{α}{2}}σ_\bar{p}\)</span> for escolhida como a margem de erro de uma estimação por intervalo de uma proporção populacional, saberemos que 100( 1 - α)% dos intervalos gerados conterão a proporção populacional verdadeira
+<ul>
+<li>Mas <span class="math inline">\(σ_\bar{p}\)</span> não pode ser utilizado diretamente no cálculo da margem de erro, pois p não será conhecido, p é justamente o que se deseja estimar</li>
+<li>Então se substitui p por <span class="math inline">\(\bar{p}\)</span> e temos
+<ul>
+<li><p><span class="math inline">\(\textrm{Margem de erro} = z_{\alpha /2} \sqrt{\frac{\bar{p}(1 - \bar{p})}{n}}\)</span></p></li>
+<li><p>Margem de erro 0,1 é ok. Pesquisas de opinião pública trabalham com 0,3 - 0,4</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Temos então que a expressão geral da <span class="highlightGreen">estimação por intervalo de uma proporção populacional:</span></p>
+<p><span class="math display">\[\bar{p} ± z_{\alpha /2} \sqrt{\frac{\bar{p}(1 - \bar{p})}{n}}\]</span></p>
+<p><span class="math inline">\(z_{α/2} = \textrm{é o valor de z que produz a área igual a α/2 na cauda superior da distribuição normal padrão}\)</span></p>
+<p><span class="math inline">\(1 - α = \textrm{Coeficiente de confiança}\)</span></p>
+<p>Exemplo:</p>
+<p>Dado uma amostra de 900 jogadoras de golfe de uma pesquisa a respeito da satisfação com o tratamento dados às mulheres nos cursos de golfe nos EUA. A pesquisa revelou que 396 mulheres estavam satisfeitas, portanto tem-se a proporção de 44% de mulheres satisfeitas. Fazendo o cálculo com 95% de confiança, temos o intervalos de:</p>
+<p><span class="math display">\[\bar{p} ± z_{\alpha /2} \sqrt{\frac{\bar{p}(1 - \bar{p})}{n}}\]</span>
+<span class="math inline">\(0,44 ± 1,96 \sqrt{\frac{0,44( 1 - 0,44)}{900}}\)</span></p>
+<p><span class="math inline">\(0,44 ± 0,0324\)</span></p>
+<p>Temos portanto uma margem de erro de 0,0324 e a estimação por intervalo de confiança de 95% da proporção da população é de <span class="math inline">\(( 0,4076 ≤ p ≤ 0,04724)\)</span> em porcentagem, temos uma proporção entre 40,76 e 47,24 de todas as mulheres golfistas estarem satisfeitas.</p>
+<div id="determinação-do-tamanho-da-amostra-1" class="section level4">
+<h4><span class="header-section-number">8.4.4.1</span> Determinação do tamanho da amostra</h4>
+<p>Para se determinar o tamanho da amostra necessário para se obter uma estimativa da proporção populacional com um grau de confiança específico, utiliza-se um pensamento análogo ao utilizado para estabelecer o tamanho da amostra para estimar a média populacional.</p>
+<p>Temos portanto:</p>
+<ul>
+<li>a margem de erro é dada por: <span class="math display">\[z_{α/2} =\sqrt{\frac{ \bar{p}( 1 - \bar{p})}{n}}\]</span>
+<ul>
+<li>esta se baseia no valor de <span class="math inline">\(z_{α/2}\)</span> na proporção de p da amostra e no tamanho n da amostra, tendo portanto que tamanhos de amostras maiores maiores produzem margens de erro menores</li>
+<li>Digamos que E denote a margem de erro:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[E = z_{α/2} \sqrt{\frac
+  { \bar{p}( 1 - \bar{p})}{n}}\]</span></p>
+<ul>
+<li><p>Isolando o <strong>n</strong> na equação, produz-se a fórmula do tamanho da amostra que fornecerá uma margem de erro de tamanho E:
+<span class="math display">\[n = \frac{(z_{α/2})^2 \bar{p} (1 - \bar{p} )}{E^2}\]</span></p>
+<ul>
+<li>Entretanto, não podemos utilizar essa fórmula, para calcular o tamanho da amostra pois p somente será conhecido depois de selecionarmos a amostra. Para contornar, utilizaremos um valor planejado de <span class="math inline">\(\bar{p}\)</span> o <span class="math inline">\(p^*\)</span></li>
+</ul></li>
+</ul>
+<p>Temos então que a fórmula para calcular o tamanho da amostra para uma estimação por intervalo de uma proporção populacional é dada por:</p>
+<p><span class="math display">\[n = \frac{(z_{α/2})^2 p^* (1 - p^* )}{E^2}\]</span></p>
+<p><span class="math inline">\(p^*\)</span> = Valor planejado de <span class="math inline">\(\bar{p}\)</span></p>
+<p>O valor planejado <span class="math inline">\(p^*\)</span> pode ser obtido:</p>
+<ul>
+<li>Usando a proporção de uma amostra anterior das mesmas unidades ou de unidades similares</li>
+<li>Usando um estudo piloto para selecionar uma amostra preliminar</li>
+<li>Usando o julgamento ou melhor palpite para o valor planejado de <span class="math inline">\(p^*\)</span></li>
+<li>Usando o valor planejado de <span class="math inline">\(p^* = 0,50\)</span>. Caso nenhuma das alternativas anteriores seja apropriada.</li>
+</ul>
+<p>Exemplo:</p>
+<p>Dado uma amostra de 900 jogadoras de golfe de uma pesquisa a respeito da satisfação com o tratamento dados às mulheres nos cursos de golfe nos EUA. A pesquisa revelou que 396 mulheres estavam satisfeitas, portanto tem-se a proporção de 44% de mulheres satisfeitas. Fazendo o cálculo com 95% de confiança, obtemos o intervalo de <span class="math inline">\(( 0,4076 ≤ p ≤ 0,04724)\)</span> para a proporção populacional de mulheres satisfeitas.</p>
+<p>Supondo que haja interesse de se fazer uma nova pesquisa, qual o tamanho da amostra necessário para uma margem de erro de 0,025, com 95% de confiança?</p>
+<p>Sabendo que na amostra anterior o valor de <span class="math inline">\(\bar{ p} = 0,44\)</span> estãos será utilizado como valor de <span class="math inline">\(p^*\)</span></p>
+<p><span class="math display">\[n = \frac{(z_{α/2})^2 p^* (1 - p^* )}{E^2}\]</span></p>
+<p><span class="math inline">\(n = \frac{(1,96)^2 0,44 (1 - 0,44 )}{(0,025)^2}=1514,50\)</span></p>
+<p>Portanto, o tamanho mínimo da amostra seria 1515 de mulheres golfistas.</p>
+<p><code></code>Caso fosse utilizado o valor de 0,5 - por não haver um valor histórico para ser utilizado como valor de <span class="math inline">\(p^*\)</span> planejado.</p>
+<p><span class="math inline">\(n = \frac{(1,96)^2 0,5 (1 - 0,5 )}{(0,025)^2}=1536,6\)</span></p>
+<p>A diferença do tamanho da amostra seria ligeiramente maior.</p>
+<p>Observando alguns valor possíveis de <span class="math inline">\(p^*\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(p^*\)</span></th>
+<th align="center"><span class="math inline">\(p^*(1 - p^*)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0,1</td>
+<td align="center">(0,10)(0,90) = 0,09</td>
+</tr>
+<tr class="even">
+<td align="center">0,3</td>
+<td align="center">(0,30)(0,70) = 0,21</td>
+</tr>
+<tr class="odd">
+<td align="center">0,4</td>
+<td align="center">(0,40)(0,60) = 0,24</td>
+</tr>
+<tr class="even">
+<td align="center">0,5</td>
+<td align="center">(0,50)(0,50) = 0,25</td>
+</tr>
+<tr class="odd">
+<td align="center">0,6</td>
+<td align="center">(0,60)(0,40) = 0,24</td>
+</tr>
+<tr class="even">
+<td align="center">0,7</td>
+<td align="center">(0,70)(0,30) = 0,21</td>
+</tr>
+<tr class="odd">
+<td align="center">0,9</td>
+<td align="center">(0,90)(0,10) = 0,09</td>
+</tr>
+</tbody>
+</table>
+<p>O valor de 0,5 resultará no maior tamanho da amostra. Assim, no caso de qualquer incerteza a respeito de um valor planejado apropriado, sabemos que <span class="math inline">\(p^*=0,5\)</span> apresentará a recomendação do maior tamanho da amostra.</p>
+</div>
+<div id="erro-de-amostragem" class="section level4">
+<h4><span class="header-section-number">8.4.4.2</span> Erro de amostragem</h4>
+<p>Diferença entre os parâmetros da população e as estatísticas da amostra.</p>
+<ul>
+<li>Porque ocorre?
+<ul>
+<li>amostragem inadequada</li>
+<li>amostra não representativa da população</li>
+<li>amostra insuficiente para fazer inferências sobre a população</li>
+</ul></li>
+<li>Características
+<ul>
+<li>Variam entre amostras</li>
+<li>Quanto maior a amostra menor o erro de amostragem</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="teorema-do-limite-central" class="section level2">
+<h2><span class="header-section-number">8.5</span> Teorema do Limite Central</h2>
+<div id="população-está-normalmente-distribuída" class="section level5">
+<h5><span class="header-section-number">8.5.0.0.1</span> População está normalmente distribuída</h5>
+<p>Se a população tem uma distribuição normal, ou aproximadamente normal <span class="highlightBlue"> a distribuição amostral de x estará normalmente distribuída para qualquer tamanho de amostra </span>
+<img src="figures/CurvaNormal.png" /></p>
+</div>
+<div id="população-não-é-normalmente-distribuída" class="section level5">
+<h5><span class="header-section-number">8.5.0.0.2</span> População não é normalmente distribuída</h5>
+<p>Mãe de todos os teoremas, afirma que quando o tamanho da amostra aumenta, a distribuição amostral da sua média aproxima-se cada vez mais de uma distribuição normal. E fundamental na teoria da inferência estatística. A ilustração abaixo demonstra o Teorema do limite central para três populações não normalmente distribuídas:</p>
+<p><img src="figures/TeoremaLimiteCentral.png" /></p>
+<ul>
+<li>A população 1 tem a uma distribuição uniforme.</li>
+<li>A população 2 tem uma distribuição simétrica (chamada também de “orelha-de-coelho”), onde os valores mais prováveis se encontram nas extremidades.</li>
+<li>A população 3 tem uma distribuição semelhante a distribuição exponencial, tendo uma inflexão à direita.</li>
+</ul>
+<p><span class="highlightAmbar">Nas três populações quanto maior o tamanho da amostra, mais a distribuição se torna aproximadamente normal e as inflexões são acentuadas.</span></p>
+<p>Portanto sabe-se que para uma amostra:</p>
+<ul>
+<li>de <span class="highlightBlue"> n &gt; 30:</span> a distribuição amostral se aproxima de uma distribuição normal
+<ul>
+<li>Caso a população tenha uma <span class="highlightBlue">forte inflexão ou pontos fora da curva</span> o adequado é um <span class="highlightBlue"> n &gt; 50</span></li>
+</ul></li>
+<li>Caso a <span class="highlightBlue">população seja discreta
+<ul>
+<li>o tamanho da amostra depende da proporção amostral</span></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="medidas-de-associação-entre-duas-variáveis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probabilidade.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/AndressaGonelli/ebook/edit/main/07-Amostragem.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none",
+"toc_depth": 6,
+"split_by": "subsection",
+"number_sections": true
+},
+"toolbar": {
+"position": "fixed",
+"edit": null,
+"download": false
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

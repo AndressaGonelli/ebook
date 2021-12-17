@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Métodos tabulares e métodos gráficos | Estatística por uma quase estatística</title>
+  <meta name="description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Métodos tabulares e métodos gráficos | Estatística por uma quase estatística" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  <meta name="github-repo" content="AndressaGonelli/ebook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Métodos tabulares e métodos gráficos | Estatística por uma quase estatística" />
+  
+  <meta name="twitter:description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  
+
+<meta name="author" content="Andressa Gonelli" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="medidas-de-variabilidade.html"/>
+<link rel="next" href="medidas-de-associação-entre-duas-variáveis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estatística por uma quase estatística</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sobre</a></li>
+<li class="chapter" data-level="2" data-path="estatística.html"><a href="estatística.html"><i class="fa fa-check"></i><b>2</b> Estatística</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística.html"><a href="estatística.html#definição"><i class="fa fa-check"></i><b>2.1</b> Definição</a></li>
+<li class="chapter" data-level="2.2" data-path="estatística.html"><a href="estatística.html#tipos-de-estatística"><i class="fa fa-check"></i><b>2.2</b> Tipos de estatística</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística.html"><a href="estatística.html#descritiva"><i class="fa fa-check"></i><b>2.2.1</b> Descritiva</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística.html"><a href="estatística.html#inferencial"><i class="fa fa-check"></i><b>2.2.2</b> Inferencial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estatística.html"><a href="estatística.html#população"><i class="fa fa-check"></i><b>2.3</b> População</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística.html"><a href="estatística.html#tipos"><i class="fa fa-check"></i><b>2.3.1</b> Tipos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estatística.html"><a href="estatística.html#amostragem"><i class="fa fa-check"></i><b>2.4</b> Amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="estatística.html"><a href="estatística.html#amostra"><i class="fa fa-check"></i><b>2.5</b> Amostra</a></li>
+<li class="chapter" data-level="2.6" data-path="estatística.html"><a href="estatística.html#censo"><i class="fa fa-check"></i><b>2.6</b> Censo</a></li>
+<li class="chapter" data-level="2.7" data-path="estatística.html"><a href="estatística.html#observação"><i class="fa fa-check"></i><b>2.7</b> Observação</a></li>
+<li class="chapter" data-level="2.8" data-path="estatística.html"><a href="estatística.html#variáveis"><i class="fa fa-check"></i><b>2.8</b> Variáveis</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística.html"><a href="estatística.html#variáveis-nominais"><i class="fa fa-check"></i><b>2.8.1</b> Variáveis nominais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="estatística.html"><a href="estatística.html#variáveis-ordinais"><i class="fa fa-check"></i><b>2.8.2</b> Variáveis ordinais</a></li>
+<li class="chapter" data-level="2.8.3" data-path="estatística.html"><a href="estatística.html#variáveis-intervalares"><i class="fa fa-check"></i><b>2.8.3</b> Variáveis intervalares</a></li>
+<li class="chapter" data-level="2.8.4" data-path="estatística.html"><a href="estatística.html#variáveis-proporcionais"><i class="fa fa-check"></i><b>2.8.4</b> Variáveis proporcionais</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística.html"><a href="estatística.html#tipos-de-estatística-1"><i class="fa fa-check"></i><b>2.9</b> Tipos de estatística</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística.html"><a href="estatística.html#estatística-descritiva"><i class="fa fa-check"></i><b>2.9.1</b> Estatística descritiva</a></li>
+<li class="chapter" data-level="2.9.2" data-path="estatística.html"><a href="estatística.html#estatística-indutiva-ou-inferêncial"><i class="fa fa-check"></i><b>2.9.2</b> Estatística Indutiva ou Inferêncial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3</b> Dados</a><ul>
+<li class="chapter" data-level="3.1" data-path="dados.html"><a href="dados.html#classificação"><i class="fa fa-check"></i><b>3.1</b> Classificação</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="dados.html"><a href="dados.html#qualitativos"><i class="fa fa-check"></i><b>3.1.1</b> Qualitativos</a></li>
+<li class="chapter" data-level="3.1.2" data-path="dados.html"><a href="dados.html#quantitativa"><i class="fa fa-check"></i><b>3.1.2</b> Quantitativa</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="dados.html"><a href="dados.html#fontes-de-dados"><i class="fa fa-check"></i><b>3.2</b> Fontes de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="medida-de-posição.html"><a href="medida-de-posição.html"><i class="fa fa-check"></i><b>4</b> Medida de posição</a><ul>
+<li class="chapter" data-level="4.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média"><i class="fa fa-check"></i><b>4.1</b> Média</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média-ajustada"><i class="fa fa-check"></i><b>4.1.1</b> Média Ajustada</a></li>
+<li class="chapter" data-level="4.1.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média-aritmética-ponderada"><i class="fa fa-check"></i><b>4.1.2</b> Média Aritmética ponderada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#mediana"><i class="fa fa-check"></i><b>4.2</b> Mediana</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r"><i class="fa fa-check"></i><b>4.2.1</b> R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#mediana-em-dados-agrupados"><i class="fa fa-check"></i><b>4.2.2</b> Mediana em dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="medida-de-posição.html"><a href="medida-de-posição.html#moda"><i class="fa fa-check"></i><b>4.3</b> Moda</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#moda-em-dados-agrupados"><i class="fa fa-check"></i><b>4.3.1</b> Moda em dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="medida-de-posição.html"><a href="medida-de-posição.html#valor-máximo-e-valor-mínimo"><i class="fa fa-check"></i><b>4.4</b> Valor máximo e valor mínimo</a></li>
+<li class="chapter" data-level="4.5" data-path="medida-de-posição.html"><a href="medida-de-posição.html#quartil"><i class="fa fa-check"></i><b>4.5</b> Quartil</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r-1"><i class="fa fa-check"></i><b>4.5.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="medida-de-posição.html"><a href="medida-de-posição.html#percentil"><i class="fa fa-check"></i><b>4.6</b> Percentil</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r-2"><i class="fa fa-check"></i><b>4.6.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html"><i class="fa fa-check"></i><b>5</b> Medidas de variabilidade</a><ul>
+<li class="chapter" data-level="5.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#amplitude"><i class="fa fa-check"></i><b>5.1</b> Amplitude</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-3"><i class="fa fa-check"></i><b>5.1.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#amplitude-interquartil"><i class="fa fa-check"></i><b>5.2</b> Amplitude Interquartil</a></li>
+<li class="chapter" data-level="5.3" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#variância"><i class="fa fa-check"></i><b>5.3</b> Variância</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-4"><i class="fa fa-check"></i><b>5.3.1</b> R</a></li>
+<li class="chapter" data-level="5.3.2" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#variância-para-dados-agrupados"><i class="fa fa-check"></i><b>5.3.2</b> Variância para dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#desvio-padrão"><i class="fa fa-check"></i><b>5.4</b> Desvio Padrão</a></li>
+<li class="chapter" data-level="5.5" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#coeficiente-de-variação"><i class="fa fa-check"></i><b>5.5</b> Coeficiente de variação</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-5"><i class="fa fa-check"></i><b>5.5.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html"><i class="fa fa-check"></i><b>6</b> Métodos tabulares e métodos gráficos</a><ul>
+<li class="chapter" data-level="6.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabelas"><i class="fa fa-check"></i><b>6.1</b> Tabelas</a></li>
+<li class="chapter" data-level="6.2" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabelas-de-contingência"><i class="fa fa-check"></i><b>6.2</b> Tabelas de contingência</a></li>
+<li class="chapter" data-level="6.3" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#definição-de-classes"><i class="fa fa-check"></i><b>6.3</b> Definição de Classes</a></li>
+<li class="chapter" data-level="6.4" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-absoluta"><i class="fa fa-check"></i><b>6.4</b> Frequência Absoluta</a></li>
+<li class="chapter" data-level="6.5" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-relativa"><i class="fa fa-check"></i><b>6.5</b> Frequência Relativa</a></li>
+<li class="chapter" data-level="6.6" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-acumulada"><i class="fa fa-check"></i><b>6.6</b> Frequência acumulada</a></li>
+<li class="chapter" data-level="6.7" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-acumulada-relativa"><i class="fa fa-check"></i><b>6.7</b> Frequência acumulada relativa</a></li>
+<li class="chapter" data-level="6.8" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#polígono-de-frequências"><i class="fa fa-check"></i><b>6.8</b> Polígono de frequências</a></li>
+<li class="chapter" data-level="6.9" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#histograma"><i class="fa fa-check"></i><b>6.9</b> Histograma</a></li>
+<li class="chapter" data-level="6.10" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#gráfico-ogiva-de-galton---frequência-acumulada"><i class="fa fa-check"></i><b>6.10</b> Gráfico Ogiva de Galton - Frequência Acumulada</a></li>
+<li class="chapter" data-level="6.11" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#apresentação-ramo-e-folha"><i class="fa fa-check"></i><b>6.11</b> Apresentação Ramo-e-folha</a></li>
+<li class="chapter" data-level="6.12" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#coeficiente-de-assimetria"><i class="fa fa-check"></i><b>6.12</b> Coeficiente de Assimetria</a><ul>
+<li class="chapter" data-level="6.12.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#r-6"><i class="fa fa-check"></i><b>6.12.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#coeficiente-de-curtose"><i class="fa fa-check"></i><b>6.13</b> Coeficiente de curtose</a><ul>
+<li class="chapter" data-level="6.13.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#r-7"><i class="fa fa-check"></i><b>6.13.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.14" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#boxplot"><i class="fa fa-check"></i><b>6.14</b> BoxPlot</a></li>
+<li class="chapter" data-level="6.15" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabulação-cruzada"><i class="fa fa-check"></i><b>6.15</b> Tabulação Cruzada</a><ul>
+<li class="chapter" data-level="6.15.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#paradoxo-de-simpson"><i class="fa fa-check"></i><b>6.15.1</b> Paradoxo de Simpson</a></li>
+</ul></li>
+<li class="chapter" data-level="6.16" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#diagrama-de-dispersão"><i class="fa fa-check"></i><b>6.16</b> Diagrama de Dispersão</a></li>
+<li class="chapter" data-level="6.17" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#métodos-tabulares-e-gráficos-de-sintetizar-os-dados"><i class="fa fa-check"></i><b>6.17</b> Métodos tabulares e gráficos de sintetizar os dados</a></li>
+<li class="chapter" data-level="6.18" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#análise-exploratória-de-dados"><i class="fa fa-check"></i><b>6.18</b> Análise exploratória de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html"><i class="fa fa-check"></i><b>7</b> Medidas de associação entre duas variáveis</a><ul>
+<li class="chapter" data-level="7.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#covariância"><i class="fa fa-check"></i><b>7.1</b> Covariância</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#r-8"><i class="fa fa-check"></i><b>7.1.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#coeficiente-de-correlação"><i class="fa fa-check"></i><b>7.2</b> Coeficiente de correlação</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#r-9"><i class="fa fa-check"></i><b>7.2.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="amostragem-1.html"><a href="amostragem-1.html"><i class="fa fa-check"></i><b>8</b> Amostragem</a><ul>
+<li class="chapter" data-level="8.1" data-path="amostragem-1.html"><a href="amostragem-1.html#probabilística"><i class="fa fa-check"></i><b>8.1</b> Probabilística</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="amostragem-1.html"><a href="amostragem-1.html#aleatória-simples"><i class="fa fa-check"></i><b>8.1.1</b> Aleatória simples</a></li>
+<li class="chapter" data-level="8.1.2" data-path="amostragem-1.html"><a href="amostragem-1.html#sistemática"><i class="fa fa-check"></i><b>8.1.2</b> Sistemática</a></li>
+<li class="chapter" data-level="8.1.3" data-path="amostragem-1.html"><a href="amostragem-1.html#estratificada"><i class="fa fa-check"></i><b>8.1.3</b> Estratificada</a></li>
+<li class="chapter" data-level="8.1.4" data-path="amostragem-1.html"><a href="amostragem-1.html#conglomerados-cluster"><i class="fa fa-check"></i><b>8.1.4</b> Conglomerados (cluster)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="amostragem-1.html"><a href="amostragem-1.html#reamostragem-bootstrap"><i class="fa fa-check"></i><b>8.1.5</b> Reamostragem (bootstrap)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="amostragem-1.html"><a href="amostragem-1.html#não-probabilística"><i class="fa fa-check"></i><b>8.2</b> Não probabilística</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="amostragem-1.html"><a href="amostragem-1.html#conveniência-ou-acessibilidade"><i class="fa fa-check"></i><b>8.2.1</b> Conveniência ou acessibilidade</a></li>
+<li class="chapter" data-level="8.2.2" data-path="amostragem-1.html"><a href="amostragem-1.html#intencional-ou-por-julgamento"><i class="fa fa-check"></i><b>8.2.2</b> Intencional ou por Julgamento</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="amostragem-1.html"><a href="amostragem-1.html#estimação-por-ponto"><i class="fa fa-check"></i><b>8.3</b> Estimação por ponto</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="amostragem-1.html"><a href="amostragem-1.html#distribuição-amostral-de-barx"><i class="fa fa-check"></i><b>8.3.1</b> Distribuição amostral de <span class="math inline">\(\bar{x}\)</span></a></li>
+<li class="chapter" data-level="8.3.2" data-path="amostragem-1.html"><a href="amostragem-1.html#distribuição-amostral-de-barp"><i class="fa fa-check"></i><b>8.3.2</b> Distribuição amostral de <span class="math inline">\(\bar{p}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="amostragem-1.html"><a href="amostragem-1.html#estimação-por-intervalo"><i class="fa fa-check"></i><b>8.4</b> Estimação por intervalo</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="amostragem-1.html"><a href="amostragem-1.html#média-da-população-desvio-padrão-σconhecido"><i class="fa fa-check"></i><b>8.4.1</b> Média da população : Desvio Padrão (σ)Conhecido</a></li>
+<li class="chapter" data-level="8.4.2" data-path="amostragem-1.html"><a href="amostragem-1.html#média-da-população-desvio-padrão-σ-desconhecido"><i class="fa fa-check"></i><b>8.4.2</b> Média da população: Desvio Padrão ( σ) Desconhecido</a></li>
+<li class="chapter" data-level="8.4.3" data-path="amostragem-1.html"><a href="amostragem-1.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>8.4.3</b> Determinação do tamanho da amostra</a></li>
+<li class="chapter" data-level="8.4.4" data-path="amostragem-1.html"><a href="amostragem-1.html#proporção-da-população"><i class="fa fa-check"></i><b>8.4.4</b> Proporção da população</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="amostragem-1.html"><a href="amostragem-1.html#teorema-do-limite-central"><i class="fa fa-check"></i><b>8.5</b> Teorema do Limite Central</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="probabilidade.html"><a href="probabilidade.html"><i class="fa fa-check"></i><b>9</b> Probabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="probabilidade.html"><a href="probabilidade.html#conceitos"><i class="fa fa-check"></i><b>9.1</b> Conceitos</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="probabilidade.html"><a href="probabilidade.html#espaço-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Espaço da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="probabilidade.html"><a href="probabilidade.html#evento"><i class="fa fa-check"></i><b>9.1.2</b> Evento</a></li>
+<li class="chapter" data-level="9.1.3" data-path="probabilidade.html"><a href="probabilidade.html#experimento"><i class="fa fa-check"></i><b>9.1.3</b> Experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="probabilidade.html"><a href="probabilidade.html#atribuição-de-probabilidade"><i class="fa fa-check"></i><b>9.2</b> Atribuição de probabilidade</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-clássica"><i class="fa fa-check"></i><b>9.2.1</b> Probabilidade clássica</a></li>
+<li class="chapter" data-level="9.2.2" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-empírica"><i class="fa fa-check"></i><b>9.2.2</b> Probabilidade empírica</a></li>
+<li class="chapter" data-level="9.2.3" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-subjetiva"><i class="fa fa-check"></i><b>9.2.3</b> Probabilidade Subjetiva</a></li>
+<li class="chapter" data-level="9.2.4" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-em-eventos-compostos"><i class="fa fa-check"></i><b>9.2.4</b> Probabilidade em eventos compostos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="probabilidade.html"><a href="probabilidade.html#teorema-de-bayes"><i class="fa fa-check"></i><b>9.3</b> Teorema de Bayes</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="probabilidade.html"><a href="probabilidade.html#abordagem-tabular"><i class="fa fa-check"></i><b>9.3.1</b> Abordagem Tabular</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-de-probabilidade"><i class="fa fa-check"></i><b>9.4</b> Distribuição de probabilidade</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-discreta"><i class="fa fa-check"></i><b>9.4.1</b> Distribuição Discreta</a></li>
+<li class="chapter" data-level="9.4.2" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-de-probabilidade-contínua"><i class="fa fa-check"></i><b>9.4.2</b> Distribuição de Probabilidade Contínua</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html"><i class="fa fa-check"></i><b>10</b> Teste de hipótese</a><ul>
+<li class="chapter" data-level="10.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#como-formular-hipóteses"><i class="fa fa-check"></i><b>10.1</b> Como formular hipóteses?</a></li>
+<li class="chapter" data-level="10.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#erros-do-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>10.2</b> Erros do tipo I e tipo II</a></li>
+<li class="chapter" data-level="10.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#média-da-população-desvio-padrão-σ-conhecido"><i class="fa fa-check"></i><b>10.3</b> Média da população: Desvio Padrão σ conhecido</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-unicaudal"><i class="fa fa-check"></i><b>10.3.1</b> Teste unicaudal</a></li>
+<li class="chapter" data-level="10.3.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-bicaudal"><i class="fa fa-check"></i><b>10.3.2</b> Teste Bicaudal</a></li>
+<li class="chapter" data-level="10.3.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo"><i class="fa fa-check"></i><b>10.3.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#média-da-população-desvio-padrão-σ-desconhecido-1"><i class="fa fa-check"></i><b>10.4</b> Média da população: Desvio Padrão (σ) desconhecido</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-unicaudal-1"><i class="fa fa-check"></i><b>10.4.1</b> Teste Unicaudal</a></li>
+<li class="chapter" data-level="10.4.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-bicaudal-1"><i class="fa fa-check"></i><b>10.4.2</b> Teste Bicaudal</a></li>
+<li class="chapter" data-level="10.4.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-1"><i class="fa fa-check"></i><b>10.4.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#proporção-da-população-1"><i class="fa fa-check"></i><b>10.5</b> Proporção da população</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#valor-p-4"><i class="fa fa-check"></i><b>10.5.1</b> Valor p</a></li>
+<li class="chapter" data-level="10.5.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#valor-crítico-4"><i class="fa fa-check"></i><b>10.5.2</b> Valor crítico</a></li>
+<li class="chapter" data-level="10.5.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-2"><i class="fa fa-check"></i><b>10.5.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#inferência-acerca-da-diferença-entre-médias"><i class="fa fa-check"></i><b>10.6</b> Inferência acerca da diferença entre médias</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#desvio-padrão-conhecido"><i class="fa fa-check"></i><b>10.6.1</b> Desvio padrão conhecido</a></li>
+<li class="chapter" data-level="10.6.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#desvio-padrão-desconhecido"><i class="fa fa-check"></i><b>10.6.2</b> Desvio padrão desconhecido</a></li>
+<li class="chapter" data-level="10.6.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#amostras-relacionadas-ou-dependentes"><i class="fa fa-check"></i><b>10.6.3</b> Amostras relacionadas ou dependentes</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#inferência-acerca-da-diferença-entre-duas-proporções"><i class="fa fa-check"></i><b>10.7</b> Inferência acerca da diferença entre duas proporções</a></li>
+<li class="chapter" data-level="10.8" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#proporção-de-uma-população-multinomial"><i class="fa fa-check"></i><b>10.8</b> Proporção de uma população multinomial</a></li>
+<li class="chapter" data-level="10.9" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-exato-de-fisher"><i class="fa fa-check"></i><b>10.9</b> Teste exato de Fisher</a></li>
+<li class="chapter" data-level="10.10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova---análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> ANOVA - Análise de Variância</a><ul>
+<li class="chapter" data-level="10.10.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#hipótese-sobre-a-análise-de-variância"><i class="fa fa-check"></i><b>10.10.1</b> Hipótese sobre a análise de Variância</a></li>
+<li class="chapter" data-level="10.10.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#visão-conceitual"><i class="fa fa-check"></i><b>10.10.2</b> Visão Conceitual</a></li>
+<li class="chapter" data-level="10.10.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#observação-2"><i class="fa fa-check"></i><b>10.10.3</b> Observação</a></li>
+<li class="chapter" data-level="10.10.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#fórmulas-matemáticas"><i class="fa fa-check"></i><b>10.10.4</b> Fórmulas Matemáticas</a></li>
+<li class="chapter" data-level="10.10.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparando-as-estimativas-de-variância-o-teste-f"><i class="fa fa-check"></i><b>10.10.5</b> Comparando as Estimativas de Variância: o Teste F</a></li>
+<li class="chapter" data-level="10.10.6" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#estimação-por-intervalo-1"><i class="fa fa-check"></i><b>10.10.6</b> Estimação por intervalo</a></li>
+<li class="chapter" data-level="10.10.7" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-4"><i class="fa fa-check"></i><b>10.10.7</b> Resumo</a></li>
+<li class="chapter" data-level="10.10.8" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparações-múltiplas"><i class="fa fa-check"></i><b>10.10.8</b> Comparações Múltiplas</a></li>
+<li class="chapter" data-level="10.10.9" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>10.10.9</b> Princípios básicos da experimentação</a></li>
+<li class="chapter" data-level="10.10.10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova-de-dois-critérios-sem-interação"><i class="fa fa-check"></i><b>10.10.10</b> ANOVA de dois critérios (sem interação)</a></li>
+<li class="chapter" data-level="10.10.11" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova-de-dois-critérios-com-interação"><i class="fa fa-check"></i><b>10.10.11</b> ANOVA de dois critérios (com interação)</a></li>
+<li class="chapter" data-level="10.10.12" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-anova-dois-critérios"><i class="fa fa-check"></i><b>10.10.12</b> Resumo : Anova dois critérios</a></li>
+</ul></li>
+<li class="chapter" data-level="10.11" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#transformação-de-dados"><i class="fa fa-check"></i><b>10.11</b> Transformação de dados</a><ul>
+<li class="chapter" data-level="10.11.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#rank"><i class="fa fa-check"></i><b>10.11.1</b> Rank</a></li>
+<li class="chapter" data-level="10.11.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#raiz-quadrada"><i class="fa fa-check"></i><b>10.11.2</b> Raiz Quadrada</a></li>
+<li class="chapter" data-level="10.11.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#logarítmica"><i class="fa fa-check"></i><b>10.11.3</b> Logarítmica</a></li>
+<li class="chapter" data-level="10.11.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#arcoseno-raiz-quadrada-angular"><i class="fa fa-check"></i><b>10.11.4</b> Arcoseno Raiz Quadrada (Angular)</a></li>
+<li class="chapter" data-level="10.11.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#transformação-boxcox"><i class="fa fa-check"></i><b>10.11.5</b> Transformação BoxCox</a></li>
+</ul></li>
+<li class="chapter" data-level="10.12" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparações-envolvendo-proporções-e-teste-de-independência"><i class="fa fa-check"></i><b>10.12</b> Comparações Envolvendo Proporções e Teste de Independência</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística por uma quase estatística</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="métodos-tabulares-e-métodos-gráficos" class="section level1">
+<h1><span class="header-section-number">6</span> Métodos tabulares e métodos gráficos</h1>
+<div id="tabelas" class="section level2">
+<h2><span class="header-section-number">6.1</span> Tabelas</h2>
+<p>Uma tabela resume os dados por meio de linhas e colunas podendo conter, além de linhas e colunas:
+- Fonte
+- Chamadas, localizadas no rodapé
+- Notas
+- Esclarecimentos acerca dos dados ou apuração
+- Feitos em algarismos arábicos escritos entre parênteses, e colocados à direita da coluna</p>
+<p>Ao preencher células/casas deve-se atentar:
+- utilizar um traço horizontal (_) quando o valor é zero
+- utilizar três pontos (…) quando não há dados
+- utilizar ponto de interrogação (?) quando há dúvida sobre a exatidão do valor
+- zero (0) quando o valor é muito pequeno para ser expresso pela unidade utilizada</p>
+</div>
+<div id="tabelas-de-contingência" class="section level2">
+<h2><span class="header-section-number">6.2</span> Tabelas de contingência</h2>
+<p>As tabelas de contingência são utilizadas quando os dados precisam ser classificados de acordo com dois fatores. Dessa forma as tabelas tem duas entradas, cada uma relativa a um fator.</p>
+<table>
+<thead>
+<tr>
+<th class="text-center">
+Regiões
+</th>
+<th class="text-center" colspan="3">
+Meses
+</th>
+<th class="text-center">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+</td>
+<td align="center">
+Janeiro
+</td>
+<td align="center">
+Fevereiro
+</td>
+<td align="center">
+Março
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Norte
+</td>
+<td align="center">
+27 503
+</td>
+<td align="center">
+23 374
+</td>
+<td align="center">
+24 198
+</td>
+<td align="center">
+75 075
+</td>
+</tr>
+<tr>
+<td>
+Nordeste
+</td>
+<td align="center">
+72 377
+</td>
+<td align="center">
+62 618
+</td>
+<td align="center">
+66 158
+</td>
+<td align="center">
+201 153
+</td>
+</tr>
+<tr>
+<td>
+Sudeste
+</td>
+<td align="center">
+100 531
+</td>
+<td align="center">
+91 077
+</td>
+<td align="center">
+96 073
+</td>
+<td align="center">
+287 681
+</td>
+</tr>
+<tr>
+<td>
+Sul
+</td>
+<td align="center">
+35 068
+</td>
+<td align="center">
+31 331
+</td>
+<td align="center">
+33 716
+</td>
+<td align="center">
+100 115
+</td>
+</tr>
+<tr>
+<td>
+Centro-Oeste
+</td>
+<td align="center">
+21 439
+</td>
+<td align="center">
+19 487
+</td>
+<td align="center">
+21 072
+</td>
+<td align="center">
+61 998
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fonte: IBGE, 2021</p>
+</div>
+<div id="definição-de-classes" class="section level2">
+<h2><span class="header-section-number">6.3</span> Definição de Classes</h2>
+<ol style="list-style-type: decimal">
+<li>Determinar o número de classes não sobrepostas
+<ol style="list-style-type: lower-alpha">
+<li>Em geral, usa-se entre 5 - 20 classes.</li>
+<li>Pode ser adotada fórmula:
+<ul>
+<li><span class="math inline">\(\small k - 1+3,3.log(n\)</span>)
+<ul>
+<li>n: número total de dados</li>
+<li>k: número aproximado de classes</li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li>Determinar a amplitude de cada classe
+<ol style="list-style-type: lower-alpha">
+<li>Amplitude = (Maior valor - Menor valor)/ Número de classes</li>
+</ol></li>
+<li>Determinar o limite da classe</li>
+</ol>
+</div>
+<div id="frequência-absoluta" class="section level2">
+<h2><span class="header-section-number">6.4</span> Frequência Absoluta</h2>
+<p>Por frequência absoluta, entende-se o número de observações correspondente a cada classe.</p>
+</div>
+<div id="frequência-relativa" class="section level2">
+<h2><span class="header-section-number">6.5</span> Frequência Relativa</h2>
+<p>A frequência relativa, por sua vez, diz respeito ao quociente entre a frequência absoluta da classe correspondente e a soma das frequências absolutas.</p>
+<p><span class="math display">\[FR= \frac{\textrm{Frequência da classe} }{ \textrm{Quantidade total de observações na amostra}}\]</span></p>
+</div>
+<div id="frequência-acumulada" class="section level2">
+<h2><span class="header-section-number">6.6</span> Frequência acumulada</h2>
+<p>Soma das frequências das classes anteriores a classe atual analisada.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Cores</th>
+<th>Freq. Abs.</th>
+<th>Freq. Rel.</th>
+<th>Freq Rel. (%)</th>
+<th>Freq. Rel. Ac.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Branco</td>
+<td>70</td>
+<td>0,35</td>
+<td>35</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>Preto</td>
+<td>50</td>
+<td>0,25</td>
+<td>25</td>
+<td>60</td>
+</tr>
+<tr class="odd">
+<td>Amarelo</td>
+<td>40</td>
+<td>0,20</td>
+<td>20</td>
+<td>80</td>
+</tr>
+<tr class="even">
+<td>Azul</td>
+<td>20</td>
+<td>0,1</td>
+<td>10</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>Cinza</td>
+<td>15</td>
+<td>0,075</td>
+<td>7,5</td>
+<td>97,5</td>
+</tr>
+<tr class="even">
+<td>Roxo</td>
+<td>5</td>
+<td>0,025</td>
+<td>2,5</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>200</td>
+<td>1</td>
+<td>100</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="frequência-acumulada-relativa" class="section level2">
+<h2><span class="header-section-number">6.7</span> Frequência acumulada relativa</h2>
+<p>Soma das frequências em relação ao total de amostras</p>
+<p><span class="math display">\[FAR= \frac{\textrm{Frequências acumuladas} }{ \textrm{Quantidade total de observações na amostra}}\]</span></p>
+</div>
+<div id="polígono-de-frequências" class="section level2">
+<h2><span class="header-section-number">6.8</span> Polígono de frequências</h2>
+<p>O polígono de frequência é construído utilizando-se dos pontos médios de cada classe para marcar os pontos nas abscissas. Os pontos das ordenadas são traçados pela frequência de cada classe.</p>
+<div class="figure">
+<img src="figures/PoligonoFrequencia.png" alt="" />
+<p class="caption">Exemplo de gráfico polígono de frequência</p>
+</div>
+</div>
+<div id="histograma" class="section level2">
+<h2><span class="header-section-number">6.9</span> Histograma</h2>
+<p>Um histograma é um modelo de gráfico que representa uma distribuição de frequências através de um agrupamento de classes, de forma que se pode contabilizar as ocorrências dos dados em cada classe.</p>
+<ul>
+<li>Útil para visualizar a
+<ul>
+<li>distribuição de medidas</li>
+<li>dispersão</li>
+<li>simetria dos dados</li>
+<li>tendências centrais.</li>
+</ul></li>
+</ul>
+<p>A soma das áreas de todos os retângulos do histograma deve ser igual a 1.</p>
+<p>Como fazer um histograma manualmente?</p>
+<ol style="list-style-type: decimal">
+<li>Ordenar os valores</li>
+<li>Encontrar a amplitude total: A = xmax − xmin. Assim, os intervalos devem cobrir uma faixa de, no mínimo, o valor da amplitude.</li>
+<li>Estimar o número de classes: 2k ≤ n. Sendo que n é igual a raiz quadrada do número total de observações.</li>
+<li>Estimar o tamanho de cada intervalo de classe: C = A/k</li>
+<li>Contar o número de observações que caem em cada intervalo de classe (subintervalo), frequência.</li>
+<li>Determinar a frequência relativa do intervalo: Frequência relativa = frequência/total de observações.</li>
+<li>Construir o gráfico.</li>
+</ol>
+<p>Exemplo: Os seguintes dados representam o número de acidentes diários em um complexo industrial (colocados em ordem crescente), durante o período de 50 dias. Represente o histograma desses dados.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb47-1"></a>dados =<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">37</span>,<span class="dv">37</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">44</span>, <span class="dv">44</span>, <span class="dv">45</span>, <span class="dv">45</span>,<span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">65</span>)</span>
+<span id="cb47-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb47-2"></a></span>
+<span id="cb47-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb47-3"></a><span class="kw">hist</span>(dados, <span class="dt">main =</span> <span class="st">&quot;Número de Acidentes Diários&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Acidentes&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequência&quot;)</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb48-1"></a><span class="kw">hist</span>(dados, <span class="dt">main =</span> <span class="st">&quot;Número de Acidentes Diários&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Acidentes&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequência&quot;, breaks = 6) </span></span>
+<span id="cb48-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb48-2"></a></span>
+<span id="cb48-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb48-3"></a><span class="st"> hist(dados, main = &quot;</span>Número de Acidentes Diários<span class="st">&quot;, xlab = &quot;</span>Acidentes<span class="st">&quot;, ylab = &quot;</span>Frequência&quot;, <span class="dt">breaks =</span> <span class="dv">5</span>) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+</div>
+<div id="gráfico-ogiva-de-galton---frequência-acumulada" class="section level2">
+<h2><span class="header-section-number">6.10</span> Gráfico Ogiva de Galton - Frequência Acumulada</h2>
+<p>O gráfico de uma distribuição cumulativa se chama ogiva, onde os dados se encontram no eixo horizontal e as frequências cumulativas, relativas cumulativas ou frequências percentuais cumulativas no eixo vertical.
+No eixo horizontal são utilizados os pontos extremos de cada classe.
+<img src="figures/GraficoOgiva.png" /></p>
+</div>
+<div id="apresentação-ramo-e-folha" class="section level2">
+<h2><span class="header-section-number">6.11</span> Apresentação Ramo-e-folha</h2>
+<p>A apresentação de ramo-e-folha pode ser usada para mostrar simultaneamente tanto a ordem de classificação como a forma de dados.</p>
+<p><img src="figures/RamoFolha.png" /></p>
+<p>Para desenvolver uma apresentação de ramo-e-folha organiza-se primeiramente os dígitos à esquerda de cada valor de dados à esquerda de uma linha vertical. À direita da linha vertical, registrando o último dígito de cada valor de dados.</p>
+<p>As folhas podem valer 1, 10, 100 para tornar a apresentação mais legível.</p>
+</div>
+<div id="coeficiente-de-assimetria" class="section level2">
+<h2><span class="header-section-number">6.12</span> Coeficiente de Assimetria</h2>
+<p>O coeficiente de assimetria é o que permite dizer se uma determinada distribuição é assimétrica ou não.</p>
+<p>A assimetria da amostra pode ser calculada por:</p>
+<p><span class="math display">\[Assimetria =\frac{n}{(n -1)(n -2)} \sum \frac{(x_{i} - \bar{x})}{s}^3\]</span>
+<img src="figures/Assimetria.png" alt="Gráficos demonstrando as diferentes formas de assimetria" /></p>
+<ul>
+<li>Inclinação à direita: assimetria positiva
+<ul>
+<li>Média &gt; Mediana</li>
+</ul></li>
+<li>Inclinação à esquerda: assimetria negativa
+<ul>
+<li>Média &lt; Mediana</li>
+</ul></li>
+</ul>
+<div id="r-6" class="section level3">
+<h3><span class="header-section-number">6.12.1</span> R</h3>
+<p>Exemplo: Os seguintes dados representam o número de acidentes diários em um complexo industrial (colocados em ordem crescente), durante o período de 50 dias. Represente o histograma desses dados.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb49-1"></a>dados =<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">37</span>, <span class="dv">37</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">44</span>, <span class="dv">44</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">65</span>)</span>
+<span id="cb49-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb49-2"></a><span class="kw">hist</span>(dados, <span class="dt">main =</span> <span class="st">&quot;Número de Acidentes Diários&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Acidentes&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequência&quot;) </span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb50-1"></a><span class="kw">mean</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 38.32</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb52-1"></a><span class="kw">sd</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 11.58366</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb54-1"></a><span class="kw">median</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 37</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb56-1"></a><span class="kw">library</span>(moments)</span>
+<span id="cb56-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb56-2"></a>SK =<span class="st"> </span><span class="kw">skewness</span>(dados)</span>
+<span id="cb56-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb56-3"></a><span class="kw">print</span>(SK)</span></code></pre></div>
+<pre><code>## [1] 0.2549279</code></pre>
+<ul>
+<li>Sk ≈ 0: dados simétricos.
+<ul>
+<li>Tanto a cauda do lado direito quanto a do lado esquerdo da função densidade de probabilidade são iguais.</li>
+</ul></li>
+<li>Sk &lt; 0: assimetria negativa.
+<ul>
+<li>A cauda do lado esquerdo da função densidade de probabilidade é maior que a do lado direito.</li>
+</ul></li>
+<li>Sk &gt; 0: assimetria positiva.
+<ul>
+<li>A cauda do lado direito da função densidade de probabilidade é maior que a do lado esquerdo.</li>
+</ul></li>
+</ul>
+<p>O coeficiente de assimetria é 0.2549279.</p>
+<p>Como o coeficiente de assimetria é maior que 0, diz-se que a curva apresenta assimetria positiva e a cauda do lado direito da função densidade de probabilidade é maior que no lado esquerdo.</p>
+<p>Ao observar também o Histograma, percebe-se que há maior densidade de dados do lado direito.</p>
+<p>Outro exemplo</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb58-1"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb58-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb58-2"></a>x =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb58-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb58-3"></a><span class="kw">hist</span>(x)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb59-1"></a><span class="kw">skewness</span>(x)</span></code></pre></div>
+<pre><code>## [1] -0.005202026</code></pre>
+</div>
+</div>
+<div id="coeficiente-de-curtose" class="section level2">
+<h2><span class="header-section-number">6.13</span> Coeficiente de curtose</h2>
+<p>O coeficiente de curtose é uma medida que caracteriza o achatamento da curva da função de distribuição.</p>
+<div id="r-7" class="section level3">
+<h3><span class="header-section-number">6.13.1</span> R</h3>
+<p>Exemplo: Os seguintes dados representam o número de acidentes diários em um complexo industrial (colocados em ordem crescente), durante o período de 50 dias. Represente o histograma desses dados.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb61-1"></a>dados =<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">29</span>,<span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">37</span>,<span class="dv">37</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">44</span>, <span class="dv">44</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">65</span>)</span>
+<span id="cb61-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb61-2"></a><span class="kw">hist</span>(dados, <span class="dt">main =</span> <span class="st">&quot;Número de Acidentes Diários&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Acidentes&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequência&quot;)</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb62-1"></a><span class="kw">mean</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 38.32</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb64-1"></a><span class="kw">sd</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 11.58366</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb66-1"></a><span class="kw">median</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 37</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb68-1"></a><span class="kw">library</span>(moments)</span>
+<span id="cb68-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb68-2"></a>CK =<span class="st"> </span><span class="kw">kurtosis</span>(dados)</span>
+<span id="cb68-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb68-3"></a><span class="kw">print</span>(CK)</span></code></pre></div>
+<pre><code>## [1] 2.37652</code></pre>
+<p>CK ≈ 0: Distribuição normal. Chamada de Curtose Mesocúrtica.</p>
+<p>CK &lt; 0: Cauda mais leve que a normal. Para um coeficiente de Curtose negativo, tem-se uma Curtose Platicúrtica.</p>
+<p>CK &gt; 0: Cauda mais pesada que a normal. Para um coeficiente de Curtose positivo, tem-se uma Curtose Leptocúrtica.</p>
+<p>O coeficiente de curtose é igual a 2.37652. Logo, como o valor de CK é maior que 0, a curva é Leptocúrtica.</p>
+<p><img src="figures/Curtose.png" /></p>
+<p>Outro exemplo</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb70-1"></a> n.sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10000</span>, <span class="dt">mean =</span> <span class="dv">55</span>, <span class="dt">sd =</span> <span class="fl">4.5</span>)</span>
+<span id="cb70-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb70-2"></a><span class="co">#Skewness e Kurtosis</span></span>
+<span id="cb70-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb70-3"></a><span class="kw">library</span>(moments)</span>
+<span id="cb70-4"><a href="métodos-tabulares-e-métodos-gráficos.html#cb70-4"></a><span class="kw">skewness</span>(n.sample)</span></code></pre></div>
+<pre><code>## [1] 0.001526792</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb72-1"></a><span class="kw">kurtosis</span>(n.sample)</span></code></pre></div>
+<pre><code>## [1] 2.958097</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb74-1"></a><span class="co">#Histograma</span></span>
+<span id="cb74-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb74-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb74-3"><a href="métodos-tabulares-e-métodos-gráficos.html#cb74-3"></a>datasim &lt;-<span class="st"> </span><span class="kw">data.frame</span>(n.sample)</span>
+<span id="cb74-4"><a href="métodos-tabulares-e-métodos-gráficos.html#cb74-4"></a><span class="kw">ggplot</span>(datasim, <span class="kw">aes</span>(<span class="dt">x =</span> n.sample), <span class="dt">binwidth =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&#39;blue&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="kw">expression</span>(<span class="kw">bold</span>(<span class="st">&#39;Dados&#39;</span>))) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="kw">expression</span>(<span class="kw">bold</span>(<span class="st">&#39;Densidade&#39;</span>))) </span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+</div>
+<div id="boxplot" class="section level2">
+<h2><span class="header-section-number">6.14</span> BoxPlot</h2>
+<p>Box-plot, ou diagrama de caixa, é possível obter informações sobre vários aspectos dos dados simultaneamente como, outliers, dispersão, tendências centrais, erros padrão e simetria.</p>
+<p>Utilizado para avaliar a distribuição empírica dos dados, é formado pelo primeiro e terceiro quartis, juntamente com a mediana.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb76-1"></a>dados =<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">29</span>,<span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">37</span>,<span class="dv">37</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">38</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">44</span>, <span class="dv">44</span>, <span class="dv">45</span>, <span class="dv">45</span>,<span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">47</span>, <span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">54</span>, <span class="dv">54</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">65</span>)</span>
+<span id="cb76-2"><a href="métodos-tabulares-e-métodos-gráficos.html#cb76-2"></a><span class="kw">mean</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 38.32</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb78-1"></a><span class="kw">sd</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 11.58366</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb80-1"></a><span class="kw">median</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 37</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb82-1"></a><span class="kw">range</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 18 65</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb84-1"></a><span class="kw">quantile</span>(dados)</span></code></pre></div>
+<pre><code>##    0%   25%   50%   75%  100% 
+## 18.00 30.00 37.00 45.75 65.00</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="métodos-tabulares-e-métodos-gráficos.html#cb86-1"></a><span class="kw">boxplot</span>(dados, <span class="dt">main =</span> <span class="st">&quot;Número de Acidentes Diários&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="tabulação-cruzada" class="section level2">
+<h2><span class="header-section-number">6.15</span> Tabulação Cruzada</h2>
+<p>A tabulação cruzada (Cross table) é um sumário tabular de dados para duas variáveis. Muito útil para se analisar a relação entre duas variáveis</p>
+<p>Por exemplo, a tabela abaixo (incompleta) pode ser sumarizada de forma a tornar mais fácil a leitura:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>Restaurant</strong></th>
+<th align="center"><strong>Quality Rating</strong></th>
+<th align="center"><strong>Meal Price ($)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Good</td>
+<td align="center">18</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Very Good</td>
+<td align="center">22</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Good</td>
+<td align="center">28</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Excellent</td>
+<td align="center">38</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Very Good</td>
+<td align="center">33</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">Good</td>
+<td align="center">28</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">Very Good</td>
+<td align="center">19</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">Very Good</td>
+<td align="center">11</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">Very Good</td>
+<td align="center">23</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Good</td>
+<td align="center">13</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Avaliação</th>
+<th align="center">Frequência Relativa</th>
+<th align="center">Frequência Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Bom</td>
+<td align="center">0,28</td>
+<td align="center">28%</td>
+</tr>
+<tr class="even">
+<td align="center">Ótimo</td>
+<td align="center">0,50</td>
+<td align="center">50%</td>
+</tr>
+<tr class="odd">
+<td align="center">Excelente</td>
+<td align="center">0,22</td>
+<td align="center">22%</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Total</strong></td>
+<td align="center">1</td>
+<td align="center">100%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Preço</th>
+<th align="center">Frequência Relativa</th>
+<th align="center">Frequência Percentual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">$10-19</td>
+<td align="center">0,26</td>
+<td align="center">26%</td>
+</tr>
+<tr class="even">
+<td align="center">$20-29</td>
+<td align="center">0,39</td>
+<td align="center">39%</td>
+</tr>
+<tr class="odd">
+<td align="center">$30-39</td>
+<td align="center">0,25</td>
+<td align="center">25%</td>
+</tr>
+<tr class="even">
+<td align="center">$40-49</td>
+<td align="center">0,09</td>
+<td align="center">9%</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Total</strong></td>
+<td align="center">1</td>
+<td align="center">100</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela Cruzada - Avaliação X Preço</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Avaliação</th>
+<th align="center">$10-19</th>
+<th align="center">$20-29</th>
+<th align="center">$30-39</th>
+<th align="center">$40-49</th>
+<th align="center"><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Bom</td>
+<td align="center">42</td>
+<td align="center">40</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">84</td>
+</tr>
+<tr class="even">
+<td align="center">Ótimo</td>
+<td align="center">34</td>
+<td align="center">64</td>
+<td align="center">46</td>
+<td align="center">6</td>
+<td align="center">150</td>
+</tr>
+<tr class="odd">
+<td align="center">Excelente</td>
+<td align="center">2</td>
+<td align="center">14</td>
+<td align="center">28</td>
+<td align="center">22</td>
+<td align="center">66</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Total</strong></td>
+<td align="center">78</td>
+<td align="center">118</td>
+<td align="center">76</td>
+<td align="center">28</td>
+<td align="center">300</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela Cruzada - Avaliação X Preço - Porcentagens por linha</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Avaliação</th>
+<th align="center">$10-19</th>
+<th align="center">$20-29</th>
+<th align="center">$30-39</th>
+<th align="center">$40-49</th>
+<th align="center"><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Bom</td>
+<td align="center">50%</td>
+<td align="center">47,6%</td>
+<td align="center">2,4%</td>
+<td align="center">0%</td>
+<td align="center">100%</td>
+</tr>
+<tr class="even">
+<td align="center">Ótimo</td>
+<td align="center">22,7%</td>
+<td align="center">42,7%</td>
+<td align="center">30,6%</td>
+<td align="center">4%</td>
+<td align="center">100%</td>
+</tr>
+<tr class="odd">
+<td align="center">Excelente</td>
+<td align="center">3%</td>
+<td align="center">21,2%</td>
+<td align="center">42,4%</td>
+<td align="center">33,4%</td>
+<td align="center">100%</td>
+</tr>
+</tbody>
+</table>
+<div id="paradoxo-de-simpson" class="section level3">
+<h3><span class="header-section-number">6.15.1</span> Paradoxo de Simpson</h3>
+<p>Quando duas ou mais tabulações cruzadas são combinadas ou agregadas, chamamos a tabulação resultante de tabulação cruzada resumida ou tabulação cruzada agregada. Em tais tabulações pode ocorrer um fenômeno chamado Paradoxo de Simpson, no qual, a conclusão baseada na tabulação cruzada agregada é completamente inversa a conclusão baseada nos dados não-agregados.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Juiz</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Veredito</td>
+<td align="center">Luckett</td>
+<td align="left">Kendall</td>
+</tr>
+<tr class="even">
+<td align="left">Confirmado</td>
+<td align="center">129 (86%)</td>
+<td align="left">110 (88%)</td>
+</tr>
+<tr class="odd">
+<td align="left">Revertido</td>
+<td align="center">21 (14%)</td>
+<td align="left">15 (12%)</td>
+</tr>
+<tr class="even">
+<td align="left">Total(%)</td>
+<td align="center">150 (100%)</td>
+<td align="left">125 (100%)</td>
+</tr>
+</tbody>
+</table>
+<p>Conclusão: Juiz Kendall teve menos veredictos convertidos que o juiz Luckett, logo faz um melhor trabalho.</p>
+<p>Porém, ao observar os dados menos resumidos.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>Juiz Luckett</strong></th>
+<th align="center"><strong>Juiz Kendall</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Veredito</strong></td>
+<td align="center">Apelação Comum</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Confirmado</strong></td>
+<td align="center">29 (91%)</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Convertido</strong></td>
+<td align="center">3 (9%)</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Total</strong></td>
+<td align="center">32 (100%)</td>
+</tr>
+</tbody>
+</table>
+<p>Conclusão: Juiz Luckett tem percentualmente, mais confirmacao e menos conversões, em ambas as classes, que o juiz kendall. Logo, Luckett faz uma trabalho melhor.</p>
+</div>
+</div>
+<div id="diagrama-de-dispersão" class="section level2">
+<h2><span class="header-section-number">6.16</span> Diagrama de Dispersão</h2>
+<p>Um diagrama de dispersão é uma apresentação gráfica da relação existente entre duas variáveis e uma linha de tendência é uma linha que fornece uma aproximação da relação.</p>
+<div class="figure">
+<img src="figures/Dispersao.png" alt="" />
+<p class="caption">Graficos de dispersão e as diferentes interpretações em relação a correção entre as variáveis</p>
+</div>
+</div>
+<div id="métodos-tabulares-e-gráficos-de-sintetizar-os-dados" class="section level2">
+<h2><span class="header-section-number">6.17</span> Métodos tabulares e gráficos de sintetizar os dados</h2>
+<p><img src="figures/metodosTabularQualitativo.png" /></p>
+<p><img src="figures/metodosTabularesQuantitativo.PNG" /></p>
+</div>
+<div id="análise-exploratória-de-dados" class="section level2">
+<h2><span class="header-section-number">6.18</span> Análise exploratória de dados</h2>
+<ul>
+<li>Regra dos cinco itens
+<ul>
+<li>Menor valor</li>
+<li>Primeiro Quartil (Q1)</li>
+<li>Mediana(Q2)</li>
+<li>Terceiro Quartil(Q3)</li>
+<li>Maior Valor</li>
+</ul></li>
+</ul>
+<p>Todos estes pontos podem ser encontrados num BoxPlot</p>
+<p><img src="figures/BoxPlot.png" /></p>
+<p>O limite inferior é dado por Q3+ 1,5 AIQ</p>
+<p>O limite superior é dado por Q1- 1,5 AIQ</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="medidas-de-variabilidade.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="medidas-de-associação-entre-duas-variáveis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/AndressaGonelli/ebook/edit/main/05-MetodosTabularesMetodosGraficos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none",
+"toc_depth": 6,
+"split_by": "subsection",
+"number_sections": true
+},
+"toolbar": {
+"position": "fixed",
+"edit": null,
+"download": false
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

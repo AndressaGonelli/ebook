@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Medidas de variabilidade | Estatística por uma quase estatística</title>
+  <meta name="description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Medidas de variabilidade | Estatística por uma quase estatística" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  <meta name="github-repo" content="AndressaGonelli/ebook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Medidas de variabilidade | Estatística por uma quase estatística" />
+  
+  <meta name="twitter:description" content="Este é um compilado de resumos e anotações pessoais sobre temas diversos da estatística" />
+  
+
+<meta name="author" content="Andressa Gonelli" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="medida-de-posição.html"/>
+<link rel="next" href="métodos-tabulares-e-métodos-gráficos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estatística por uma quase estatística</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sobre</a></li>
+<li class="chapter" data-level="2" data-path="estatística.html"><a href="estatística.html"><i class="fa fa-check"></i><b>2</b> Estatística</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística.html"><a href="estatística.html#definição"><i class="fa fa-check"></i><b>2.1</b> Definição</a></li>
+<li class="chapter" data-level="2.2" data-path="estatística.html"><a href="estatística.html#tipos-de-estatística"><i class="fa fa-check"></i><b>2.2</b> Tipos de estatística</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística.html"><a href="estatística.html#descritiva"><i class="fa fa-check"></i><b>2.2.1</b> Descritiva</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística.html"><a href="estatística.html#inferencial"><i class="fa fa-check"></i><b>2.2.2</b> Inferencial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estatística.html"><a href="estatística.html#população"><i class="fa fa-check"></i><b>2.3</b> População</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística.html"><a href="estatística.html#tipos"><i class="fa fa-check"></i><b>2.3.1</b> Tipos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estatística.html"><a href="estatística.html#amostragem"><i class="fa fa-check"></i><b>2.4</b> Amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="estatística.html"><a href="estatística.html#amostra"><i class="fa fa-check"></i><b>2.5</b> Amostra</a></li>
+<li class="chapter" data-level="2.6" data-path="estatística.html"><a href="estatística.html#censo"><i class="fa fa-check"></i><b>2.6</b> Censo</a></li>
+<li class="chapter" data-level="2.7" data-path="estatística.html"><a href="estatística.html#observação"><i class="fa fa-check"></i><b>2.7</b> Observação</a></li>
+<li class="chapter" data-level="2.8" data-path="estatística.html"><a href="estatística.html#variáveis"><i class="fa fa-check"></i><b>2.8</b> Variáveis</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística.html"><a href="estatística.html#variáveis-nominais"><i class="fa fa-check"></i><b>2.8.1</b> Variáveis nominais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="estatística.html"><a href="estatística.html#variáveis-ordinais"><i class="fa fa-check"></i><b>2.8.2</b> Variáveis ordinais</a></li>
+<li class="chapter" data-level="2.8.3" data-path="estatística.html"><a href="estatística.html#variáveis-intervalares"><i class="fa fa-check"></i><b>2.8.3</b> Variáveis intervalares</a></li>
+<li class="chapter" data-level="2.8.4" data-path="estatística.html"><a href="estatística.html#variáveis-proporcionais"><i class="fa fa-check"></i><b>2.8.4</b> Variáveis proporcionais</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística.html"><a href="estatística.html#tipos-de-estatística-1"><i class="fa fa-check"></i><b>2.9</b> Tipos de estatística</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística.html"><a href="estatística.html#estatística-descritiva"><i class="fa fa-check"></i><b>2.9.1</b> Estatística descritiva</a></li>
+<li class="chapter" data-level="2.9.2" data-path="estatística.html"><a href="estatística.html#estatística-indutiva-ou-inferêncial"><i class="fa fa-check"></i><b>2.9.2</b> Estatística Indutiva ou Inferêncial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3</b> Dados</a><ul>
+<li class="chapter" data-level="3.1" data-path="dados.html"><a href="dados.html#classificação"><i class="fa fa-check"></i><b>3.1</b> Classificação</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="dados.html"><a href="dados.html#qualitativos"><i class="fa fa-check"></i><b>3.1.1</b> Qualitativos</a></li>
+<li class="chapter" data-level="3.1.2" data-path="dados.html"><a href="dados.html#quantitativa"><i class="fa fa-check"></i><b>3.1.2</b> Quantitativa</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="dados.html"><a href="dados.html#fontes-de-dados"><i class="fa fa-check"></i><b>3.2</b> Fontes de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="medida-de-posição.html"><a href="medida-de-posição.html"><i class="fa fa-check"></i><b>4</b> Medida de posição</a><ul>
+<li class="chapter" data-level="4.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média"><i class="fa fa-check"></i><b>4.1</b> Média</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média-ajustada"><i class="fa fa-check"></i><b>4.1.1</b> Média Ajustada</a></li>
+<li class="chapter" data-level="4.1.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#média-aritmética-ponderada"><i class="fa fa-check"></i><b>4.1.2</b> Média Aritmética ponderada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#mediana"><i class="fa fa-check"></i><b>4.2</b> Mediana</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r"><i class="fa fa-check"></i><b>4.2.1</b> R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="medida-de-posição.html"><a href="medida-de-posição.html#mediana-em-dados-agrupados"><i class="fa fa-check"></i><b>4.2.2</b> Mediana em dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="medida-de-posição.html"><a href="medida-de-posição.html#moda"><i class="fa fa-check"></i><b>4.3</b> Moda</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#moda-em-dados-agrupados"><i class="fa fa-check"></i><b>4.3.1</b> Moda em dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="medida-de-posição.html"><a href="medida-de-posição.html#valor-máximo-e-valor-mínimo"><i class="fa fa-check"></i><b>4.4</b> Valor máximo e valor mínimo</a></li>
+<li class="chapter" data-level="4.5" data-path="medida-de-posição.html"><a href="medida-de-posição.html#quartil"><i class="fa fa-check"></i><b>4.5</b> Quartil</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r-1"><i class="fa fa-check"></i><b>4.5.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="medida-de-posição.html"><a href="medida-de-posição.html#percentil"><i class="fa fa-check"></i><b>4.6</b> Percentil</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="medida-de-posição.html"><a href="medida-de-posição.html#r-2"><i class="fa fa-check"></i><b>4.6.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html"><i class="fa fa-check"></i><b>5</b> Medidas de variabilidade</a><ul>
+<li class="chapter" data-level="5.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#amplitude"><i class="fa fa-check"></i><b>5.1</b> Amplitude</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-3"><i class="fa fa-check"></i><b>5.1.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#amplitude-interquartil"><i class="fa fa-check"></i><b>5.2</b> Amplitude Interquartil</a></li>
+<li class="chapter" data-level="5.3" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#variância"><i class="fa fa-check"></i><b>5.3</b> Variância</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-4"><i class="fa fa-check"></i><b>5.3.1</b> R</a></li>
+<li class="chapter" data-level="5.3.2" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#variância-para-dados-agrupados"><i class="fa fa-check"></i><b>5.3.2</b> Variância para dados agrupados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#desvio-padrão"><i class="fa fa-check"></i><b>5.4</b> Desvio Padrão</a></li>
+<li class="chapter" data-level="5.5" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#coeficiente-de-variação"><i class="fa fa-check"></i><b>5.5</b> Coeficiente de variação</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="medidas-de-variabilidade.html"><a href="medidas-de-variabilidade.html#r-5"><i class="fa fa-check"></i><b>5.5.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html"><i class="fa fa-check"></i><b>6</b> Métodos tabulares e métodos gráficos</a><ul>
+<li class="chapter" data-level="6.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabelas"><i class="fa fa-check"></i><b>6.1</b> Tabelas</a></li>
+<li class="chapter" data-level="6.2" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabelas-de-contingência"><i class="fa fa-check"></i><b>6.2</b> Tabelas de contingência</a></li>
+<li class="chapter" data-level="6.3" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#definição-de-classes"><i class="fa fa-check"></i><b>6.3</b> Definição de Classes</a></li>
+<li class="chapter" data-level="6.4" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-absoluta"><i class="fa fa-check"></i><b>6.4</b> Frequência Absoluta</a></li>
+<li class="chapter" data-level="6.5" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-relativa"><i class="fa fa-check"></i><b>6.5</b> Frequência Relativa</a></li>
+<li class="chapter" data-level="6.6" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-acumulada"><i class="fa fa-check"></i><b>6.6</b> Frequência acumulada</a></li>
+<li class="chapter" data-level="6.7" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#frequência-acumulada-relativa"><i class="fa fa-check"></i><b>6.7</b> Frequência acumulada relativa</a></li>
+<li class="chapter" data-level="6.8" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#polígono-de-frequências"><i class="fa fa-check"></i><b>6.8</b> Polígono de frequências</a></li>
+<li class="chapter" data-level="6.9" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#histograma"><i class="fa fa-check"></i><b>6.9</b> Histograma</a></li>
+<li class="chapter" data-level="6.10" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#gráfico-ogiva-de-galton---frequência-acumulada"><i class="fa fa-check"></i><b>6.10</b> Gráfico Ogiva de Galton - Frequência Acumulada</a></li>
+<li class="chapter" data-level="6.11" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#apresentação-ramo-e-folha"><i class="fa fa-check"></i><b>6.11</b> Apresentação Ramo-e-folha</a></li>
+<li class="chapter" data-level="6.12" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#coeficiente-de-assimetria"><i class="fa fa-check"></i><b>6.12</b> Coeficiente de Assimetria</a><ul>
+<li class="chapter" data-level="6.12.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#r-6"><i class="fa fa-check"></i><b>6.12.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#coeficiente-de-curtose"><i class="fa fa-check"></i><b>6.13</b> Coeficiente de curtose</a><ul>
+<li class="chapter" data-level="6.13.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#r-7"><i class="fa fa-check"></i><b>6.13.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.14" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#boxplot"><i class="fa fa-check"></i><b>6.14</b> BoxPlot</a></li>
+<li class="chapter" data-level="6.15" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#tabulação-cruzada"><i class="fa fa-check"></i><b>6.15</b> Tabulação Cruzada</a><ul>
+<li class="chapter" data-level="6.15.1" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#paradoxo-de-simpson"><i class="fa fa-check"></i><b>6.15.1</b> Paradoxo de Simpson</a></li>
+</ul></li>
+<li class="chapter" data-level="6.16" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#diagrama-de-dispersão"><i class="fa fa-check"></i><b>6.16</b> Diagrama de Dispersão</a></li>
+<li class="chapter" data-level="6.17" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#métodos-tabulares-e-gráficos-de-sintetizar-os-dados"><i class="fa fa-check"></i><b>6.17</b> Métodos tabulares e gráficos de sintetizar os dados</a></li>
+<li class="chapter" data-level="6.18" data-path="métodos-tabulares-e-métodos-gráficos.html"><a href="métodos-tabulares-e-métodos-gráficos.html#análise-exploratória-de-dados"><i class="fa fa-check"></i><b>6.18</b> Análise exploratória de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html"><i class="fa fa-check"></i><b>7</b> Medidas de associação entre duas variáveis</a><ul>
+<li class="chapter" data-level="7.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#covariância"><i class="fa fa-check"></i><b>7.1</b> Covariância</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#r-8"><i class="fa fa-check"></i><b>7.1.1</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#coeficiente-de-correlação"><i class="fa fa-check"></i><b>7.2</b> Coeficiente de correlação</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="medidas-de-associação-entre-duas-variáveis.html"><a href="medidas-de-associação-entre-duas-variáveis.html#r-9"><i class="fa fa-check"></i><b>7.2.1</b> R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="amostragem-1.html"><a href="amostragem-1.html"><i class="fa fa-check"></i><b>8</b> Amostragem</a><ul>
+<li class="chapter" data-level="8.1" data-path="amostragem-1.html"><a href="amostragem-1.html#probabilística"><i class="fa fa-check"></i><b>8.1</b> Probabilística</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="amostragem-1.html"><a href="amostragem-1.html#aleatória-simples"><i class="fa fa-check"></i><b>8.1.1</b> Aleatória simples</a></li>
+<li class="chapter" data-level="8.1.2" data-path="amostragem-1.html"><a href="amostragem-1.html#sistemática"><i class="fa fa-check"></i><b>8.1.2</b> Sistemática</a></li>
+<li class="chapter" data-level="8.1.3" data-path="amostragem-1.html"><a href="amostragem-1.html#estratificada"><i class="fa fa-check"></i><b>8.1.3</b> Estratificada</a></li>
+<li class="chapter" data-level="8.1.4" data-path="amostragem-1.html"><a href="amostragem-1.html#conglomerados-cluster"><i class="fa fa-check"></i><b>8.1.4</b> Conglomerados (cluster)</a></li>
+<li class="chapter" data-level="8.1.5" data-path="amostragem-1.html"><a href="amostragem-1.html#reamostragem-bootstrap"><i class="fa fa-check"></i><b>8.1.5</b> Reamostragem (bootstrap)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="amostragem-1.html"><a href="amostragem-1.html#não-probabilística"><i class="fa fa-check"></i><b>8.2</b> Não probabilística</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="amostragem-1.html"><a href="amostragem-1.html#conveniência-ou-acessibilidade"><i class="fa fa-check"></i><b>8.2.1</b> Conveniência ou acessibilidade</a></li>
+<li class="chapter" data-level="8.2.2" data-path="amostragem-1.html"><a href="amostragem-1.html#intencional-ou-por-julgamento"><i class="fa fa-check"></i><b>8.2.2</b> Intencional ou por Julgamento</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="amostragem-1.html"><a href="amostragem-1.html#estimação-por-ponto"><i class="fa fa-check"></i><b>8.3</b> Estimação por ponto</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="amostragem-1.html"><a href="amostragem-1.html#distribuição-amostral-de-barx"><i class="fa fa-check"></i><b>8.3.1</b> Distribuição amostral de <span class="math inline">\(\bar{x}\)</span></a></li>
+<li class="chapter" data-level="8.3.2" data-path="amostragem-1.html"><a href="amostragem-1.html#distribuição-amostral-de-barp"><i class="fa fa-check"></i><b>8.3.2</b> Distribuição amostral de <span class="math inline">\(\bar{p}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="amostragem-1.html"><a href="amostragem-1.html#estimação-por-intervalo"><i class="fa fa-check"></i><b>8.4</b> Estimação por intervalo</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="amostragem-1.html"><a href="amostragem-1.html#média-da-população-desvio-padrão-σconhecido"><i class="fa fa-check"></i><b>8.4.1</b> Média da população : Desvio Padrão (σ)Conhecido</a></li>
+<li class="chapter" data-level="8.4.2" data-path="amostragem-1.html"><a href="amostragem-1.html#média-da-população-desvio-padrão-σ-desconhecido"><i class="fa fa-check"></i><b>8.4.2</b> Média da população: Desvio Padrão ( σ) Desconhecido</a></li>
+<li class="chapter" data-level="8.4.3" data-path="amostragem-1.html"><a href="amostragem-1.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>8.4.3</b> Determinação do tamanho da amostra</a></li>
+<li class="chapter" data-level="8.4.4" data-path="amostragem-1.html"><a href="amostragem-1.html#proporção-da-população"><i class="fa fa-check"></i><b>8.4.4</b> Proporção da população</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="amostragem-1.html"><a href="amostragem-1.html#teorema-do-limite-central"><i class="fa fa-check"></i><b>8.5</b> Teorema do Limite Central</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="probabilidade.html"><a href="probabilidade.html"><i class="fa fa-check"></i><b>9</b> Probabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="probabilidade.html"><a href="probabilidade.html#conceitos"><i class="fa fa-check"></i><b>9.1</b> Conceitos</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="probabilidade.html"><a href="probabilidade.html#espaço-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Espaço da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="probabilidade.html"><a href="probabilidade.html#evento"><i class="fa fa-check"></i><b>9.1.2</b> Evento</a></li>
+<li class="chapter" data-level="9.1.3" data-path="probabilidade.html"><a href="probabilidade.html#experimento"><i class="fa fa-check"></i><b>9.1.3</b> Experimento</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="probabilidade.html"><a href="probabilidade.html#atribuição-de-probabilidade"><i class="fa fa-check"></i><b>9.2</b> Atribuição de probabilidade</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-clássica"><i class="fa fa-check"></i><b>9.2.1</b> Probabilidade clássica</a></li>
+<li class="chapter" data-level="9.2.2" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-empírica"><i class="fa fa-check"></i><b>9.2.2</b> Probabilidade empírica</a></li>
+<li class="chapter" data-level="9.2.3" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-subjetiva"><i class="fa fa-check"></i><b>9.2.3</b> Probabilidade Subjetiva</a></li>
+<li class="chapter" data-level="9.2.4" data-path="probabilidade.html"><a href="probabilidade.html#probabilidade-em-eventos-compostos"><i class="fa fa-check"></i><b>9.2.4</b> Probabilidade em eventos compostos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="probabilidade.html"><a href="probabilidade.html#teorema-de-bayes"><i class="fa fa-check"></i><b>9.3</b> Teorema de Bayes</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="probabilidade.html"><a href="probabilidade.html#abordagem-tabular"><i class="fa fa-check"></i><b>9.3.1</b> Abordagem Tabular</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-de-probabilidade"><i class="fa fa-check"></i><b>9.4</b> Distribuição de probabilidade</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-discreta"><i class="fa fa-check"></i><b>9.4.1</b> Distribuição Discreta</a></li>
+<li class="chapter" data-level="9.4.2" data-path="probabilidade.html"><a href="probabilidade.html#distribuição-de-probabilidade-contínua"><i class="fa fa-check"></i><b>9.4.2</b> Distribuição de Probabilidade Contínua</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html"><i class="fa fa-check"></i><b>10</b> Teste de hipótese</a><ul>
+<li class="chapter" data-level="10.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#como-formular-hipóteses"><i class="fa fa-check"></i><b>10.1</b> Como formular hipóteses?</a></li>
+<li class="chapter" data-level="10.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#erros-do-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>10.2</b> Erros do tipo I e tipo II</a></li>
+<li class="chapter" data-level="10.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#média-da-população-desvio-padrão-σ-conhecido"><i class="fa fa-check"></i><b>10.3</b> Média da população: Desvio Padrão σ conhecido</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-unicaudal"><i class="fa fa-check"></i><b>10.3.1</b> Teste unicaudal</a></li>
+<li class="chapter" data-level="10.3.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-bicaudal"><i class="fa fa-check"></i><b>10.3.2</b> Teste Bicaudal</a></li>
+<li class="chapter" data-level="10.3.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo"><i class="fa fa-check"></i><b>10.3.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#média-da-população-desvio-padrão-σ-desconhecido-1"><i class="fa fa-check"></i><b>10.4</b> Média da população: Desvio Padrão (σ) desconhecido</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-unicaudal-1"><i class="fa fa-check"></i><b>10.4.1</b> Teste Unicaudal</a></li>
+<li class="chapter" data-level="10.4.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-bicaudal-1"><i class="fa fa-check"></i><b>10.4.2</b> Teste Bicaudal</a></li>
+<li class="chapter" data-level="10.4.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-1"><i class="fa fa-check"></i><b>10.4.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#proporção-da-população-1"><i class="fa fa-check"></i><b>10.5</b> Proporção da população</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#valor-p-4"><i class="fa fa-check"></i><b>10.5.1</b> Valor p</a></li>
+<li class="chapter" data-level="10.5.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#valor-crítico-4"><i class="fa fa-check"></i><b>10.5.2</b> Valor crítico</a></li>
+<li class="chapter" data-level="10.5.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-2"><i class="fa fa-check"></i><b>10.5.3</b> Resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#inferência-acerca-da-diferença-entre-médias"><i class="fa fa-check"></i><b>10.6</b> Inferência acerca da diferença entre médias</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#desvio-padrão-conhecido"><i class="fa fa-check"></i><b>10.6.1</b> Desvio padrão conhecido</a></li>
+<li class="chapter" data-level="10.6.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#desvio-padrão-desconhecido"><i class="fa fa-check"></i><b>10.6.2</b> Desvio padrão desconhecido</a></li>
+<li class="chapter" data-level="10.6.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#amostras-relacionadas-ou-dependentes"><i class="fa fa-check"></i><b>10.6.3</b> Amostras relacionadas ou dependentes</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#inferência-acerca-da-diferença-entre-duas-proporções"><i class="fa fa-check"></i><b>10.7</b> Inferência acerca da diferença entre duas proporções</a></li>
+<li class="chapter" data-level="10.8" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#proporção-de-uma-população-multinomial"><i class="fa fa-check"></i><b>10.8</b> Proporção de uma população multinomial</a></li>
+<li class="chapter" data-level="10.9" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#teste-exato-de-fisher"><i class="fa fa-check"></i><b>10.9</b> Teste exato de Fisher</a></li>
+<li class="chapter" data-level="10.10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova---análise-de-variância"><i class="fa fa-check"></i><b>10.10</b> ANOVA - Análise de Variância</a><ul>
+<li class="chapter" data-level="10.10.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#hipótese-sobre-a-análise-de-variância"><i class="fa fa-check"></i><b>10.10.1</b> Hipótese sobre a análise de Variância</a></li>
+<li class="chapter" data-level="10.10.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#visão-conceitual"><i class="fa fa-check"></i><b>10.10.2</b> Visão Conceitual</a></li>
+<li class="chapter" data-level="10.10.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#observação-2"><i class="fa fa-check"></i><b>10.10.3</b> Observação</a></li>
+<li class="chapter" data-level="10.10.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#fórmulas-matemáticas"><i class="fa fa-check"></i><b>10.10.4</b> Fórmulas Matemáticas</a></li>
+<li class="chapter" data-level="10.10.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparando-as-estimativas-de-variância-o-teste-f"><i class="fa fa-check"></i><b>10.10.5</b> Comparando as Estimativas de Variância: o Teste F</a></li>
+<li class="chapter" data-level="10.10.6" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#estimação-por-intervalo-1"><i class="fa fa-check"></i><b>10.10.6</b> Estimação por intervalo</a></li>
+<li class="chapter" data-level="10.10.7" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-4"><i class="fa fa-check"></i><b>10.10.7</b> Resumo</a></li>
+<li class="chapter" data-level="10.10.8" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparações-múltiplas"><i class="fa fa-check"></i><b>10.10.8</b> Comparações Múltiplas</a></li>
+<li class="chapter" data-level="10.10.9" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#princípios-básicos-da-experimentação"><i class="fa fa-check"></i><b>10.10.9</b> Princípios básicos da experimentação</a></li>
+<li class="chapter" data-level="10.10.10" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova-de-dois-critérios-sem-interação"><i class="fa fa-check"></i><b>10.10.10</b> ANOVA de dois critérios (sem interação)</a></li>
+<li class="chapter" data-level="10.10.11" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#anova-de-dois-critérios-com-interação"><i class="fa fa-check"></i><b>10.10.11</b> ANOVA de dois critérios (com interação)</a></li>
+<li class="chapter" data-level="10.10.12" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#resumo-anova-dois-critérios"><i class="fa fa-check"></i><b>10.10.12</b> Resumo : Anova dois critérios</a></li>
+</ul></li>
+<li class="chapter" data-level="10.11" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#transformação-de-dados"><i class="fa fa-check"></i><b>10.11</b> Transformação de dados</a><ul>
+<li class="chapter" data-level="10.11.1" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#rank"><i class="fa fa-check"></i><b>10.11.1</b> Rank</a></li>
+<li class="chapter" data-level="10.11.2" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#raiz-quadrada"><i class="fa fa-check"></i><b>10.11.2</b> Raiz Quadrada</a></li>
+<li class="chapter" data-level="10.11.3" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#logarítmica"><i class="fa fa-check"></i><b>10.11.3</b> Logarítmica</a></li>
+<li class="chapter" data-level="10.11.4" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#arcoseno-raiz-quadrada-angular"><i class="fa fa-check"></i><b>10.11.4</b> Arcoseno Raiz Quadrada (Angular)</a></li>
+<li class="chapter" data-level="10.11.5" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#transformação-boxcox"><i class="fa fa-check"></i><b>10.11.5</b> Transformação BoxCox</a></li>
+</ul></li>
+<li class="chapter" data-level="10.12" data-path="teste-de-hipótese.html"><a href="teste-de-hipótese.html#comparações-envolvendo-proporções-e-teste-de-independência"><i class="fa fa-check"></i><b>10.12</b> Comparações Envolvendo Proporções e Teste de Independência</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística por uma quase estatística</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="medidas-de-variabilidade" class="section level1">
+<h1><span class="header-section-number">5</span> Medidas de variabilidade</h1>
+<div id="amplitude" class="section level2">
+<h2><span class="header-section-number">5.1</span> Amplitude</h2>
+<p>A amplitude é uma medida de variabilidade (a mais simples) sendo resultante da diferença entre o maior e menor valor de um conjunto de dados.</p>
+<div id="r-3" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> R</h3>
+<p>Exemplo: Bob quer aprender a voar com asa delta, e ele quer saber qual a amplitude máxima que um voo pode ter. A partir dos dados de outros praticantes de voo livre, determine qual a amplitude.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="medidas-de-variabilidade.html#cb21-1"></a>dados =<span class="st"> </span><span class="kw">c</span>(<span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">45</span>, <span class="dv">58</span>, <span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">42</span>, <span class="dv">68</span>, <span class="dv">24</span>,<span class="dv">37</span>)</span>
+<span id="cb21-2"><a href="medidas-de-variabilidade.html#cb21-2"></a><span class="kw">range</span>(dados)</span></code></pre></div>
+<pre><code>## [1] 22 68</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="medidas-de-variabilidade.html#cb23-1"></a><span class="kw">diff</span>(<span class="kw">range</span>(dados))</span></code></pre></div>
+<pre><code>## [1] 46</code></pre>
+</div>
+</div>
+<div id="amplitude-interquartil" class="section level2">
+<h2><span class="header-section-number">5.2</span> Amplitude Interquartil</h2>
+<p>AIQ, ou amplitude Interquartil, é uma medida de variabilidade que supera valores extremos, sendo este a diferença entre o terceiro e o primeiro quartil, ou seja, a diferença entre 50% dos dados intermediários.</p>
+<p><span class="math display">\[AIQ = Q3 - Q1\]</span></p>
+</div>
+<div id="variância" class="section level2">
+<h2><span class="header-section-number">5.3</span> Variância</h2>
+<p>A variância é uma medida de variabilidade que utiliza todos os dados, baseando-se na diferença dos dados em relação à média. Essa diferença se chama, desvio em <strong>torno da média</strong>. Portanto, a variância descreve quão espalhados os dados estão dentro de um conjunto. Medindo a amplitude (variabilidade) dos dados em relação à média.</p>
+<p>Não é tão claro de ler o valor em relação ao dados, visto que o valor se encontra ao <strong>quadrado</strong> da grandeza utilizada na medição dos dados.</p>
+<p><span class="math display">\[ \sigma = \frac{\sum(x_{i}-\bar{x})^2}{N}\]</span>
+Essa fórmula aplica-se para variância populacional - para variância da amostra deve-se usar n - 1, devido a diminuição dos <a href="#_tgq7hryr04hp">graus de liberdade</a></p>
+<p><span class="math display">\[ S^2 = \frac{\sum(x_{i}-\bar{x})^2}{n-1}\]</span></p>
+<div id="r-4" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> R</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="medidas-de-variabilidade.html#cb25-1"></a>Maq1 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">181.9</span>, <span class="fl">180.8</span>, <span class="fl">181.9</span>, <span class="fl">180.2</span>, <span class="fl">181.4</span>)</span>
+<span id="cb25-2"><a href="medidas-de-variabilidade.html#cb25-2"></a>Maq2 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">180.1</span>, <span class="fl">181.8</span>, <span class="fl">181.5</span>, <span class="fl">181.2</span>, <span class="fl">182.4</span>)</span>
+<span id="cb25-3"><a href="medidas-de-variabilidade.html#cb25-3"></a>Maq3 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">182.1</span>, <span class="fl">183.7</span>, <span class="fl">182.1</span>, <span class="fl">180.2</span>, <span class="fl">181.9</span>)</span>
+<span id="cb25-4"><a href="medidas-de-variabilidade.html#cb25-4"></a><span class="kw">var</span>(Maq1) </span></code></pre></div>
+<pre><code>## [1] 0.543</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="medidas-de-variabilidade.html#cb27-1"></a><span class="kw">var</span>(Maq2)</span></code></pre></div>
+<pre><code>## [1] 0.725</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="medidas-de-variabilidade.html#cb29-1"></a><span class="kw">var</span>(Maq3)</span></code></pre></div>
+<pre><code>## [1] 1.54</code></pre>
+</div>
+<div id="variância-para-dados-agrupados" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Variância para dados agrupados</h3>
+<p>Amostra:</p>
+<p><span class="math display">\[ S^2 = \frac{\sum f_{i}(M_{i}-\bar{x})^2}{n-1}\]</span></p>
+<p><span class="math inline">\(M_{i} = \textrm{ponto médio da classe}\)</span></p>
+<p><span class="math inline">\(f_{i} = \textrm{frequência da classe}\)</span></p>
+<p>População:</p>
+<p><span class="math display">\[ S^2 = \frac{\sum f_{i}(M_{i}-\mu )^2}{n-1}\]</span></p>
+<p><span class="math inline">\(M_{i} = \textrm{ponto médio da classe}\)</span></p>
+<p><span class="math inline">\(f_{i} = \textrm{frequência da classe}\)</span></p>
+<p><span class="math inline">\(\mu = \textrm{média da população}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Tempo de conclusão</th>
+<th align="center">Ponto médio da Classe (Mi)</th>
+<th align="center">Frequência (fi)</th>
+<th align="center">(fiMi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">10 -14</td>
+<td align="center">12</td>
+<td align="center">4</td>
+<td align="center">48</td>
+</tr>
+<tr class="even">
+<td align="center">15 - 19</td>
+<td align="center">17</td>
+<td align="center">8</td>
+<td align="center">136</td>
+</tr>
+<tr class="odd">
+<td align="center">20 - 24</td>
+<td align="center">22</td>
+<td align="center">5</td>
+<td align="center">110</td>
+</tr>
+<tr class="even">
+<td align="center">25 - 29</td>
+<td align="center">27</td>
+<td align="center">2</td>
+<td align="center">54</td>
+</tr>
+<tr class="odd">
+<td align="center">30 - 34</td>
+<td align="center">32</td>
+<td align="center">1</td>
+<td align="center">32</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Total</strong></td>
+<td align="center"><strong>20</strong></td>
+<td align="center"><strong>380</strong></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\bar{x}=\frac{\sum f{i}M{i}}{n}\]</span>
+<span class="math display">\[\bar{x}=\frac{380}{20}=19\]</span></p>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="23%" />
+<col width="13%" />
+<col width="12%" />
+<col width="23%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Tempo de conclusão</th>
+<th align="center">Ponto médio da Classe (Mi)</th>
+<th align="center">Frequência (fi)</th>
+<th align="center">Desvio (Mi- x)</th>
+<th align="center">Desvio Quadrático (Mi- x)2</th>
+<th align="center">fi(Mi- x)2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">10 -14</td>
+<td align="center">12</td>
+<td align="center">4</td>
+<td align="center">-7</td>
+<td align="center">49</td>
+<td align="center">196</td>
+</tr>
+<tr class="even">
+<td align="center">15 - 19</td>
+<td align="center">17</td>
+<td align="center">8</td>
+<td align="center">-2</td>
+<td align="center">4</td>
+<td align="center">92</td>
+</tr>
+<tr class="odd">
+<td align="center">20 - 24</td>
+<td align="center">22</td>
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">9</td>
+<td align="center">45</td>
+</tr>
+<tr class="even">
+<td align="center">25 - 29</td>
+<td align="center">27</td>
+<td align="center">2</td>
+<td align="center">8</td>
+<td align="center">64</td>
+<td align="center">128</td>
+</tr>
+<tr class="odd">
+<td align="center">30 - 34</td>
+<td align="center">32</td>
+<td align="center">1</td>
+<td align="center">13</td>
+<td align="center">169</td>
+<td align="center">169</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Total</strong></td>
+<td align="center"><strong>20</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><strong>570 =</strong> <span class="math display">\[ S^2 = \frac{\sum f_{i}(M_{i}-\bar{x})^2}{n-1}\]</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[ S^2 = \frac{570}{20-1} = 30\]</span></p>
+</div>
+</div>
+<div id="desvio-padrão" class="section level2">
+<h2><span class="header-section-number">5.4</span> Desvio Padrão</h2>
+<p>O desvio padrão indica o grau da variação de um conjunto de dados, podendo este ser amostral ou populacional. Ele e a raiz quadrada positiva da variância. O desvio padrão é mais intuitivo de compreender, por estar na mesma escala da grandeza em análise.</p>
+<p>Desvio Padrão da amostra
+<span class="math display">\[\sqrt{s^2}\]</span></p>
+<p>Desvio Padrão da população
+<span class="math display">\[\sqrt{\sigma^2}\]</span>
+### R</p>
+<p>Exemplo: Um engenheiro precisa decidir entre três modelos de máquinas de corte de alta precisão, para isso ele usa como critério o desvio padrão. A máquina que tiver menor desvio será a escolhida por ele. A partir dos dados de medida de corte das 3 máquinas, determine qual deve ser a escolhida pelo engenheiro.</p>
+<ul>
+<li>Máquina 1 (mm) = (181.9, 180.8, 181.9, 180.2, 181.4).</li>
+<li>Máquina 2 (mm) = (180.1, 181.8, 181.5, 181.2, 182.4).</li>
+<li>Máquina 3 (mm) = (182.1, 183.7, 182.1, 180.2, 181.9).</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="medidas-de-variabilidade.html#cb31-1"></a>Maq1 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">181.9</span>, <span class="fl">180.8</span>, <span class="fl">181.9</span>, <span class="fl">180.2</span>, <span class="fl">181.4</span>)</span>
+<span id="cb31-2"><a href="medidas-de-variabilidade.html#cb31-2"></a>Maq2 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">180.1</span>, <span class="fl">181.8</span>, <span class="fl">181.5</span>, <span class="fl">181.2</span>, <span class="fl">182.4</span>)</span>
+<span id="cb31-3"><a href="medidas-de-variabilidade.html#cb31-3"></a>Maq3 =<span class="st"> </span><span class="kw">c</span>(<span class="fl">182.1</span>, <span class="fl">183.7</span>, <span class="fl">182.1</span>, <span class="fl">180.2</span>, <span class="fl">181.9</span>)</span>
+<span id="cb31-4"><a href="medidas-de-variabilidade.html#cb31-4"></a><span class="kw">mean</span>(Maq1)</span></code></pre></div>
+<pre><code>## [1] 181.24</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="medidas-de-variabilidade.html#cb33-1"></a><span class="kw">mean</span>(Maq2)</span></code></pre></div>
+<pre><code>## [1] 181.4</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="medidas-de-variabilidade.html#cb35-1"></a><span class="kw">mean</span>(Maq3)</span></code></pre></div>
+<pre><code>## [1] 182</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="medidas-de-variabilidade.html#cb37-1"></a><span class="kw">sd</span>(Maq1) </span></code></pre></div>
+<pre><code>## [1] 0.7368853</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="medidas-de-variabilidade.html#cb39-1"></a><span class="kw">sd</span>(Maq2)</span></code></pre></div>
+<pre><code>## [1] 0.8514693</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="medidas-de-variabilidade.html#cb41-1"></a><span class="kw">sd</span>(Maq3)</span></code></pre></div>
+<pre><code>## [1] 1.240967</code></pre>
+</div>
+<div id="coeficiente-de-variação" class="section level2">
+<h2><span class="header-section-number">5.5</span> Coeficiente de variação</h2>
+<p>O coeficiente de variação indica a quantidade de variação de um conjunto de dados em relação a média.</p>
+<p>O valor é dado por uma relação direta do quociente entre o desvio com a média da amostra.</p>
+<p><span class="math display">\[Coeficiente = (\frac{\textrm{Desvio Padrão}}{Média}× 100) \% \]</span></p>
+<p><span class="math display">\[Coeficiente = (\frac{\sigma}{\mu}× 100) \% \]</span></p>
+<p>O coeficiente de variação (CV), mede o desvio padrão em termos de percentual da média.</p>
+<ul>
+<li>Um CV alto, indica alta variabilidade dos dados, ou seja, menos consistência dos dados.</li>
+<li>Um CV menor, indica mais consistência dentro do conjunto de dados.</li>
+</ul>
+<p>Quando comparamos a consistência entre 2 conjuntos de dados em relação a suas médias, é melhor feito quando utilizamos coeficiente de variação.</p>
+<div id="r-5" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> R</h3>
+<p>Exemplo: Imagine que um investidor está decidindo se compra ações da Nike ou Adidas na bolsa de valores.</p>
+<p>O valor médio da ação de cada empresa e o desvio padrão, são dados a seguir.</p>
+<p>Qual deve ser a escolha do investidor?</p>
+<p>Nike =&gt; Valor médio da ação = $55.62 / desvio padrão = $5.10</p>
+<p>Adidas =&gt; Valor médio da ação = $24.86 / desvio padrão = $3.60</p>
+<p><span class="math display">\[Coeficiente = (\frac{\textrm{Desvio Padrão}}{Média}× 100) \% \]</span></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="medidas-de-variabilidade.html#cb43-1"></a>CV_Nike   =<span class="st"> </span>(<span class="fl">5.10</span><span class="op">/</span><span class="fl">55.62</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb43-2"><a href="medidas-de-variabilidade.html#cb43-2"></a>CV_Adidas =<span class="st"> </span>(<span class="fl">3.60</span><span class="op">/</span><span class="fl">24.86</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb43-3"><a href="medidas-de-variabilidade.html#cb43-3"></a><span class="kw">print</span>(CV_Nike)</span></code></pre></div>
+<pre><code>## [1] 9.169364</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="medidas-de-variabilidade.html#cb45-1"></a><span class="kw">print</span>(CV_Adidas)</span></code></pre></div>
+<pre><code>## [1] 14.48109</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="medida-de-posição.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métodos-tabulares-e-métodos-gráficos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/AndressaGonelli/ebook/edit/main/04-MedidasVariabilidade.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none",
+"toc_depth": 6,
+"split_by": "subsection",
+"number_sections": true
+},
+"toolbar": {
+"position": "fixed",
+"edit": null,
+"download": false
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

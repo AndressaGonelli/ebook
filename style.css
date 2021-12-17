@@ -1,0 +1,66 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+.highlightRed {
+  background-color: #ffcdd2;
+}
+.highlightBlue {
+  background-color: #bbdefb;
+}
+.highlightGreen {
+  background-color: #88e988d8;
+}
+.highlightAmber {
+  background-color: #ffecb3;
+}
+.highlightPink {
+  background-color: #f8bbd0;
+}
+.highlightRose {
+  background-color: #fce4ec;
+}
+.highlightRose2 {
+  background-color: #d5a6bd;
+}
+.fontGray {
+  color: #616161;
+}
+.fontBlack {
+  color: #424242;
+}
+.highlightYellow {
+  background-color: #ffea00;
+}
+.highlightOrange {
+  background-color: #fcc28c;
+}
+.highlightGray {
+  background-color: #e0e0e0;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+}
+#valor-p {
+  display: flex;
+  flex-direction: column;
+}
+.round {
+  border-radius: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+.text-center {
+  text-align: center;
+}
